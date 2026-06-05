@@ -27,13 +27,14 @@
       height: 100vh;
       background: #0A2342;
       padding: 30px 20px;
+      overflow-y: auto;
     }
 
     .logo {
       color: white;
       font-size: 30px;
       font-weight: bold;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .logo span {
@@ -48,7 +49,7 @@
       margin-bottom: 10px;
       border-radius: 8px;
       font-weight: bold;
-      transition: background 0.2s ease, color 0.2s ease;
+      cursor: pointer;
     }
 
     .sidebar a:hover,
@@ -61,7 +62,6 @@
       background: white;
       color: #0A2342 !important;
       text-align: center;
-      margin-bottom: 10px;
     }
 
     .back-button {
@@ -77,6 +77,7 @@
     }
 
     .section {
+      display: none;
       background: white;
       padding: 30px;
       border-radius: 12px;
@@ -84,13 +85,17 @@
       margin-bottom: 30px;
     }
 
-    .section h1,
-    .section h2 {
+    .section.active-section {
+      display: block;
+    }
+
+    h1,
+    h2 {
       color: #0A2342;
       margin-bottom: 12px;
     }
 
-    .section p {
+    p {
       color: #555;
       line-height: 1.5;
     }
@@ -111,7 +116,6 @@
     }
 
     .card h3 {
-      color: #0A2342;
       margin-bottom: 12px;
       font-size: 18px;
     }
@@ -128,49 +132,29 @@
       padding: 25px;
       border-radius: 10px;
       text-align: center;
-      color: #666;
       margin-top: 15px;
     }
 
     .empty-box h3 {
-      color: #0A2342;
       margin-bottom: 8px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 20px;
-      background: #0A2342;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    .profile-settings {
+    .form-list {
       display: flex;
       flex-direction: column;
       gap: 15px;
       margin-top: 15px;
     }
 
-    .profile-settings label {
+    label {
       font-weight: bold;
-      color: #0A2342;
-      margin-bottom: 5px;
       display: block;
+      margin-bottom: 5px;
     }
 
-    .profile-settings input,
-    .profile-settings select,
-    .profile-settings textarea {
+    input,
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -178,9 +162,50 @@
       font-size: 15px;
     }
 
-    .profile-settings textarea {
+    textarea {
       min-height: 100px;
       resize: vertical;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #0A2342;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn.gold {
+      background: #D4A017;
+      color: #0A2342;
+    }
+
+    .quote-card {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #D4A017;
+      margin-top: 15px;
+    }
+
+    .quote-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 12px;
+      background: #D4A017;
+      color: #0A2342;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
     }
 
     @media (max-width: 768px) {
@@ -208,76 +233,123 @@
 
     <a href="index.html" class="home-button">Home</a>
     <a href="index.html" class="back-button">Back</a>
-    <a href="#" class="active">Dashboard</a>
-    <a href="#">Available Projects</a>
-    <a href="#">My Quotes</a>
-    <a href="#">Accepted Jobs</a>
-    <a href="#">Completed Projects</a>
-    <a href="#">Messages</a>
-    <a href="#">Profile Settings</a>
+
+    <a class="nav-link active" onclick="showSection('dashboard', this)">Dashboard</a>
+    <a class="nav-link" onclick="showSection('availableProjects', this)">Available Projects</a>
+    <a class="nav-link" onclick="showSection('giveQuote', this)">Give Quote</a>
+    <a class="nav-link" onclick="showSection('myQuotes', this)">My Quotes</a>
+    <a class="nav-link" onclick="showSection('acceptedJobs', this)">Accepted Jobs</a>
+    <a class="nav-link" onclick="showSection('completedProjects', this)">Completed Projects</a>
+    <a class="nav-link" onclick="showSection('messages', this)">Messages</a>
+    <a class="nav-link" onclick="showSection('profile', this)">Profile Settings</a>
     <a href="index.html">Logout</a>
   </div>
 
   <div class="main">
-    <div class="section">
+    <div id="dashboard" class="section active-section">
       <h1 id="welcomeText">Welcome</h1>
       <p>
-        View available projects, send quotes to homeowners, manage accepted jobs,
-        and keep track of your completed work.
+        View available projects, submit quotes, manage accepted jobs, and track completed work.
       </p>
+
+      <br />
+
+      <div class="cards">
+        <div class="card">
+          <h3>Pending Projects</h3>
+          <p id="pendingProjectsCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Quotes Sent</h3>
+          <p id="quotesSentCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Accepted Jobs</h3>
+          <p id="acceptedJobsCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Completed Projects</h3>
+          <p id="completedProjectsCount">0</p>
+        </div>
+      </div>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Pending Projects</h3>
-        <p>0</p>
-      </div>
-
-      <div class="card">
-        <h3>Quotes Sent</h3>
-        <p>0</p>
-      </div>
-
-      <div class="card">
-        <h3>Accepted Jobs</h3>
-        <p>0</p>
-      </div>
-
-      <div class="card">
-        <h3>Completed Projects</h3>
-        <p>0</p>
-      </div>
-    </div>
-
-    <div class="section">
+    <div id="availableProjects" class="section">
       <h2>Available Projects</h2>
+
       <div class="empty-box">
         <h3>No Projects Available</h3>
-        <p>New homeowner projects will appear here when they are posted.</p>
+        <p>Homeowner projects will appear here when they are posted.</p>
       </div>
     </div>
 
-    <div class="section">
+    <div id="giveQuote" class="section">
+      <h2>Give Quote</h2>
+
+      <div class="form-list">
+        <div>
+          <label for="quoteProject">Project Name</label>
+          <input type="text" id="quoteProject" placeholder="Example: Bathroom Renovation" />
+        </div>
+
+        <div>
+          <label for="quoteAmount">Quote Amount</label>
+          <input type="text" id="quoteAmount" placeholder="Example: R25,000" />
+        </div>
+
+        <div>
+          <label for="quoteTimeline">Estimated Timeline</label>
+          <input type="text" id="quoteTimeline" placeholder="Example: 3 weeks" />
+        </div>
+
+        <div>
+          <label for="quoteMessage">Message to Homeowner</label>
+          <textarea id="quoteMessage" placeholder="Explain what is included in your quote"></textarea>
+        </div>
+
+        <button class="btn gold" onclick="submitQuote()">Submit Quote</button>
+      </div>
+    </div>
+
+    <div id="myQuotes" class="section">
       <h2>My Quotes</h2>
+      <div id="quotesList"></div>
+    </div>
+
+    <div id="acceptedJobs" class="section">
+      <h2>Accepted Jobs</h2>
+
       <div class="empty-box">
-        <h3>No Quotes Available</h3>
-        <p>Your submitted quotes will appear here after you send them.</p>
-        <a href="#" class="btn">Give Quote</a>
+        <h3>No Accepted Jobs</h3>
+        <p>Jobs accepted by homeowners will appear here.</p>
       </div>
     </div>
 
-    <div class="section">
+    <div id="completedProjects" class="section">
+      <h2>Completed Projects</h2>
+
+      <div class="empty-box">
+        <h3>No Completed Projects</h3>
+        <p>Your completed contractor work will appear here.</p>
+      </div>
+    </div>
+
+    <div id="messages" class="section">
       <h2>Messages</h2>
+
       <div class="empty-box">
         <h3>No Messages Yet</h3>
-        <p>Messages from homeowners and VeriBuild will appear here.</p>
+        <p>Messages from homeowners, suppliers, and VeriBuild will appear here.</p>
       </div>
     </div>
 
-    <div class="section">
+    <div id="profile" class="section">
       <h2>Profile Settings</h2>
 
-      <div class="profile-settings">
+      <div class="form-list">
         <div>
           <label for="contractorName">Full Name</label>
           <input type="text" id="contractorName" placeholder="Your full name" />
@@ -286,6 +358,11 @@
         <div>
           <label for="companyName">Company Name</label>
           <input type="text" id="companyName" placeholder="Your company name" />
+        </div>
+
+        <div>
+          <label for="contractorEmail">Email Address</label>
+          <input type="email" id="contractorEmail" placeholder="Your email address" />
         </div>
 
         <div>
@@ -302,13 +379,13 @@
           <label for="trade">Main Trade</label>
           <select id="trade">
             <option value="">Select your trade</option>
-            <option value="builder">Builder</option>
-            <option value="electrician">Electrician</option>
-            <option value="plumber">Plumber</option>
-            <option value="painter">Painter</option>
-            <option value="roofer">Roofer</option>
-            <option value="tiler">Tiler</option>
-            <option value="carpenter">Carpenter</option>
+            <option value="Builder">Builder</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Plumber">Plumber</option>
+            <option value="Painter">Painter</option>
+            <option value="Roofer">Roofer</option>
+            <option value="Tiler">Tiler</option>
+            <option value="Carpenter">Carpenter</option>
           </select>
         </div>
 
@@ -322,32 +399,143 @@
           <textarea id="bio" placeholder="Tell homeowners about your services and experience"></textarea>
         </div>
 
-        <button class="btn" onclick="saveProfile()">Save Profile</button>
+        <button class="btn gold" onclick="saveProfile()">Save Profile</button>
       </div>
     </div>
   </div>
 
   <script>
-    const savedName = localStorage.getItem("name");
+    let contractorQuotes = JSON.parse(localStorage.getItem("contractorQuotes")) || [];
 
-    if (savedName) {
-      document.getElementById("welcomeText").textContent = "Welcome, " + savedName;
-      document.getElementById("contractorName").value = savedName;
-    } else {
-      document.getElementById("welcomeText").textContent = "Welcome, Contractor";
+    function setupUser() {
+      const savedName = localStorage.getItem("name");
+      const savedEmail = localStorage.getItem("email");
+
+      if (savedName) {
+        document.getElementById("welcomeText").textContent = "Welcome, " + savedName;
+        document.getElementById("contractorName").value = savedName;
+      } else {
+        document.getElementById("welcomeText").textContent = "Welcome, Contractor";
+      }
+
+      if (savedEmail) {
+        document.getElementById("contractorEmail").value = savedEmail;
+      }
+
+      document.getElementById("companyName").value = localStorage.getItem("companyName") || "";
+      document.getElementById("phone").value = localStorage.getItem("contractorPhone") || "";
+      document.getElementById("location").value = localStorage.getItem("contractorLocation") || "";
+      document.getElementById("trade").value = localStorage.getItem("contractorTrade") || "";
+      document.getElementById("experience").value = localStorage.getItem("contractorExperience") || "";
+      document.getElementById("bio").value = localStorage.getItem("contractorBio") || "";
+    }
+
+    function showSection(sectionId, clickedLink) {
+      const sections = document.querySelectorAll(".section");
+      const links = document.querySelectorAll(".nav-link");
+
+      sections.forEach(section => {
+        section.classList.remove("active-section");
+      });
+
+      links.forEach(link => {
+        link.classList.remove("active");
+      });
+
+      document.getElementById(sectionId).classList.add("active-section");
+      clickedLink.classList.add("active");
+    }
+
+    function submitQuote() {
+      const project = document.getElementById("quoteProject").value.trim();
+      const amount = document.getElementById("quoteAmount").value.trim();
+      const timeline = document.getElementById("quoteTimeline").value.trim();
+      const message = document.getElementById("quoteMessage").value.trim();
+
+      if (!project || !amount || !timeline || !message) {
+        alert("Please fill in all quote fields.");
+        return;
+      }
+
+      const newQuote = {
+        project: project,
+        amount: amount,
+        timeline: timeline,
+        message: message,
+        status: "Submitted"
+      };
+
+      contractorQuotes.push(newQuote);
+      localStorage.setItem("contractorQuotes", JSON.stringify(contractorQuotes));
+
+      document.getElementById("quoteProject").value = "";
+      document.getElementById("quoteAmount").value = "";
+      document.getElementById("quoteTimeline").value = "";
+      document.getElementById("quoteMessage").value = "";
+
+      updateDashboard();
+      renderQuotes();
+
+      alert("Quote submitted successfully.");
+    }
+
+    function renderQuotes() {
+      const quotesList = document.getElementById("quotesList");
+
+      if (contractorQuotes.length === 0) {
+        quotesList.innerHTML = `
+          <div class="empty-box">
+            <h3>No Quotes Available</h3>
+            <p>Your submitted quotes will appear here after you send them.</p>
+            <button class="btn gold" onclick="openGiveQuote()">Give Quote</button>
+          </div>
+        `;
+        return;
+      }
+
+      quotesList.innerHTML = "";
+
+      contractorQuotes.forEach(quote => {
+        const quoteCard = document.createElement("div");
+        quoteCard.className = "quote-card";
+
+        quoteCard.innerHTML = `
+          <h3>${quote.project}</h3>
+          <p><strong>Quote Amount:</strong> ${quote.amount}</p>
+          <p><strong>Timeline:</strong> ${quote.timeline}</p>
+          <p><strong>Message:</strong> ${quote.message}</p>
+          <span class="status">${quote.status}</span>
+        `;
+
+        quotesList.appendChild(quoteCard);
+      });
+    }
+
+    function openGiveQuote() {
+      const giveQuoteLink = document.querySelectorAll(".nav-link")[2];
+      showSection("giveQuote", giveQuoteLink);
+    }
+
+    function updateDashboard() {
+      document.getElementById("pendingProjectsCount").textContent = "0";
+      document.getElementById("quotesSentCount").textContent = contractorQuotes.length;
+      document.getElementById("acceptedJobsCount").textContent = "0";
+      document.getElementById("completedProjectsCount").textContent = "0";
     }
 
     function saveProfile() {
       const contractorName = document.getElementById("contractorName").value.trim();
       const companyName = document.getElementById("companyName").value.trim();
+      const email = document.getElementById("contractorEmail").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const location = document.getElementById("location").value.trim();
       const trade = document.getElementById("trade").value;
       const experience = document.getElementById("experience").value;
       const bio = document.getElementById("bio").value.trim();
 
-      localStorage.setItem("contractorName", contractorName);
+      localStorage.setItem("name", contractorName);
       localStorage.setItem("companyName", companyName);
+      localStorage.setItem("email", email);
       localStorage.setItem("contractorPhone", phone);
       localStorage.setItem("contractorLocation", location);
       localStorage.setItem("contractorTrade", trade);
@@ -355,12 +543,17 @@
       localStorage.setItem("contractorBio", bio);
 
       if (contractorName) {
-        localStorage.setItem("name", contractorName);
         document.getElementById("welcomeText").textContent = "Welcome, " + contractorName;
+      } else {
+        document.getElementById("welcomeText").textContent = "Welcome, Contractor";
       }
 
       alert("Profile saved successfully.");
     }
+
+    setupUser();
+    updateDashboard();
+    renderQuotes();
   </script>
 </body>
 </html>
