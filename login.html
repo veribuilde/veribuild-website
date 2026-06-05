@@ -3,153 +3,80 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Login | VeriBuild</title>
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
-}
-
 body{
+    font-family:Arial, sans-serif;
     background:#f4f6f9;
-    min-height:100vh;
+    margin:0;
 }
 
 header{
     background:#0A2342;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+    padding:20px;
+    text-align:center;
 }
 
-.logo{
+header h1{
     color:white;
-    font-size:30px;
-    font-weight:bold;
+    margin:0;
 }
 
-.logo span{
+header span{
     color:#D4A017;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#D4A017;
-}
-
-.login-container{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:80px 20px;
-}
-
-.login-card{
-    background:white;
-    width:100%;
+.container{
     max-width:500px;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
 }
 
-.login-card h1{
+h2{
     text-align:center;
     color:#0A2342;
-    margin-bottom:10px;
 }
 
-.login-card p{
-    text-align:center;
-    color:#666;
-    margin-bottom:30px;
-}
-
-.form-group{
-    margin-bottom:20px;
-}
-
-label{
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
-}
-
-input,
-select{
+input, select{
     width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:8px;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
 }
 
-.login-btn{
+button{
     width:100%;
+    padding:12px;
+    border:none;
     background:#D4A017;
     color:#0A2342;
-    border:none;
-    padding:15px;
-    font-size:16px;
     font-weight:bold;
-    border-radius:8px;
+    border-radius:5px;
     cursor:pointer;
 }
 
-.login-btn:hover{
+button:hover{
     opacity:0.9;
 }
 
-.links{
-    text-align:center;
-    margin-top:25px;
+.tabs{
+    display:flex;
+    margin-bottom:20px;
 }
 
-.links a{
-    color:#0A2342;
-    text-decoration:none;
-    font-weight:bold;
+.tabs button{
+    flex:1;
+    margin:0;
 }
 
-.links p{
-    margin-top:10px;
-}
-
-footer{
-    background:#081A33;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-@media(max-width:768px){
-
-header{
-    flex-direction:column;
-}
-
-nav{
-    margin-top:15px;
-}
-
-nav a{
-    display:block;
-    margin:8px 0;
-    text-align:center;
-}
-
+#signupForm{
+    display:none;
 }
 
 </style>
@@ -158,114 +85,111 @@ nav a{
 <body>
 
 <header>
-
-<div class="logo">
-Veri<span>Build</span>
-</div>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="how-it-works.html">How It Works</a>
-<a href="post-project.html">Post Project</a>
-<a href="contractor-signup.html">Join as Contractor</a>
-</nav>
-
+<h1>Veri<span>Build</span></h1>
 </header>
 
-<div class="login-container">
+<div class="container">
 
-<div class="login-card">
+<div class="tabs">
 
-<h1>Welcome Back</h1>
+<button onclick="showLogin()">
+Login
+</button>
 
-<p>Log in to access your VeriBuild dashboard.</p>
+<button onclick="showSignup()">
+Create Account
+</button>
 
-<form onsubmit="loginUser(event)">
-
-<div class="form-group">
-<label>Email Address</label>
-<input type="email" required>
 </div>
 
-<div class="form-group">
-<label>Password</label>
-<input type="password" required>
-</div>
+<div id="loginForm">
 
-<div class="form-group">
-<label>Account Type</label>
+<h2>Login</h2>
 
-<select id="accountType" required>
+<input type="email" placeholder="Email">
+
+<input type="password" placeholder="Password">
+
+<select id="loginRole">
 
 <option value="">Select Account Type</option>
-
-<option value="homeowner">
-Homeowner
-</option>
-
-<option value="contractor">
-Contractor
-</option>
-
-<option value="supplier">
-Supplier
-</option>
-
-<option value="admin">
-Admin
-</option>
+<option value="homeowner">Homeowner</option>
+<option value="contractor">Contractor</option>
+<option value="supplier">Supplier</option>
+<option value="admin">Admin</option>
 
 </select>
 
-</div>
-
-<button type="submit" class="login-btn">
-Log In
+<button onclick="loginUser()">
+Login
 </button>
 
-</form>
+</div>
 
-<div class="links">
+<div id="signupForm">
 
-<p>
-<a href="#">Forgot Password?</a>
-</p>
+<h2>Create Account</h2>
 
-<p>
-Homeowner?
-<a href="post-project.html">
-Post a Project
-</a>
-</p>
+<input type="text" placeholder="First Name">
 
-<p>
-Contractor?
-<a href="contractor-signup.html">
+<input type="text" placeholder="Last Name">
+
+<input type="email" placeholder="Email">
+
+<input type="password" placeholder="Password">
+
+<select id="signupRole">
+
+<option value="">Select Account Type</option>
+<option value="homeowner">Homeowner</option>
+<option value="contractor">Contractor</option>
+<option value="supplier">Supplier</option>
+
+</select>
+
+<button onclick="createAccount()">
 Create Account
-</a>
-</p>
+</button>
 
 </div>
 
 </div>
-
-</div>
-
-<footer>
-
-<p>© 2026 VeriBuild. All Rights Reserved.</p>
-
-</footer>
 
 <script>
 
-function loginUser(event){
+function showLogin(){
 
-event.preventDefault();
+document.getElementById("loginForm").style.display = "block";
+document.getElementById("signupForm").style.display = "none";
+
+}
+
+function showSignup(){
+
+document.getElementById("loginForm").style.display = "none";
+document.getElementById("signupForm").style.display = "block";
+
+}
+
+function loginUser(){
 
 let role =
-document.getElementById("accountType").value;
+document.getElementById("loginRole").value;
+
+redirectUser(role);
+
+}
+
+function createAccount(){
+
+let role =
+document.getElementById("signupRole").value;
+
+redirectUser(role);
+
+}
+
+function redirectUser(role){
 
 if(role === "homeowner"){
 
@@ -297,9 +221,7 @@ window.location.href =
 
 else{
 
-alert(
-"Please select an account type."
-);
+alert("Please select an account type.");
 
 }
 
