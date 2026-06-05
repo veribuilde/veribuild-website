@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How VeriBuild Works</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#FFFFFF;
+    color:#333;
+}
+
+/* HEADER */
+
+header{
+    background:#0A2342;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#D4A017;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#D4A017;
+}
+
+/* HERO */
+
+.hero{
+    background:#0A2342;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    color:#0A2342;
+    margin-bottom:50px;
+    font-size:2.2rem;
+}
+
+/* STEPS */
+
+.steps{
+    max-width:1000px;
+    margin:auto;
+}
+
+.step{
+    background:#F5F7FA;
+    padding:30px;
+    border-left:6px solid #D4A017;
+    border-radius:10px;
+    margin-bottom:25px;
+}
+
+.step-number{
+    color:#D4A017;
+    font-size:1.8rem;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.step h3{
+    color:#0A2342;
+    margin-bottom:10px;
+}
+
+.step p{
+    line-height:1.8;
+}
+
+/* BENEFITS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#F5F7FA;
+    padding:30px;
+    border-radius:10px;
+    border-top:5px solid #D4A017;
+}
+
+.card h3{
+    color:#0A2342;
+    margin-bottom:15px;
+}
+
+/* CTA */
+
+.cta{
+    background:#0A2342;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.cta h2{
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    background:#D4A017;
+    color:#0A2342;
+    text-decoration:none;
+    padding:14px 28px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    background:#081A33;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav{
+        margin-top:15px;
+    }
+
+    nav a{
+        display:block;
+        margin:10px 0;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+Veri<span>Build</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="homeowners.html">Homeowners</a>
+<a href="contractors.html">Contractors</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>How VeriBuild Works</h1>
+
+<p>
+VeriBuild makes it easier and safer for homeowners to connect with trusted contractors and manage construction projects from start to finish.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">The VeriBuild Process</h2>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-number">01</div>
+<h3>Post Your Project</h3>
+<p>
+Homeowners create a project listing, describe the work needed, upload plans or photos, and provide project details such as location, budget, and timeline.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<h3>Get Matched With Contractors</h3>
+<p>
+Verified contractors in your area are notified about your project and can express interest in providing a quote.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">03</div>
+<h3>Compare Quotes</h3>
+<p>
+Review contractor profiles, compare quotes, and evaluate experience, qualifications, and customer reviews before making a decision.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">04</div>
+<h3>Choose Your Contractor</h3>
+<p>
+Select the contractor that best suits your budget, timeline, and project requirements.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">05</div>
+<h3>Build With Confidence</h3>
+<p>
+Work with a verified contractor and track project progress through the VeriBuild platform.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">06</div>
+<h3>Rate Your Experience</h3>
+<p>
+Leave a review and rating to help other homeowners make informed decisions and maintain quality across the platform.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" style="background:#F5F7FA;">
+
+<h2 class="section-title">Why Use VeriBuild?</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Verified Contractors</h3>
+<p>
+Work with contractors who have completed the VeriBuild verification process.
+</p>
+</div>
+
+<div class="card">
+<h3>Multiple Quotes</h3>
+<p>
+Compare options and choose the contractor that best fits your project.
+</p>
+</div>
+
+<div class="card">
+<h3>Greater Transparency</h3>
+<p>
+Access contractor information, reviews, and project details in one place.
+</p>
+</div>
+
+<div class="card">
+<h3>Peace of Mind</h3>
+<p>
+Reduce risk and build with greater confidence.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Ready to Start Your Project?</h2>
+
+<a href="post-project.html" class="btn">Post a Project</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 VeriBuild. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
