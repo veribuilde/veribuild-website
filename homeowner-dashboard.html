@@ -18,6 +18,7 @@ body{
 background:#f4f6f9;
 }
 
+/* SIDEBAR */
 .sidebar{
 position:fixed;
 left:0;
@@ -53,6 +54,7 @@ background:#D4A017;
 color:#0A2342;
 }
 
+/* MAIN */
 .main{
 margin-left:260px;
 padding:40px;
@@ -71,6 +73,7 @@ color:#0A2342;
 margin-bottom:10px;
 }
 
+/* CARDS */
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -84,6 +87,7 @@ padding:25px;
 border-radius:12px;
 box-shadow:0 3px 10px rgba(0,0,0,0.08);
 border-top:5px solid #D4A017;
+text-align:center;
 }
 
 .card h3{
@@ -91,35 +95,43 @@ color:#0A2342;
 margin-bottom:10px;
 }
 
-.project-box{
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 3px 10px rgba(0,0,0,0.08);
-margin-bottom:20px;
-}
-
-.project-box h2{
-color:#0A2342;
-margin-bottom:15px;
-}
-
-.status{
-display:inline-block;
-background:#D4A017;
-padding:8px 15px;
-border-radius:20px;
+.card p{
+font-size:28px;
 font-weight:bold;
+color:#0A2342;
+}
+
+/* EMPTY STATE */
+.empty{
+background:white;
+padding:40px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.empty h2{
+color:#0A2342;
+margin-bottom:10px;
+}
+
+.empty p{
+color:#666;
+margin-bottom:20px;
 }
 
 .btn{
 display:inline-block;
-margin-top:15px;
 padding:12px 20px;
 background:#0A2342;
 color:white;
 text-decoration:none;
 border-radius:8px;
+}
+
+.btn:hover{
+background:#D4A017;
+color:#0A2342;
 }
 
 @media(max-width:768px){
@@ -162,72 +174,68 @@ Veri<span>Build</span>
 <div class="main">
 
 <div class="welcome">
-
-<h1>Welcome, Amy</h1>
-
-<p>
-Manage your projects, review contractor quotes, and track progress all in one place.
-</p>
-
+<h1 id="welcomeText">Welcome</h1>
+<p>Manage your projects, quotes, and progress all in one place.</p>
 </div>
 
 <div class="cards">
 
 <div class="card">
 <h3>Active Projects</h3>
-<p>2</p>
+<p>0</p>
 </div>
 
 <div class="card">
 <h3>Quotes Received</h3>
-<p>5</p>
+<p>0</p>
 </div>
 
 <div class="card">
 <h3>Pending Payments</h3>
-<p>1</p>
+<p>0</p>
 </div>
 
 <div class="card">
 <h3>Completed Projects</h3>
-<p>3</p>
+<p>0</p>
 </div>
 
 </div>
 
-<div class="project-box">
+<div class="empty">
 
-<h2>Double Garage Extension</h2>
+<h2>No Projects Yet</h2>
 
-<p><strong>Location:</strong> Ruimsig, Gauteng</p>
-
-<p><strong>Budget:</strong> R250,000</p>
-
-<p><strong>Status:</strong>
-<span class="status">Awaiting Quotes</span>
+<p>
+You haven’t posted any projects yet.
+Start by creating your first project.
 </p>
 
-<a href="#" class="btn">View Project</a>
-
-</div>
-
-<div class="project-box">
-
-<h2>Kitchen Renovation</h2>
-
-<p><strong>Location:</strong> Johannesburg, Gauteng</p>
-
-<p><strong>Budget:</strong> R80,000</p>
-
-<p><strong>Status:</strong>
-<span class="status">In Progress</span>
-</p>
-
-<a href="#" class="btn">View Timeline</a>
+<a href="post-project.html" class="btn">
+Post a Project
+</a>
 
 </div>
 
 </div>
+
+<script>
+
+// Get name from URL
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+
+// Default fallback
+if(name){
+document.getElementById("welcomeText").innerText =
+"Welcome, " + name;
+}
+else{
+document.getElementById("welcomeText").innerText =
+"Welcome, Homeowner";
+}
+
+</script>
 
 </body>
 </html>
