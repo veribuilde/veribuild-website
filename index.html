@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VeriBuild | Trusted Construction Marketplace</title>
+
+<title>VeriBuild | Verified Contractors. Secure Projects.</title>
 
 <style>
 
@@ -15,7 +16,7 @@
 }
 
 body{
-    background:#FFFFFF;
+    background:#f5f7fa;
     color:#333;
 }
 
@@ -31,7 +32,7 @@ header{
 
 .logo{
     color:white;
-    font-size:30px;
+    font-size:32px;
     font-weight:bold;
 }
 
@@ -43,7 +44,7 @@ nav a{
     color:white;
     text-decoration:none;
     margin-left:25px;
-    font-weight:bold;
+    font-weight:600;
 }
 
 nav a:hover{
@@ -53,17 +54,14 @@ nav a:hover{
 /* HERO */
 
 .hero{
-    background:linear-gradient(rgba(10,35,66,0.85), rgba(10,35,66,0.85)),
-    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd');
-    background-size:cover;
-    background-position:center;
+    background:#0A2342;
     color:white;
     text-align:center;
-    padding:120px 20px;
+    padding:100px 20px;
 }
 
 .hero h1{
-    font-size:3.5rem;
+    font-size:3rem;
     margin-bottom:20px;
 }
 
@@ -71,20 +69,20 @@ nav a:hover{
     max-width:700px;
     margin:auto;
     font-size:1.2rem;
-    line-height:1.8;
+    line-height:1.6;
 }
 
 .hero-buttons{
-    margin-top:35px;
+    margin-top:40px;
 }
 
 .btn{
     display:inline-block;
     padding:14px 28px;
+    margin:10px;
     border-radius:8px;
     text-decoration:none;
     font-weight:bold;
-    margin:10px;
 }
 
 .btn-primary{
@@ -93,53 +91,76 @@ nav a:hover{
 }
 
 .btn-secondary{
-    border:2px solid white;
-    color:white;
+    background:white;
+    color:#0A2342;
 }
 
-/* SECTIONS */
+/* FEATURES */
 
-.section{
+.features{
     padding:80px 8%;
 }
 
 .section-title{
     text-align:center;
-    color:#0A2342;
     margin-bottom:50px;
+}
+
+.section-title h2{
+    color:#0A2342;
     font-size:2.2rem;
 }
 
-.cards{
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    border-top:5px solid #D4A017;
+}
+
+.feature-card h3{
+    color:#0A2342;
+    margin-bottom:15px;
+}
+
+/* HOW IT WORKS */
+
+.steps{
+    background:white;
+    padding:80px 8%;
+}
+
+.step-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     gap:25px;
 }
 
-.card{
-    background:#F5F7FA;
-    padding:30px;
-    border-radius:10px;
-    border-top:5px solid #D4A017;
-}
-
-.card h3{
-    color:#0A2342;
-    margin-bottom:15px;
-}
-
-/* PROBLEM */
-
-.problem{
-    background:#F5F7FA;
-}
-
-.problem p{
-    max-width:900px;
-    margin:auto;
+.step{
     text-align:center;
-    line-height:1.8;
-    font-size:1.1rem;
+    padding:25px;
+}
+
+.step-number{
+    width:60px;
+    height:60px;
+    margin:auto;
+    border-radius:50%;
+    background:#D4A017;
+    color:#0A2342;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:20px;
 }
 
 /* CTA */
@@ -158,39 +179,35 @@ nav a:hover{
 /* FOOTER */
 
 footer{
-    background:#081A33;
+    background:#06152b;
     color:white;
     text-align:center;
     padding:25px;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
 
-    header{
-        flex-direction:column;
-    }
+header{
+    flex-direction:column;
+}
 
-    nav{
-        margin-top:15px;
-    }
+nav{
+    margin-top:20px;
+}
 
-    nav a{
-        display:block;
-        margin:10px 0;
-        text-align:center;
-    }
+nav a{
+    display:block;
+    margin:10px 0;
+}
 
-    .hero h1{
-        font-size:2.3rem;
-    }
+.hero h1{
+    font-size:2.2rem;
+}
 
 }
 
 </style>
 </head>
-
 <body>
 
 <header>
@@ -206,67 +223,108 @@ Veri<span>Build</span>
 <a href="homeowners.html">Homeowners</a>
 <a href="contractors.html">Contractors</a>
 <a href="contact.html">Contact</a>
+<a href="login.html">Login</a>
 </nav>
 
 </header>
 
 <section class="hero">
 
-<h1>Building Trust Between Homeowners & Contractors</h1>
+<h1>Verified Contractors. Secure Payments. Better Building.</h1>
 
 <p>
-VeriBuild helps homeowners find verified contractors,
-compare quotes, and manage projects with confidence.
-No more guesswork. No more unreliable builders.
+VeriBuild helps South African homeowners connect with verified contractors,
+compare quotes, securely manage projects, and reduce construction risk.
 </p>
 
 <div class="hero-buttons">
-<a href="post-project.html" class="btn btn-primary">Post a Project</a>
-<a href="contractor-signup.html" class="btn btn-secondary">Join as Contractor</a>
+
+<a href="post-project.html" class="btn btn-primary">
+Post a Project
+</a>
+
+<a href="contractor-signup.html" class="btn btn-secondary">
+Join as Contractor
+</a>
+
+<a href="login.html" class="btn btn-secondary">
+Login
+</a>
+
 </div>
 
 </section>
 
-<section class="section problem">
+<section class="features">
 
-<h2 class="section-title">The Problem</h2>
+<div class="section-title">
+<h2>Why Choose VeriBuild?</h2>
+</div>
 
-<p>
-Finding a trustworthy contractor can be stressful.
-Many homeowners rely on social media recommendations,
-classified ads, or word-of-mouth referrals with little
-verification. This often leads to delays, poor workmanship,
-unexpected costs, and fraud.
-VeriBuild creates a safer, more transparent way to connect
-homeowners with qualified contractors.
-</p>
+<div class="feature-grid">
 
-</section>
-
-<section class="section">
-
-<h2 class="section-title">Why VeriBuild?</h2>
-
-<div class="cards">
-
-<div class="card">
+<div class="feature-card">
 <h3>Verified Contractors</h3>
-<p>Contractors go through a verification process before joining the platform.</p>
+<p>
+Contractors undergo document and business verification before accessing larger projects.
+</p>
 </div>
 
-<div class="card">
-<h3>Compare Quotes</h3>
-<p>Receive and compare multiple contractor quotations in one place.</p>
+<div class="feature-card">
+<h3>Compare Multiple Quotes</h3>
+<p>
+Receive and compare contractor quotes to find the right fit for your project.
+</p>
 </div>
 
-<div class="card">
-<h3>Project Transparency</h3>
-<p>Track project details and make informed decisions.</p>
+<div class="feature-card">
+<h3>Project Tracking</h3>
+<p>
+Monitor progress, milestones and project activity from one dashboard.
+</p>
 </div>
 
-<div class="card">
-<h3>Build With Confidence</h3>
-<p>Choose trusted professionals for your next renovation or build.</p>
+<div class="feature-card">
+<h3>Secure Payments</h3>
+<p>
+Future escrow-style payment protection helps keep funds secure throughout construction.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="steps">
+
+<div class="section-title">
+<h2>How It Works</h2>
+</div>
+
+<div class="step-grid">
+
+<div class="step">
+<div class="step-number">1</div>
+<h3>Post Your Project</h3>
+<p>Describe your renovation, extension, repair or new build.</p>
+</div>
+
+<div class="step">
+<div class="step-number">2</div>
+<h3>Receive Quotes</h3>
+<p>Verified contractors review your project and submit quotations.</p>
+</div>
+
+<div class="step">
+<div class="step-number">3</div>
+<h3>Select a Contractor</h3>
+<p>Compare pricing, reviews and qualifications before choosing.</p>
+</div>
+
+<div class="step">
+<div class="step-number">4</div>
+<h3>Track Progress</h3>
+<p>Manage milestones, documents and communication online.</p>
 </div>
 
 </div>
@@ -275,10 +333,17 @@ homeowners with qualified contractors.
 
 <section class="cta">
 
-<h2>Ready to Start Your Project?</h2>
+<h2>Ready to Start Building?</h2>
+
+<p>
+Whether you're renovating a bathroom or building a new home,
+VeriBuild helps you find trusted professionals.
+</p>
+
+<br>
 
 <a href="post-project.html" class="btn btn-primary">
-Post Your Project Today
+Post Your Project
 </a>
 
 </section>
