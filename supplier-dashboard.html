@@ -270,7 +270,7 @@
     <a class="nav-link" onclick="showSection('inventory', this)">Inventory Management</a>
     <a class="nav-link" onclick="showSection('analytics', this)">Analytics</a>
     <a class="nav-link" onclick="showSection('profile', this)">Profile Settings</a>
-    <a href="index.html">Logout</a>
+    <a href="#" onclick="logout()">Logout</a>
   </div>
 
   <div class="main">
@@ -699,6 +699,12 @@
       }
 
       alert("Profile saved successfully.");
+    }
+
+    function logout() {
+      localStorage.removeItem("role");
+      alert("You have been logged out.");
+      window.location.href = "index.html";
     }
 
     setupUser();
