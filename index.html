@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VeriBuild | Trusted Construction Marketplace</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#FFFFFF;
+    color:#333;
+}
+
+/* HEADER */
+
+header{
+    background:#0A2342;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#D4A017;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#D4A017;
+}
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(rgba(10,35,66,0.85), rgba(10,35,66,0.85)),
+    url('https://images.unsplash.com/photo-1504307651254-35680f356dfd');
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:3.5rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+.hero-buttons{
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin:10px;
+}
+
+.btn-primary{
+    background:#D4A017;
+    color:#0A2342;
+}
+
+.btn-secondary{
+    border:2px solid white;
+    color:white;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    color:#0A2342;
+    margin-bottom:50px;
+    font-size:2.2rem;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#F5F7FA;
+    padding:30px;
+    border-radius:10px;
+    border-top:5px solid #D4A017;
+}
+
+.card h3{
+    color:#0A2342;
+    margin-bottom:15px;
+}
+
+/* PROBLEM */
+
+.problem{
+    background:#F5F7FA;
+}
+
+.problem p{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+/* CTA */
+
+.cta{
+    background:#0A2342;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.cta h2{
+    margin-bottom:20px;
+}
+
+/* FOOTER */
+
+footer{
+    background:#081A33;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav{
+        margin-top:15px;
+    }
+
+    nav a{
+        display:block;
+        margin:10px 0;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:2.3rem;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+Veri<span>Build</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="homeowners.html">Homeowners</a>
+<a href="contractors.html">Contractors</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Building Trust Between Homeowners & Contractors</h1>
+
+<p>
+VeriBuild helps homeowners find verified contractors,
+compare quotes, and manage projects with confidence.
+No more guesswork. No more unreliable builders.
+</p>
+
+<div class="hero-buttons">
+<a href="post-project.html" class="btn btn-primary">Post a Project</a>
+<a href="contractor-signup.html" class="btn btn-secondary">Join as Contractor</a>
+</div>
+
+</section>
+
+<section class="section problem">
+
+<h2 class="section-title">The Problem</h2>
+
+<p>
+Finding a trustworthy contractor can be stressful.
+Many homeowners rely on social media recommendations,
+classified ads, or word-of-mouth referrals with little
+verification. This often leads to delays, poor workmanship,
+unexpected costs, and fraud.
+VeriBuild creates a safer, more transparent way to connect
+homeowners with qualified contractors.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Why VeriBuild?</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Verified Contractors</h3>
+<p>Contractors go through a verification process before joining the platform.</p>
+</div>
+
+<div class="card">
+<h3>Compare Quotes</h3>
+<p>Receive and compare multiple contractor quotations in one place.</p>
+</div>
+
+<div class="card">
+<h3>Project Transparency</h3>
+<p>Track project details and make informed decisions.</p>
+</div>
+
+<div class="card">
+<h3>Build With Confidence</h3>
+<p>Choose trusted professionals for your next renovation or build.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Ready to Start Your Project?</h2>
+
+<a href="post-project.html" class="btn btn-primary">
+Post Your Project Today
+</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 VeriBuild. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
