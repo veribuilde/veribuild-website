@@ -7,76 +7,80 @@
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
 body{
-    font-family:Arial, sans-serif;
-    background:#f4f6f9;
-    margin:0;
+background:#f4f6f9;
+min-height:100vh;
 }
 
 header{
-    background:#0A2342;
-    padding:20px;
-    text-align:center;
+background:#0A2342;
+padding:20px;
+text-align:center;
 }
 
 header h1{
-    color:white;
-    margin:0;
+color:white;
+margin:0;
 }
 
 header span{
-    color:#D4A017;
+color:#D4A017;
 }
 
 .container{
-    max-width:500px;
-    margin:50px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,0.1);
+max-width:500px;
+margin:60px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 h2{
-    text-align:center;
-    color:#0A2342;
+text-align:center;
+color:#0A2342;
+margin-bottom:20px;
 }
 
 input, select{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:5px;
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    border:none;
-    background:#D4A017;
-    color:#0A2342;
-    font-weight:bold;
-    border-radius:5px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+background:#D4A017;
+border:none;
+color:#0A2342;
+font-weight:bold;
+border-radius:6px;
+cursor:pointer;
 }
 
 button:hover{
-    opacity:0.9;
+opacity:0.9;
 }
 
-.tabs{
-    display:flex;
-    margin-bottom:20px;
+.link{
+text-align:center;
+margin-top:15px;
 }
 
-.tabs button{
-    flex:1;
-    margin:0;
-}
-
-#signupForm{
-    display:none;
+.link a{
+color:#0A2342;
+text-decoration:none;
+font-weight:bold;
 }
 
 </style>
@@ -90,140 +94,62 @@ button:hover{
 
 <div class="container">
 
-<div class="tabs">
-
-<button onclick="showLogin()">
-Login
-</button>
-
-<button onclick="showSignup()">
-Create Account
-</button>
-
-</div>
-
-<div id="loginForm">
-
 <h2>Login</h2>
 
-<input type="email" placeholder="Email">
+<!-- EMAIL -->
+<input type="email" id="email" placeholder="Email" required>
 
-<input type="password" placeholder="Password">
+<!-- PASSWORD -->
+<input type="password" id="password" placeholder="Password" required>
 
-<select id="loginRole">
-
+<!-- ROLE -->
+<select id="role" required>
 <option value="">Select Account Type</option>
 <option value="homeowner">Homeowner</option>
 <option value="contractor">Contractor</option>
 <option value="supplier">Supplier</option>
-<option value="admin">Admin</option>
-
 </select>
 
-<button onclick="loginUser()">
+<button onclick="login()">
 Login
 </button>
 
-</div>
-
-<div id="signupForm">
-
-<h2>Create Account</h2>
-
-<input type="text" placeholder="First Name">
-
-<input type="text" placeholder="Last Name">
-
-<input type="email" placeholder="Email">
-
-<input type="password" placeholder="Password">
-
-<select id="signupRole">
-
-<option value="">Select Account Type</option>
-<option value="homeowner">Homeowner</option>
-<option value="contractor">Contractor</option>
-<option value="supplier">Supplier</option>
-
-</select>
-
-<button onclick="createAccount()">
-Create Account
-</button>
-
+<div class="link">
+<p>No account? <a href="signup.html">Create one</a></p>
 </div>
 
 </div>
 
 <script>
 
-function showLogin(){
+function login(){
 
-document.getElementById("loginForm").style.display = "block";
-document.getElementById("signupForm").style.display = "none";
+let email = document.getElementById("email").value;
+let password = document.getElementById("password").value;
+let role = document.getElementById("role").value;
 
+// basic validation
+if(!email || !password || !role){
+alert("Please fill in all fields");
+return;
 }
 
-function showSignup(){
+// get saved user
+let savedEmail = localStorage.getItem("email");
+let savedRole = localStorage.getItem("role");
+let savedName = localStorage.getItem("name");
 
-document.getElementById("loginForm").style.display = "none";
-document.getElementById("signupForm").style.display = "block";
-
+// simple check (MVP only)
+if(email !== savedEmail){
+alert("User not found. Please sign up first.");
+return;
 }
 
-function loginUser(){
+// save session role (important for dashboards)
+localStorage.setItem("role", role);
 
-let role =
-document.getElementById("loginRole").value;
-
-redirectUser(role);
-
-}
-
-function createAccount(){
-
-let role =
-document.getElementById("signupRole").value;
-
-redirectUser(role);
-
-}
-
-function redirectUser(role){
-
-if(role === "homeowner"){
-
-window.location.href =
-"homeowner-dashboard.html";
-
-}
-
-else if(role === "contractor"){
-
-window.location.href =
-"contractor-dashboard.html";
-
-}
-
-else if(role === "supplier"){
-
-window.location.href =
-"supplier-dashboard.html";
-
-}
-
-else if(role === "admin"){
-
-window.location.href =
-"admin-dashboard.html";
-
-}
-
-else{
-
-alert("Please select an account type.");
-
-}
+// redirect
+window.location.href = role + "-dashboard.html";
 
 }
 
