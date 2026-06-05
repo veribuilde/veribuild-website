@@ -319,7 +319,7 @@
     <a class="nav-link" onclick="showSection('statistics', this)">Statistics</a>
     <a class="nav-link" onclick="showSection('profile', this)">Profile Settings</a>
     <a class="nav-link" onclick="showSection('password', this)">Password Change</a>
-    <a href="index.html">Logout</a>
+    <a href="#" onclick="logout()">Logout</a>
   </div>
 
   <div class="main">
@@ -599,35 +599,36 @@
     function renderUsers() {
       const name = localStorage.getItem("name") || "No user yet";
       const email = localStorage.getItem("email") || "-";
+      const role = localStorage.getItem("role");
 
       document.getElementById("homeownersTable").innerHTML = `
         <tr>
-          <td>${localStorage.getItem("role") === "homeowner" ? name : "No homeowners yet"}</td>
-          <td>${localStorage.getItem("role") === "homeowner" ? email : "-"}</td>
+          <td>${role === "homeowner" ? name : "No homeowners yet"}</td>
+          <td>${role === "homeowner" ? email : "-"}</td>
           <td>${homeownerProjects.length}</td>
-          <td><span class="status empty">${localStorage.getItem("role") === "homeowner" ? "Active" : "Empty"}</span></td>
+          <td><span class="status empty">${role === "homeowner" ? "Active" : "Empty"}</span></td>
           <td><button class="btn">View</button></td>
         </tr>
       `;
 
       document.getElementById("contractorsTable").innerHTML = `
         <tr>
-          <td>${localStorage.getItem("role") === "contractor" ? name : "No contractors yet"}</td>
+          <td>${role === "contractor" ? name : "No contractors yet"}</td>
           <td>${localStorage.getItem("companyName") || "-"}</td>
           <td>${localStorage.getItem("contractorTrade") || "-"}</td>
           <td>${contractorQuotes.length}</td>
-          <td><span class="status empty">${localStorage.getItem("role") === "contractor" ? "Active" : "Empty"}</span></td>
+          <td><span class="status empty">${role === "contractor" ? "Active" : "Empty"}</span></td>
           <td><button class="btn">View</button></td>
         </tr>
       `;
 
       document.getElementById("suppliersTable").innerHTML = `
         <tr>
-          <td>${localStorage.getItem("role") === "supplier" ? name : "No suppliers yet"}</td>
+          <td>${role === "supplier" ? name : "No suppliers yet"}</td>
           <td>${localStorage.getItem("supplierCompanyName") || "-"}</td>
           <td>${supplierInventory.length}</td>
           <td>${supplierQuotes.length}</td>
-          <td><span class="status empty">${localStorage.getItem("role") === "supplier" ? "Active" : "Empty"}</span></td>
+          <td><span class="status empty">${role === "supplier" ? "Active" : "Empty"}</span></td>
           <td><button class="btn">View</button></td>
         </tr>
       `;
@@ -749,6 +750,12 @@
       document.getElementById("confirmPassword").value = "";
 
       alert("Password updated successfully.");
+    }
+
+    function logout() {
+      localStorage.removeItem("role");
+      alert("You have been logged out.");
+      window.location.href = "index.html";
     }
 
     setupAdmin();
