@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Login | VeriBuild</title>
 
 <style>
@@ -44,11 +45,15 @@ nav a{
     font-weight:bold;
 }
 
+nav a:hover{
+    color:#D4A017;
+}
+
 .login-container{
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:60px 20px;
+    padding:80px 20px;
 }
 
 .login-card{
@@ -131,24 +136,25 @@ footer{
 
 @media(max-width:768px){
 
-    header{
-        flex-direction:column;
-    }
+header{
+    flex-direction:column;
+}
 
-    nav{
-        margin-top:15px;
-    }
+nav{
+    margin-top:15px;
+}
 
-    nav a{
-        display:block;
-        margin:8px 0;
-        text-align:center;
-    }
+nav a{
+    display:block;
+    margin:8px 0;
+    text-align:center;
+}
 
 }
 
 </style>
 </head>
+
 <body>
 
 <header>
@@ -161,7 +167,7 @@ Veri<span>Build</span>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="how-it-works.html">How It Works</a>
-<a href="post-project.html">Post a Project</a>
+<a href="post-project.html">Post Project</a>
 <a href="contractor-signup.html">Join as Contractor</a>
 </nav>
 
@@ -175,7 +181,7 @@ Veri<span>Build</span>
 
 <p>Log in to access your VeriBuild dashboard.</p>
 
-<form>
+<form onsubmit="loginUser(event)">
 
 <div class="form-group">
 <label>Email Address</label>
@@ -189,13 +195,29 @@ Veri<span>Build</span>
 
 <div class="form-group">
 <label>Account Type</label>
-<select required>
+
+<select id="accountType" required>
+
 <option value="">Select Account Type</option>
-<option>Homeowner</option>
-<option>Contractor</option>
-<option>Supplier</option>
-<option>Admin</option>
+
+<option value="homeowner">
+Homeowner
+</option>
+
+<option value="contractor">
+Contractor
+</option>
+
+<option value="supplier">
+Supplier
+</option>
+
+<option value="admin">
+Admin
+</option>
+
 </select>
+
 </div>
 
 <button type="submit" class="login-btn">
@@ -211,11 +233,17 @@ Log In
 </p>
 
 <p>
-Homeowner? <a href="post-project.html">Post a Project</a>
+Homeowner?
+<a href="post-project.html">
+Post a Project
+</a>
 </p>
 
 <p>
-Contractor? <a href="contractor-signup.html">Create Account</a>
+Contractor?
+<a href="contractor-signup.html">
+Create Account
+</a>
 </p>
 
 </div>
@@ -229,6 +257,55 @@ Contractor? <a href="contractor-signup.html">Create Account</a>
 <p>© 2026 VeriBuild. All Rights Reserved.</p>
 
 </footer>
+
+<script>
+
+function loginUser(event){
+
+event.preventDefault();
+
+let role =
+document.getElementById("accountType").value;
+
+if(role === "homeowner"){
+
+window.location.href =
+"homeowner-dashboard.html";
+
+}
+
+else if(role === "contractor"){
+
+window.location.href =
+"contractor-dashboard.html";
+
+}
+
+else if(role === "supplier"){
+
+window.location.href =
+"supplier-dashboard.html";
+
+}
+
+else if(role === "admin"){
+
+window.location.href =
+"admin-dashboard.html";
+
+}
+
+else{
+
+alert(
+"Please select an account type."
+);
+
+}
+
+}
+
+</script>
 
 </body>
 </html>
