@@ -34,7 +34,7 @@
       color: white;
       font-size: 30px;
       font-weight: bold;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
 
     .logo span {
@@ -49,7 +49,7 @@
       margin-bottom: 10px;
       border-radius: 8px;
       font-weight: bold;
-      transition: background 0.2s ease, color 0.2s ease;
+      cursor: pointer;
     }
 
     .sidebar a:hover,
@@ -62,7 +62,6 @@
       background: white;
       color: #0A2342 !important;
       text-align: center;
-      margin-bottom: 10px;
     }
 
     .back-button {
@@ -78,6 +77,7 @@
     }
 
     .section {
+      display: none;
       background: white;
       padding: 30px;
       border-radius: 12px;
@@ -85,13 +85,17 @@
       margin-bottom: 30px;
     }
 
-    .section h1,
-    .section h2 {
+    .section.active-section {
+      display: block;
+    }
+
+    h1,
+    h2 {
       color: #0A2342;
       margin-bottom: 12px;
     }
 
-    .section p {
+    p {
       color: #555;
       line-height: 1.5;
     }
@@ -112,7 +116,6 @@
     }
 
     .card h3 {
-      color: #0A2342;
       margin-bottom: 12px;
       font-size: 18px;
     }
@@ -129,49 +132,29 @@
       padding: 25px;
       border-radius: 10px;
       text-align: center;
-      color: #666;
       margin-top: 15px;
     }
 
     .empty-box h3 {
-      color: #0A2342;
       margin-bottom: 8px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 20px;
-      background: #0A2342;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      opacity: 0.9;
-    }
-
-    .profile-settings {
+    .form-list {
       display: flex;
       flex-direction: column;
       gap: 15px;
       margin-top: 15px;
     }
 
-    .profile-settings label {
+    label {
       font-weight: bold;
-      color: #0A2342;
-      margin-bottom: 5px;
       display: block;
+      margin-bottom: 5px;
     }
 
-    .profile-settings input,
-    .profile-settings select,
-    .profile-settings textarea {
+    input,
+    select,
+    textarea {
       width: 100%;
       padding: 12px;
       border: 1px solid #ccc;
@@ -179,9 +162,52 @@
       font-size: 15px;
     }
 
-    .profile-settings textarea {
+    textarea {
       min-height: 100px;
       resize: vertical;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      background: #0A2342;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn.gold {
+      background: #D4A017;
+      color: #0A2342;
+    }
+
+    .quote-card,
+    .inventory-card {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #D4A017;
+      margin-top: 15px;
+    }
+
+    .quote-card h3,
+    .inventory-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 7px 12px;
+      background: #D4A017;
+      color: #0A2342;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 13px;
     }
 
     .analytics-grid {
@@ -199,13 +225,12 @@
     }
 
     .analytics-box h3 {
-      color: #0A2342;
       margin-bottom: 8px;
       font-size: 16px;
     }
 
     .analytics-box p {
-      font-size: 26px;
+      font-size: 28px;
       color: #D4A017;
       font-weight: bold;
     }
@@ -235,49 +260,53 @@
 
     <a href="index.html" class="home-button">Home</a>
     <a href="index.html" class="back-button">Back</a>
-    <a href="#" class="active">Dashboard</a>
-    <a href="#">Pending Orders</a>
-    <a href="#">Completed Orders</a>
-    <a href="#">Quotes</a>
-    <a href="#">Messages</a>
-    <a href="#">Inventory Management</a>
-    <a href="#">Analytics</a>
-    <a href="#">Profile Settings</a>
+
+    <a class="nav-link active" onclick="showSection('dashboard', this)">Dashboard</a>
+    <a class="nav-link" onclick="showSection('pendingOrders', this)">Pending Orders</a>
+    <a class="nav-link" onclick="showSection('completedOrders', this)">Completed Orders</a>
+    <a class="nav-link" onclick="showSection('createQuote', this)">Create Quote</a>
+    <a class="nav-link" onclick="showSection('quotes', this)">Quotes</a>
+    <a class="nav-link" onclick="showSection('messages', this)">Messages</a>
+    <a class="nav-link" onclick="showSection('inventory', this)">Inventory Management</a>
+    <a class="nav-link" onclick="showSection('analytics', this)">Analytics</a>
+    <a class="nav-link" onclick="showSection('profile', this)">Profile Settings</a>
     <a href="index.html">Logout</a>
   </div>
 
   <div class="main">
-    <div class="section">
+    <div id="dashboard" class="section active-section">
       <h1 id="welcomeText">Welcome</h1>
       <p>
-        Manage material requests, submit supplier quotes, track orders,
-        update inventory, and communicate with homeowners or contractors.
+        Manage orders, submit material quotes, update inventory, view analytics,
+        and communicate with contractors or homeowners.
       </p>
+
+      <br />
+
+      <div class="cards">
+        <div class="card">
+          <h3>Pending Orders</h3>
+          <p id="pendingOrdersCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Completed Orders</h3>
+          <p id="completedOrdersCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Quotes Submitted</h3>
+          <p id="quotesCount">0</p>
+        </div>
+
+        <div class="card">
+          <h3>Inventory Items</h3>
+          <p id="inventoryCount">0</p>
+        </div>
+      </div>
     </div>
 
-    <div class="cards">
-      <div class="card">
-        <h3>Pending Orders</h3>
-        <p>0</p>
-      </div>
-
-      <div class="card">
-        <h3>Completed Orders</h3>
-        <p>0</p>
-      </div>
-
-      <div class="card">
-        <h3>Quotes Submitted</h3>
-        <p>0</p>
-      </div>
-
-      <div class="card">
-        <h3>Inventory Items</h3>
-        <p>0</p>
-      </div>
-    </div>
-
-    <div class="section">
+    <div id="pendingOrders" class="section">
       <h2>Pending Orders</h2>
       <div class="empty-box">
         <h3>No Pending Orders</h3>
@@ -285,7 +314,7 @@
       </div>
     </div>
 
-    <div class="section">
+    <div id="completedOrders" class="section">
       <h2>Completed Orders</h2>
       <div class="empty-box">
         <h3>No Completed Orders</h3>
@@ -293,16 +322,40 @@
       </div>
     </div>
 
-    <div class="section">
-      <h2>Quotes</h2>
-      <div class="empty-box">
-        <h3>No Quotes Available</h3>
-        <p>Your submitted material quotes will appear here.</p>
-        <a href="#" class="btn">Create Quote</a>
+    <div id="createQuote" class="section">
+      <h2>Create Quote</h2>
+
+      <div class="form-list">
+        <div>
+          <label for="quoteCustomer">Customer Name</label>
+          <input type="text" id="quoteCustomer" placeholder="Example: Peter Smith" />
+        </div>
+
+        <div>
+          <label for="quoteMaterials">Materials</label>
+          <textarea id="quoteMaterials" placeholder="Example: Cement, bricks, roofing sheets"></textarea>
+        </div>
+
+        <div>
+          <label for="quoteAmount">Quote Amount</label>
+          <input type="text" id="quoteAmount" placeholder="Example: R12,500" />
+        </div>
+
+        <div>
+          <label for="quoteDelivery">Delivery Time</label>
+          <input type="text" id="quoteDelivery" placeholder="Example: 3 business days" />
+        </div>
+
+        <button class="btn gold" onclick="submitQuote()">Submit Quote</button>
       </div>
     </div>
 
-    <div class="section">
+    <div id="quotes" class="section">
+      <h2>Quotes</h2>
+      <div id="quotesList"></div>
+    </div>
+
+    <div id="messages" class="section">
       <h2>Messages</h2>
       <div class="empty-box">
         <h3>No Messages Yet</h3>
@@ -310,16 +363,41 @@
       </div>
     </div>
 
-    <div class="section">
+    <div id="inventory" class="section">
       <h2>Inventory Management</h2>
-      <div class="empty-box">
-        <h3>No Inventory Items</h3>
-        <p>Add materials so contractors can see what you currently supply.</p>
-        <a href="#" class="btn">Add Inventory Item</a>
+
+      <div class="form-list">
+        <div>
+          <label for="itemName">Material Name</label>
+          <input type="text" id="itemName" placeholder="Example: Cement Bags" />
+        </div>
+
+        <div>
+          <label for="itemQuantity">Quantity Available</label>
+          <input type="number" id="itemQuantity" placeholder="Example: 100" min="0" />
+        </div>
+
+        <div>
+          <label for="itemPrice">Price</label>
+          <input type="text" id="itemPrice" placeholder="Example: R95 each" />
+        </div>
+
+        <div>
+          <label for="itemStatus">Stock Status</label>
+          <select id="itemStatus">
+            <option value="In Stock">In Stock</option>
+            <option value="Low Stock">Low Stock</option>
+            <option value="Out of Stock">Out of Stock</option>
+          </select>
+        </div>
+
+        <button class="btn gold" onclick="addInventoryItem()">Add Inventory Item</button>
       </div>
+
+      <div id="inventoryList"></div>
     </div>
 
-    <div class="section">
+    <div id="analytics" class="section">
       <h2>Analytics</h2>
 
       <div class="analytics-grid">
@@ -345,10 +423,10 @@
       </div>
     </div>
 
-    <div class="section">
+    <div id="profile" class="section">
       <h2>Profile Settings</h2>
 
-      <div class="profile-settings">
+      <div class="form-list">
         <div>
           <label for="supplierName">Full Name</label>
           <input type="text" id="supplierName" placeholder="Your full name" />
@@ -360,13 +438,13 @@
         </div>
 
         <div>
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="Your phone number" />
+          <label for="supplierEmail">Email Address</label>
+          <input type="email" id="supplierEmail" placeholder="Your email address" />
         </div>
 
         <div>
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="Your email address" />
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" placeholder="Your phone number" />
         </div>
 
         <div>
@@ -383,10 +461,10 @@
           <label for="paymentPreference">Payment Preference</label>
           <select id="paymentPreference">
             <option value="">Select payment preference</option>
-            <option value="eft">EFT</option>
-            <option value="card">Card Payment</option>
-            <option value="cash">Cash on Delivery</option>
-            <option value="invoice">Invoice</option>
+            <option value="EFT">EFT</option>
+            <option value="Card Payment">Card Payment</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="Invoice">Invoice</option>
           </select>
         </div>
 
@@ -394,9 +472,9 @@
           <label for="deliveryOption">Delivery Option</label>
           <select id="deliveryOption">
             <option value="">Select delivery option</option>
-            <option value="delivery">Delivery Available</option>
-            <option value="pickup">Pickup Only</option>
-            <option value="both">Delivery and Pickup</option>
+            <option value="Delivery Available">Delivery Available</option>
+            <option value="Pickup Only">Pickup Only</option>
+            <option value="Delivery and Pickup">Delivery and Pickup</option>
           </select>
         </div>
 
@@ -405,41 +483,209 @@
           <textarea id="bio" placeholder="Tell customers about your products, service areas, and business experience"></textarea>
         </div>
 
-        <button class="btn" onclick="saveProfile()">Save Profile</button>
+        <button class="btn gold" onclick="saveProfile()">Save Profile</button>
       </div>
     </div>
   </div>
 
   <script>
-    const savedName = localStorage.getItem("name");
-    const savedEmail = localStorage.getItem("email");
+    let supplierQuotes = JSON.parse(localStorage.getItem("supplierQuotes")) || [];
+    let inventoryItems = JSON.parse(localStorage.getItem("supplierInventory")) || [];
 
-    if (savedName) {
-      document.getElementById("welcomeText").textContent = "Welcome, " + savedName;
-      document.getElementById("supplierName").value = savedName;
-    } else {
-      document.getElementById("welcomeText").textContent = "Welcome, Supplier";
+    function setupUser() {
+      const savedName = localStorage.getItem("name");
+      const savedEmail = localStorage.getItem("email");
+
+      if (savedName) {
+        document.getElementById("welcomeText").textContent = "Welcome, " + savedName;
+        document.getElementById("supplierName").value = savedName;
+      } else {
+        document.getElementById("welcomeText").textContent = "Welcome, Supplier";
+      }
+
+      if (savedEmail) {
+        document.getElementById("supplierEmail").value = savedEmail;
+      }
+
+      document.getElementById("companyName").value = localStorage.getItem("supplierCompanyName") || "";
+      document.getElementById("phone").value = localStorage.getItem("supplierPhone") || "";
+      document.getElementById("location").value = localStorage.getItem("supplierLocation") || "";
+      document.getElementById("materials").value = localStorage.getItem("supplierMaterials") || "";
+      document.getElementById("paymentPreference").value = localStorage.getItem("supplierPaymentPreference") || "";
+      document.getElementById("deliveryOption").value = localStorage.getItem("supplierDeliveryOption") || "";
+      document.getElementById("bio").value = localStorage.getItem("supplierBio") || "";
     }
 
-    if (savedEmail) {
-      document.getElementById("email").value = savedEmail;
+    function showSection(sectionId, clickedLink) {
+      const sections = document.querySelectorAll(".section");
+      const links = document.querySelectorAll(".nav-link");
+
+      sections.forEach(section => {
+        section.classList.remove("active-section");
+      });
+
+      links.forEach(link => {
+        link.classList.remove("active");
+      });
+
+      document.getElementById(sectionId).classList.add("active-section");
+      clickedLink.classList.add("active");
+    }
+
+    function submitQuote() {
+      const customer = document.getElementById("quoteCustomer").value.trim();
+      const materials = document.getElementById("quoteMaterials").value.trim();
+      const amount = document.getElementById("quoteAmount").value.trim();
+      const delivery = document.getElementById("quoteDelivery").value.trim();
+
+      if (!customer || !materials || !amount || !delivery) {
+        alert("Please fill in all quote fields.");
+        return;
+      }
+
+      const newQuote = {
+        customer: customer,
+        materials: materials,
+        amount: amount,
+        delivery: delivery,
+        status: "Submitted"
+      };
+
+      supplierQuotes.push(newQuote);
+      localStorage.setItem("supplierQuotes", JSON.stringify(supplierQuotes));
+
+      document.getElementById("quoteCustomer").value = "";
+      document.getElementById("quoteMaterials").value = "";
+      document.getElementById("quoteAmount").value = "";
+      document.getElementById("quoteDelivery").value = "";
+
+      updateDashboard();
+      renderQuotes();
+
+      alert("Quote submitted successfully.");
+    }
+
+    function renderQuotes() {
+      const quotesList = document.getElementById("quotesList");
+
+      if (supplierQuotes.length === 0) {
+        quotesList.innerHTML = `
+          <div class="empty-box">
+            <h3>No Quotes Available</h3>
+            <p>Your submitted material quotes will appear here.</p>
+            <button class="btn gold" onclick="openCreateQuote()">Create Quote</button>
+          </div>
+        `;
+        return;
+      }
+
+      quotesList.innerHTML = "";
+
+      supplierQuotes.forEach(quote => {
+        const quoteCard = document.createElement("div");
+        quoteCard.className = "quote-card";
+
+        quoteCard.innerHTML = `
+          <h3>${quote.customer}</h3>
+          <p><strong>Materials:</strong> ${quote.materials}</p>
+          <p><strong>Quote Amount:</strong> ${quote.amount}</p>
+          <p><strong>Delivery Time:</strong> ${quote.delivery}</p>
+          <span class="status">${quote.status}</span>
+        `;
+
+        quotesList.appendChild(quoteCard);
+      });
+    }
+
+    function addInventoryItem() {
+      const name = document.getElementById("itemName").value.trim();
+      const quantity = document.getElementById("itemQuantity").value.trim();
+      const price = document.getElementById("itemPrice").value.trim();
+      const status = document.getElementById("itemStatus").value;
+
+      if (!name || !quantity || !price || !status) {
+        alert("Please fill in all inventory fields.");
+        return;
+      }
+
+      const newItem = {
+        name: name,
+        quantity: quantity,
+        price: price,
+        status: status
+      };
+
+      inventoryItems.push(newItem);
+      localStorage.setItem("supplierInventory", JSON.stringify(inventoryItems));
+
+      document.getElementById("itemName").value = "";
+      document.getElementById("itemQuantity").value = "";
+      document.getElementById("itemPrice").value = "";
+      document.getElementById("itemStatus").value = "In Stock";
+
+      updateDashboard();
+      renderInventory();
+
+      alert("Inventory item added successfully.");
+    }
+
+    function renderInventory() {
+      const inventoryList = document.getElementById("inventoryList");
+
+      if (inventoryItems.length === 0) {
+        inventoryList.innerHTML = `
+          <div class="empty-box">
+            <h3>No Inventory Items</h3>
+            <p>Add materials so contractors can see what you currently supply.</p>
+          </div>
+        `;
+        return;
+      }
+
+      inventoryList.innerHTML = "";
+
+      inventoryItems.forEach(item => {
+        const itemCard = document.createElement("div");
+        itemCard.className = "inventory-card";
+
+        itemCard.innerHTML = `
+          <h3>${item.name}</h3>
+          <p><strong>Quantity:</strong> ${item.quantity}</p>
+          <p><strong>Price:</strong> ${item.price}</p>
+          <span class="status">${item.status}</span>
+        `;
+
+        inventoryList.appendChild(itemCard);
+      });
+    }
+
+    function openCreateQuote() {
+      const createQuoteLink = document.querySelectorAll(".nav-link")[3];
+      showSection("createQuote", createQuoteLink);
+    }
+
+    function updateDashboard() {
+      document.getElementById("pendingOrdersCount").textContent = "0";
+      document.getElementById("completedOrdersCount").textContent = "0";
+      document.getElementById("quotesCount").textContent = supplierQuotes.length;
+      document.getElementById("inventoryCount").textContent = inventoryItems.length;
     }
 
     function saveProfile() {
       const supplierName = document.getElementById("supplierName").value.trim();
       const companyName = document.getElementById("companyName").value.trim();
+      const email = document.getElementById("supplierEmail").value.trim();
       const phone = document.getElementById("phone").value.trim();
-      const email = document.getElementById("email").value.trim();
       const location = document.getElementById("location").value.trim();
       const materials = document.getElementById("materials").value.trim();
       const paymentPreference = document.getElementById("paymentPreference").value;
       const deliveryOption = document.getElementById("deliveryOption").value;
       const bio = document.getElementById("bio").value.trim();
 
-      localStorage.setItem("supplierName", supplierName);
+      localStorage.setItem("name", supplierName);
       localStorage.setItem("supplierCompanyName", companyName);
+      localStorage.setItem("email", email);
       localStorage.setItem("supplierPhone", phone);
-      localStorage.setItem("supplierEmail", email);
       localStorage.setItem("supplierLocation", location);
       localStorage.setItem("supplierMaterials", materials);
       localStorage.setItem("supplierPaymentPreference", paymentPreference);
@@ -447,16 +693,18 @@
       localStorage.setItem("supplierBio", bio);
 
       if (supplierName) {
-        localStorage.setItem("name", supplierName);
         document.getElementById("welcomeText").textContent = "Welcome, " + supplierName;
-      }
-
-      if (email) {
-        localStorage.setItem("email", email);
+      } else {
+        document.getElementById("welcomeText").textContent = "Welcome, Supplier";
       }
 
       alert("Profile saved successfully.");
     }
+
+    setupUser();
+    updateDashboard();
+    renderQuotes();
+    renderInventory();
   </script>
 </body>
 </html>
