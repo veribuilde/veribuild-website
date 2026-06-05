@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up | VeriBuild</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6f9;
+min-height:100vh;
+}
+
+header{
+background:#0A2342;
+padding:20px;
+text-align:center;
+}
+
+header h1{
+color:white;
+margin:0;
+}
+
+header span{
+color:#D4A017;
+}
+
+.container{
+max-width:500px;
+margin:60px auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+text-align:center;
+color:#0A2342;
+margin-bottom:20px;
+}
+
+input, select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#D4A017;
+border:none;
+color:#0A2342;
+font-weight:bold;
+border-radius:6px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+.link{
+text-align:center;
+margin-top:15px;
+}
+
+.link a{
+color:#0A2342;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Veri<span>Build</span></h1>
+</header>
+
+<div class="container">
+
+<h2>Create Account</h2>
+
+<!-- NAME -->
+<input type="text" id="name" placeholder="Full Name" required>
+
+<!-- EMAIL -->
+<input type="email" id="email" placeholder="Email" required>
+
+<!-- PASSWORD -->
+<input type="password" id="password" placeholder="Password" required>
+
+<!-- ROLE -->
+<select id="role" required>
+<option value="">Select Account Type</option>
+<option value="homeowner">Homeowner</option>
+<option value="contractor">Contractor</option>
+<option value="supplier">Supplier</option>
+</select>
+
+<button onclick="signup()">
+Create Account
+</button>
+
+<div class="link">
+<p>Already have an account? <a href="login.html">Login</a></p>
+</div>
+
+</div>
+
+<script>
+
+function signup(){
+
+let name = document.getElementById("name").value;
+let email = document.getElementById("email").value;
+let role = document.getElementById("role").value;
+
+if(!name || !email || !role){
+alert("Please fill in all fields");
+return;
+}
+
+// SAVE USER (MVP STORAGE)
+localStorage.setItem("name", name);
+localStorage.setItem("email", email);
+localStorage.setItem("role", role);
+
+// REDIRECT TO DASHBOARD
+window.location.href = role + "-dashboard.html";
+
+}
+
+</script>
+
+</body>
+</html>
