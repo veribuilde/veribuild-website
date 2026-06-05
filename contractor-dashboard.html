@@ -57,6 +57,13 @@
       color: #0A2342;
     }
 
+    .home-button {
+      background: white;
+      color: #0A2342 !important;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
     .back-button {
       background: #D4A017;
       color: #0A2342 !important;
@@ -199,6 +206,7 @@
   <div class="sidebar">
     <div class="logo">Veri<span>Build</span></div>
 
+    <a href="index.html" class="home-button">Home</a>
     <a href="index.html" class="back-button">Back</a>
     <a href="#" class="active">Dashboard</a>
     <a href="#">Available Projects</a>
@@ -330,4 +338,29 @@
     }
 
     function saveProfile() {
-      const contractorName = document.getElementById("contractor
+      const contractorName = document.getElementById("contractorName").value.trim();
+      const companyName = document.getElementById("companyName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const location = document.getElementById("location").value.trim();
+      const trade = document.getElementById("trade").value;
+      const experience = document.getElementById("experience").value;
+      const bio = document.getElementById("bio").value.trim();
+
+      localStorage.setItem("contractorName", contractorName);
+      localStorage.setItem("companyName", companyName);
+      localStorage.setItem("contractorPhone", phone);
+      localStorage.setItem("contractorLocation", location);
+      localStorage.setItem("contractorTrade", trade);
+      localStorage.setItem("contractorExperience", experience);
+      localStorage.setItem("contractorBio", bio);
+
+      if (contractorName) {
+        localStorage.setItem("name", contractorName);
+        document.getElementById("welcomeText").textContent = "Welcome, " + contractorName;
+      }
+
+      alert("Profile saved successfully.");
+    }
+  </script>
+</body>
+</html>
