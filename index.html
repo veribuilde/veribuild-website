@@ -1,358 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>VeriBuild | Verified Contractors. Secure Projects.</title>
+  <title>VeriBuild | Verified Contractors. Secure Projects.</title>
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+    body {
+      background: #f5f7fa;
+      color: #333;
+    }
 
-body{
-    background:#f5f7fa;
-    color:#333;
-}
+    header {
+      background: #0A2342;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-/* HEADER */
+    .logo {
+      color: white;
+      font-size: 32px;
+      font-weight: bold;
+    }
 
-header{
-    background:#0A2342;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
+    .logo span {
+      color: #D4A017;
+    }
 
-.logo{
-    color:white;
-    font-size:32px;
-    font-weight:bold;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+    }
 
-.logo span{
-    color:#D4A017;
-}
+    nav a:hover {
+      color: #D4A017;
+    }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:600;
-}
+    .hero {
+      background: #0A2342;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
 
-nav a:hover{
-    color:#D4A017;
-}
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
 
-/* HERO */
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
 
-.hero{
-    background:#0A2342;
-    color:white;
-    text-align:center;
-    padding:100px 20px;
-}
+    .hero-buttons {
+      margin-top: 40px;
+    }
 
-.hero h1{
-    font-size:3rem;
-    margin-bottom:20px;
-}
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      margin: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-.hero p{
-    max-width:700px;
-    margin:auto;
-    font-size:1.2rem;
-    line-height:1.6;
-}
+    .btn-primary {
+      background: #D4A017;
+      color: #0A2342;
+    }
 
-.hero-buttons{
-    margin-top:40px;
-}
+    .btn-secondary {
+      background: white;
+      color: #0A2342;
+    }
 
-.btn{
-    display:inline-block;
-    padding:14px 28px;
-    margin:10px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-}
+    .features {
+      padding: 80px 8%;
+    }
 
-.btn-primary{
-    background:#D4A017;
-    color:#0A2342;
-}
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
 
-.btn-secondary{
-    background:white;
-    color:#0A2342;
-}
+    .section-title h2 {
+      color: #0A2342;
+      font-size: 2.2rem;
+    }
 
-/* FEATURES */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
 
-.features{
-    padding:80px 8%;
-}
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      border-top: 5px solid #D4A017;
+    }
 
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
+    .feature-card h3 {
+      color: #0A2342;
+      margin-bottom: 15px;
+    }
 
-.section-title h2{
-    color:#0A2342;
-    font-size:2.2rem;
-}
+    .steps {
+      background: white;
+      padding: 80px 8%;
+    }
 
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
 
-.feature-card{
-    background:white;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
-    border-top:5px solid #D4A017;
-}
+    .step {
+      text-align: center;
+      padding: 25px;
+    }
 
-.feature-card h3{
-    color:#0A2342;
-    margin-bottom:15px;
-}
+    .step-number {
+      width: 60px;
+      height: 60px;
+      margin: auto;
+      border-radius: 50%;
+      background: #D4A017;
+      color: #0A2342;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
 
-/* HOW IT WORKS */
+    .cta {
+      background: #0A2342;
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
 
-.steps{
-    background:white;
-    padding:80px 8%;
-}
+    .cta h2 {
+      margin-bottom: 20px;
+    }
 
-.step-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
+    footer {
+      background: #06152b;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
 
-.step{
-    text-align:center;
-    padding:25px;
-}
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+      }
 
-.step-number{
-    width:60px;
-    height:60px;
-    margin:auto;
-    border-radius:50%;
-    background:#D4A017;
-    color:#0A2342;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:20px;
-}
+      nav {
+        margin-top: 20px;
+        text-align: center;
+      }
 
-/* CTA */
+      nav a {
+        display: block;
+        margin: 10px 0;
+      }
 
-.cta{
-    background:#0A2342;
-    color:white;
-    text-align:center;
-    padding:80px 20px;
-}
-
-.cta h2{
-    margin-bottom:20px;
-}
-
-/* FOOTER */
-
-footer{
-    background:#06152b;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-@media(max-width:768px){
-
-header{
-    flex-direction:column;
-}
-
-nav{
-    margin-top:20px;
-}
-
-nav a{
-    display:block;
-    margin:10px 0;
-}
-
-.hero h1{
-    font-size:2.2rem;
-}
-
-}
-
-</style>
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+  <header>
+    <div class="logo">Veri<span>Build</span></div>
 
-<header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="homeowners.html">Homeowners</a>
+      <a href="contractors.html">Contractors</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html" id="loginNav">Login</a>
+      <a href="#" id="dashboardNav" style="display: none;">Dashboard</a>
+    </nav>
+  </header>
 
-<div class="logo">
-Veri<span>Build</span>
-</div>
+  <section class="hero">
+    <h1 id="heroTitle">Verified Contractors. Secure Payments. Better Building.</h1>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="how-it-works.html">How It Works</a>
-<a href="homeowners.html">Homeowners</a>
-<a href="contractors.html">Contractors</a>
-<a href="contact.html">Contact</a>
-<a href="login.html">Login</a>
-</nav>
+    <p id="heroText">
+      VeriBuild helps South African homeowners connect with verified contractors,
+      compare quotes, securely manage projects, and reduce construction risk.
+    </p>
 
-</header>
+    <div class="hero-buttons">
+      <a href="post-project.html" class="btn btn-primary">
+        Post a Project
+      </a>
 
-<section class="hero">
+      <a href="contractor-signup.html" class="btn btn-secondary">
+        Join as Contractor
+      </a>
 
-<h1>Verified Contractors. Secure Payments. Better Building.</h1>
+      <a href="login.html" class="btn btn-secondary" id="loginButton">
+        Login
+      </a>
 
-<p>
-VeriBuild helps South African homeowners connect with verified contractors,
-compare quotes, securely manage projects, and reduce construction risk.
-</p>
+      <a href="#" class="btn btn-secondary" id="dashboardButton" style="display: none;">
+        Go to Dashboard
+      </a>
+    </div>
+  </section>
 
-<div class="hero-buttons">
+  <section class="features">
+    <div class="section-title">
+      <h2>Why Choose VeriBuild?</h2>
+    </div>
 
-<a href="post-project.html" class="btn btn-primary">
-Post a Project
-</a>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Verified Contractors</h3>
+        <p>
+          Contractors undergo document and business verification before accessing larger projects.
+        </p>
+      </div>
 
-<a href="contractor-signup.html" class="btn btn-secondary">
-Join as Contractor
-</a>
+      <div class="feature-card">
+        <h3>Compare Multiple Quotes</h3>
+        <p>
+          Receive and compare contractor quotes to find the right fit for your project.
+        </p>
+      </div>
 
-<a href="login.html" class="btn btn-secondary">
-Login
-</a>
+      <div class="feature-card">
+        <h3>Project Tracking</h3>
+        <p>
+          Monitor progress, milestones and project activity from one dashboard.
+        </p>
+      </div>
 
-</div>
+      <div class="feature-card">
+        <h3>Secure Payments</h3>
+        <p>
+          Future escrow-style payment protection helps keep funds secure throughout construction.
+        </p>
+      </div>
+    </div>
+  </section>
 
-</section>
+  <section class="steps">
+    <div class="section-title">
+      <h2>How It Works</h2>
+    </div>
 
-<section class="features">
+    <div class="step-grid">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Post Your Project</h3>
+        <p>Describe your renovation, extension, repair or new build.</p>
+      </div>
 
-<div class="section-title">
-<h2>Why Choose VeriBuild?</h2>
-</div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Receive Quotes</h3>
+        <p>Verified contractors review your project and submit quotations.</p>
+      </div>
 
-<div class="feature-grid">
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Select a Contractor</h3>
+        <p>Compare pricing, reviews and qualifications before choosing.</p>
+      </div>
 
-<div class="feature-card">
-<h3>Verified Contractors</h3>
-<p>
-Contractors undergo document and business verification before accessing larger projects.
-</p>
-</div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Track Progress</h3>
+        <p>Manage milestones, documents and communication online.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="feature-card">
-<h3>Compare Multiple Quotes</h3>
-<p>
-Receive and compare contractor quotes to find the right fit for your project.
-</p>
-</div>
+  <section class="cta">
+    <h2>Ready to Start Building?</h2>
 
-<div class="feature-card">
-<h3>Project Tracking</h3>
-<p>
-Monitor progress, milestones and project activity from one dashboard.
-</p>
-</div>
+    <p>
+      Whether you're renovating a bathroom or building a new home,
+      VeriBuild helps you find trusted professionals.
+    </p>
 
-<div class="feature-card">
-<h3>Secure Payments</h3>
-<p>
-Future escrow-style payment protection helps keep funds secure throughout construction.
-</p>
-</div>
+    <br />
 
-</div>
+    <a href="post-project.html" class="btn btn-primary">
+      Post Your Project
+    </a>
 
-</section>
+    <a href="#" class="btn btn-secondary" id="ctaDashboardButton" style="display: none;">
+      Go to Dashboard
+    </a>
+  </section>
 
-<section class="steps">
+  <footer>
+    <p>&copy; 2026 VeriBuild. All Rights Reserved.</p>
+  </footer>
 
-<div class="section-title">
-<h2>How It Works</h2>
-</div>
+  <script>
+    const role = localStorage.getItem("role");
+    const name = localStorage.getItem("name");
 
-<div class="step-grid">
+    const dashboards = {
+      homeowner: "homeowner-dashboard.html",
+      contractor: "contractor-dashboard.html",
+      supplier: "supplier-dashboard.html",
+      admin: "admin-dashboard.html"
+    };
 
-<div class="step">
-<div class="step-number">1</div>
-<h3>Post Your Project</h3>
-<p>Describe your renovation, extension, repair or new build.</p>
-</div>
+    const dashboardLink = dashboards[role];
 
-<div class="step">
-<div class="step-number">2</div>
-<h3>Receive Quotes</h3>
-<p>Verified contractors review your project and submit quotations.</p>
-</div>
+    if (dashboardLink) {
+      document.getElementById("loginNav").style.display = "none";
 
-<div class="step">
-<div class="step-number">3</div>
-<h3>Select a Contractor</h3>
-<p>Compare pricing, reviews and qualifications before choosing.</p>
-</div>
+      document.getElementById("dashboardNav").style.display = "inline-block";
+      document.getElementById("dashboardNav").href = dashboardLink;
 
-<div class="step">
-<div class="step-number">4</div>
-<h3>Track Progress</h3>
-<p>Manage milestones, documents and communication online.</p>
-</div>
+      document.getElementById("loginButton").style.display = "none";
 
-</div>
+      document.getElementById("dashboardButton").style.display = "inline-block";
+      document.getElementById("dashboardButton").href = dashboardLink;
 
-</section>
+      document.getElementById("ctaDashboardButton").style.display = "inline-block";
+      document.getElementById("ctaDashboardButton").href = dashboardLink;
 
-<section class="cta">
+      if (name) {
+        document.getElementById("heroTitle").textContent = "Welcome back, " + name;
+      } else {
+        document.getElementById("heroTitle").textContent = "Welcome back to VeriBuild";
+      }
 
-<h2>Ready to Start Building?</h2>
+      if (role === "homeowner") {
+        document.getElementById("heroText").textContent =
+          "Go to your homeowner dashboard to manage projects, quotes, payments, and messages.";
+      }
 
-<p>
-Whether you're renovating a bathroom or building a new home,
-VeriBuild helps you find trusted professionals.
-</p>
+      if (role === "contractor") {
+        document.getElementById("heroText").textContent =
+          "Go to your contractor dashboard to view projects, submit quotes, manage jobs, and update your profile.";
+      }
 
-<br>
+      if (role === "supplier") {
+        document.getElementById("heroText").textContent =
+          "Go to your supplier dashboard to manage orders, quotes, inventory, messages, and analytics.";
+      }
 
-<a href="post-project.html" class="btn btn-primary">
-Post Your Project
-</a>
-
-</section>
-
-<footer>
-
-<p>© 2026 VeriBuild. All Rights Reserved.</p>
-
-</footer>
-
+      if (role === "admin") {
+        document.getElementById("heroText").textContent =
+          "Go to the admin dashboard to manage users, projects, quotes, verification requests, and statistics.";
+      }
+    }
+  </script>
 </body>
 </html>
