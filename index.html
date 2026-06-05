@@ -78,6 +78,8 @@
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
+      border: none;
+      cursor: pointer;
     }
 
     .btn-primary {
@@ -205,8 +207,8 @@
       <a href="homeowners.html">Homeowners</a>
       <a href="contractors.html">Contractors</a>
       <a href="contact.html">Contact</a>
-      <a href="login.html" id="loginNav">Login</a>
-      <a href="#" id="dashboardNav" style="display: none;">Dashboard</a>
+      <a href="login.html">Login</a>
+      <a href="#" onclick="goToDashboard()">Dashboard</a>
     </nav>
   </header>
 
@@ -227,13 +229,13 @@
         Join as Contractor
       </a>
 
-      <a href="login.html" class="btn btn-secondary" id="loginButton">
+      <a href="login.html" class="btn btn-secondary">
         Login
       </a>
 
-      <a href="#" class="btn btn-secondary" id="dashboardButton" style="display: none;">
+      <button class="btn btn-secondary" onclick="goToDashboard()">
         Go to Dashboard
-      </a>
+      </button>
     </div>
   </section>
 
@@ -319,9 +321,9 @@
       Post Your Project
     </a>
 
-    <a href="#" class="btn btn-secondary" id="ctaDashboardButton" style="display: none;">
+    <button class="btn btn-secondary" onclick="goToDashboard()">
       Go to Dashboard
-    </a>
+    </button>
   </section>
 
   <footer>
@@ -339,21 +341,23 @@
       admin: "admin-dashboard.html"
     };
 
-    const dashboardLink = dashboards[role];
+    function goToDashboard() {
+      const currentRole = localStorage.getItem("role");
+      const dashboardLink = dashboards[currentRole];
 
-    if (dashboardLink) {
-      document.getElementById("loginNav").style.display = "none";
+      if (!currentRole || !dashboardLink) {
+        alert("Please login or sign up first to access your dashboard.");
+        window.location.href = "login.html";
+        return;
+      }
 
-      document.getElementById("dashboardNav").style.display = "inline-block";
-      document.getElementById("dashboardNav").href = dashboardLink;
+      window.location.href = dashboardLink;
+    }
 
-      document.getElementById("loginButton").style.display = "none";
-
-      document.getElementById("dashboardButton").style.display = "inline-block";
-      document.getElementById("dashboardButton").href = dashboardLink;
-
-      document.getElementById("ctaDashboardButton").style.display = "inline-block";
-      document.getElementById("ctaDashboardButton").href = dashboardLink;
+    function updateHomePageForUser() {
+      if (!role || !dashboards[role]) {
+        return;
+      }
 
       if (name) {
         document.getElementById("heroTitle").textContent = "Welcome back, " + name;
@@ -381,6 +385,8 @@
           "Go to the admin dashboard to manage users, projects, quotes, verification requests, and statistics.";
       }
     }
+
+    updateHomePageForUser();
   </script>
 </body>
 </html>
