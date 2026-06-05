@@ -1,291 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login | VeriBuild</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | VeriBuild</title>
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+    body {
+      min-height: 100vh;
+      background: #f4f6f9;
+      color: #0A2342;
+    }
 
-body{
-background:#f4f6f9;
-min-height:100vh;
-}
+    header {
+      background: #0A2342;
+      padding: 18px 24px;
+    }
 
-header{
-background:#0A2342;
-padding:20px;
-text-align:center;
-}
+    .header-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-header h1{
-color:white;
-}
+    .logo {
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-header span{
-color:#D4A017;
-}
+    .logo span {
+      color: #D4A017;
+    }
 
-.container{
-max-width:500px;
-margin:60px auto;
-background:white;
-padding:35px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    .home-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      background: #D4A017;
+      color: #0A2342;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: opacity 0.2s ease;
+    }
 
-h2{
-text-align:center;
-color:#0A2342;
-margin-bottom:20px;
-}
+    .home-btn:hover {
+      opacity: 0.9;
+    }
 
-input,
-select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:6px;
-}
+    main {
+      width: 100%;
+      padding: 60px 20px;
+    }
 
-button{
-width:100%;
-padding:14px;
-background:#D4A017;
-border:none;
-border-radius:6px;
-font-weight:bold;
-color:#0A2342;
-cursor:pointer;
-}
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
 
-button:hover{
-opacity:0.9;
-}
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0A2342;
+    }
 
-.link{
-text-align:center;
-margin-top:20px;
-}
+    .notice {
+      background: #f8f8f8;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
 
-.link a{
-color:#0A2342;
-font-weight:bold;
-text-decoration:none;
-}
+    input,
+    select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
 
-.notice{
-background:#f8f8f8;
-padding:10px;
-border-radius:6px;
-margin-bottom:15px;
-font-size:14px;
-color:#666;
-}
+    input:focus,
+    select:focus {
+      outline: none;
+      border-color: #D4A017;
+    }
 
-</style>
+    .login-btn {
+      width: 100%;
+      padding: 14px;
+      background: #D4A017;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #0A2342;
+      cursor: pointer;
+      font-size: 16px;
+      transition: opacity 0.2s ease;
+    }
+
+    .login-btn:hover {
+      opacity: 0.9;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    .link a {
+      color: #0A2342;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .header-content {
+        flex-direction: column;
+      }
+
+      .container {
+        padding: 28px 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-<h1>Veri<span>Build</span></h1>
-</header>
-
-<div class="container">
-
-<h2>Login</h2>
-
-<div class="notice">
-Login to access your VeriBuild account.
-</div>
-
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-required
->
-
-<input
-type="password"
-id="password"
-placeholder="Password"
-required
->
-
-<select id="role" required>
-<option value="">Select Account Type</option>
-<option value="homeowner">Homeowner</option>
-<option value="contractor">Contractor</option>
-<option value="supplier">Supplier</option>
-</select>
-
-<button onclick="login()">
-Login
-</button>
-
-<div class="link">
-<p>
-No account?
-<a href="signup.html">Create one</a>
-</p>
-</div>
-
-</div>
-
-<script>
-
-function login(){
-
-let email =
-document.getElementById("email")
-.value
-.toLowerCase()
-.trim();
-
-let password =
-document.getElementById("password")
-.value;
-
-let role =
-document.getElementById("role")
-.value;
-
-// Validation
-
-if(!email || !password || !role){
-
-alert("Please fill in all fields.");
-return;
-
-}
-
-// Admin emails
-
-const adminEmails = [
-
-"amsdarl0w@gmail.com"
-
-];
-
-// Get saved account
-
-let savedEmail =
-localStorage.getItem("email");
-
-let savedPassword =
-localStorage.getItem("password");
-
-let savedName =
-localStorage.getItem("name");
-
-// Check account exists
-
-if(email !== savedEmail){
-
-alert("User not found. Please sign up first.");
-return;
-
-}
-
-// Check password
-
-if(password !== savedPassword){
-
-alert("Incorrect password.");
-return;
-
-}
-
-// Save session
-
-localStorage.setItem(
-"email",
-savedEmail
-);
-
-localStorage.setItem(
-"name",
-savedName
-);
-
-// ADMIN LOGIN
-
-if(adminEmails.includes(email)){
-
-localStorage.setItem(
-"role",
-"admin"
-);
-
-window.location.href =
-"admin-dashboard.html";
-
-return;
-
-}
-
-// HOMEOWNER
-
-if(role === "homeowner"){
-
-localStorage.setItem(
-"role",
-"homeowner"
-);
-
-window.location.href =
-"homeowner-dashboard.html";
-
-return;
-
-}
-
-// CONTRACTOR
-
-if(role === "contractor"){
-
-localStorage.setItem(
-"role",
-"contractor"
-);
-
-window.location.href =
-"contractor-dashboard.html";
-
-return;
-
-}
-
-// SUPPLIER
-
-if(role === "supplier"){
-
-localStorage.setItem(
-"role",
-"supplier"
-);
-
-window.location.href =
-"supplier-dashboard.html";
-
-return;
-
-}
-
-}
-
-</script>
-
+  <header>
+    <div class="header-content">
+      <div class="logo">Veri<span>Build</span></div>
+      <a href="index.html" class="home-btn">Home</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2>Login</h2>
+
+      <div class="notice">
+        Login to access your VeriBuild account.
+      </div>
+
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="password" id="password" placeholder="Password" required />
+
+      <select id="role" required>
+        <option value="">Select Account Type</option>
+        <option value="homeowner">Homeowner</option>
+        <option value="contractor">Contractor</option>
+        <option value="supplier">Supplier</option>
+      </select>
+
+      <button class="login-btn" onclick="login()">Login</button>
+
+      <div class="link">
+        <p>No account? <a href="signup.html">Create one</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value.toLowerCase().trim();
+      const password = document.getElementById("password").value;
+      const role = document.getElementById("role").value;
+
+      if (!email || !password || !role) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      const adminEmails = ["amsdarl0w@gmail.com"];
+
+      const savedEmail = localStorage.getItem("email");
+      const savedPassword = localStorage.getItem("password");
+      const savedName = localStorage.getItem("name");
+
+      if (email !== savedEmail) {
+        alert("User not found. Please sign up first.");
+        return;
+      }
+
+      if (password !== savedPassword) {
+        alert("Incorrect password.");
+        return;
+      }
+
+      localStorage.setItem("email", savedEmail);
+      localStorage.setItem("name", savedName);
+
+      if (adminEmails.includes(email)) {
+        localStorage.setItem("role", "admin");
+        window.location.href = "admin-dashboard.html";
+        return;
+      }
+
+      localStorage.setItem("role", role);
+
+      const dashboards = {
+        homeowner: "homeowner-dashboard.html",
+        contractor: "contractor-dashboard.html",
+        supplier: "supplier-dashboard.html"
+      };
+
+      window.location.href = dashboards[role];
+    }
+  </script>
 </body>
 </html>
