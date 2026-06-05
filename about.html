@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About VeriBuild</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#FFFFFF;
+    color:#333;
+}
+
+/* HEADER */
+
+header{
+    background:#0A2342;
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#D4A017;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#D4A017;
+}
+
+/* HERO */
+
+.hero{
+    background:#0A2342;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+    font-size:1.1rem;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    color:#0A2342;
+    margin-bottom:50px;
+    font-size:2.2rem;
+}
+
+.content{
+    max-width:1000px;
+    margin:auto;
+    line-height:1.9;
+    font-size:1.05rem;
+}
+
+.content p{
+    margin-bottom:25px;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.card{
+    background:#F5F7FA;
+    padding:30px;
+    border-radius:10px;
+    border-top:5px solid #D4A017;
+}
+
+.card h3{
+    color:#0A2342;
+    margin-bottom:15px;
+}
+
+/* CTA */
+
+.cta{
+    background:#0A2342;
+    color:white;
+    text-align:center;
+    padding:80px 20px;
+}
+
+.cta h2{
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    background:#D4A017;
+    color:#0A2342;
+    padding:14px 28px;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+    background:#081A33;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header{
+        flex-direction:column;
+    }
+
+    nav{
+        margin-top:15px;
+    }
+
+    nav a{
+        display:block;
+        margin:10px 0;
+        text-align:center;
+    }
+
+    .hero h1{
+        font-size:2.2rem;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="logo">
+Veri<span>Build</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="homeowners.html">Homeowners</a>
+<a href="contractors.html">Contractors</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>About VeriBuild</h1>
+
+<p>
+Building trust, transparency, and confidence in the South African construction industry.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">Who We Are</h2>
+
+<div class="content">
+
+<p>
+VeriBuild was created to make it easier for homeowners to find reliable contractors and complete building projects with confidence. We believe that every homeowner deserves access to trustworthy professionals without having to rely solely on social media recommendations or word-of-mouth referrals.
+</p>
+
+<p>
+Our platform connects homeowners with verified contractors, helping reduce the risks of fraud, poor workmanship, and project delays. By creating a transparent marketplace, we aim to improve trust between homeowners, contractors, and suppliers.
+</p>
+
+</div>
+
+</section>
+
+<section class="section" style="background:#F5F7FA;">
+
+<h2 class="section-title">Our Mission</h2>
+
+<div class="content">
+
+<p>
+Our mission is to transform the construction experience in South Africa by creating a trusted platform where homeowners can find qualified contractors, compare quotes, and manage projects with greater confidence and transparency.
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">What Makes VeriBuild Different?</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Verification First</h3>
+<p>
+We focus on contractor verification to help homeowners make informed decisions.
+</p>
+</div>
+
+<div class="card">
+<h3>Transparency</h3>
+<p>
+Homeowners can compare contractors and access project information in one place.
+</p>
+</div>
+
+<div class="card">
+<h3>Trust & Accountability</h3>
+<p>
+Reviews, ratings, and verification help create a more reliable construction marketplace.
+</p>
+</div>
+
+<div class="card">
+<h3>South African Focus</h3>
+<p>
+Built specifically with South African homeowners, contractors, and suppliers in mind.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Ready to Build with Confidence?</h2>
+
+<a href="post-project.html" class="btn">Post a Project</a>
+
+</section>
+
+<footer>
+
+<p>© 2026 VeriBuild. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>
