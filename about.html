@@ -3,286 +3,327 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>About VeriBuild</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+:root{
+--navy:#102A43;
+--mustard:#E8B231;
+--light:#F5F7FA;
+--gray:#6B7280;
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
 body{
-    background:#FFFFFF;
-    color:#333;
+line-height:1.7;
+color:#222;
 }
 
-/* HEADER */
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
 
-header{
-    background:#0A2342;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.navbar{
+position:sticky;
+top:0;
+background:white;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
 }
 
 .logo{
-    color:white;
-    font-size:30px;
-    font-weight:bold;
+font-size:2rem;
+font-weight:800;
+color:var(--navy);
 }
 
 .logo span{
-    color:#D4A017;
+color:var(--mustard);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:bold;
+.nav-links{
+display:flex;
+gap:25px;
 }
 
-nav a:hover{
-    color:#D4A017;
+.nav-links a{
+text-decoration:none;
+font-weight:600;
+color:var(--navy);
 }
-
-/* HERO */
 
 .hero{
-    background:#0A2342;
-    color:white;
-    text-align:center;
-    padding:100px 20px;
+background:linear-gradient(135deg,#102A43,#1c476f);
+color:white;
+padding:100px 0;
+text-align:center;
 }
 
 .hero h1{
-    font-size:3rem;
-    margin-bottom:20px;
+font-size:3.5rem;
+margin-bottom:20px;
 }
 
 .hero p{
-    max-width:800px;
-    margin:auto;
-    line-height:1.8;
-    font-size:1.1rem;
+max-width:800px;
+margin:auto;
+font-size:1.1rem;
 }
 
-/* SECTIONS */
-
-.section{
-    padding:80px 8%;
+section{
+padding:80px 0;
 }
 
 .section-title{
-    text-align:center;
-    color:#0A2342;
-    margin-bottom:50px;
-    font-size:2.2rem;
+text-align:center;
+margin-bottom:50px;
 }
 
-.content{
-    max-width:1000px;
-    margin:auto;
-    line-height:1.9;
-    font-size:1.05rem;
+.section-title h2{
+color:var(--navy);
+font-size:2.5rem;
 }
-
-.content p{
-    margin-bottom:25px;
-}
-
-/* CARDS */
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    margin-top:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .card{
-    background:#F5F7FA;
-    padding:30px;
-    border-radius:10px;
-    border-top:5px solid #D4A017;
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.card h3{
-    color:#0A2342;
-    margin-bottom:15px;
+.card i{
+font-size:2rem;
+color:var(--mustard);
+margin-bottom:15px;
 }
 
-/* CTA */
-
-.cta{
-    background:#0A2342;
-    color:white;
-    text-align:center;
-    padding:80px 20px;
+.highlight{
+background:var(--light);
 }
 
-.cta h2{
-    margin-bottom:20px;
+.footer{
+background:#0b1f33;
+color:white;
+text-align:center;
+padding:60px 0;
 }
-
-.btn{
-    display:inline-block;
-    background:#D4A017;
-    color:#0A2342;
-    padding:14px 28px;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-
-/* FOOTER */
-
-footer{
-    background:#081A33;
-    color:white;
-    text-align:center;
-    padding:25px;
-}
-
-/* MOBILE */
 
 @media(max-width:768px){
 
-    header{
-        flex-direction:column;
-    }
+.nav-content{
+flex-direction:column;
+gap:15px;
+}
 
-    nav{
-        margin-top:15px;
-    }
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
 
-    nav a{
-        display:block;
-        margin:10px 0;
-        text-align:center;
-    }
+.hero h1{
+font-size:2.5rem;
+}
 
-    .hero h1{
-        font-size:2.2rem;
-    }
 }
 
 </style>
 </head>
+
 <body>
 
-<header>
+<nav class="navbar">
+
+<div class="container nav-content">
 
 <div class="logo">
 Veri<span>Build</span>
 </div>
 
-<nav>
+<div class="nav-links">
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="how-it-works.html">How It Works</a>
 <a href="homeowners.html">Homeowners</a>
 <a href="contractors.html">Contractors</a>
 <a href="contact.html">Contact</a>
+<a href="login.html">Login</a>
+<a href="signup.html">Sign Up</a>
+</div>
+
+</div>
+
 </nav>
 
-</header>
-
 <section class="hero">
+
+<div class="container">
 
 <h1>About VeriBuild</h1>
 
 <p>
-Building trust, transparency, and confidence in the South African construction industry.
+VeriBuild was created to bring trust, transparency and accountability to residential construction projects. Through contractor verification, secure escrow management and milestone-based project oversight, we help homeowners, contractors and merchants work together with confidence.
 </p>
+
+</div>
 
 </section>
+<section>
 
-<section class="section">
+<div class="container">
 
-<h2 class="section-title">Who We Are</h2>
+<div class="section-title">
+<h2>Our Mission</h2>
+</div>
 
-<div class="content">
-
-<p>
-VeriBuild was created to make it easier for homeowners to find reliable contractors and complete building projects with confidence. We believe that every homeowner deserves access to trustworthy professionals without having to rely solely on social media recommendations or word-of-mouth referrals.
-</p>
-
-<p>
-Our platform connects homeowners with verified contractors, helping reduce the risks of fraud, poor workmanship, and project delays. By creating a transparent marketplace, we aim to improve trust between homeowners, contractors, and suppliers.
+<p style="text-align:center;max-width:900px;margin:auto;">
+Our mission is to eliminate uncertainty in residential construction by creating a secure digital environment where projects are properly managed, payments are protected, and every stakeholder operates with transparency and accountability.
 </p>
 
 </div>
 
 </section>
 
-<section class="section" style="background:#F5F7FA;">
+<section class="highlight">
 
-<h2 class="section-title">Our Mission</h2>
+<div class="container">
 
-<div class="content">
-
-<p>
-Our mission is to transform the construction experience in South Africa by creating a trusted platform where homeowners can find qualified contractors, compare quotes, and manage projects with greater confidence and transparency.
-</p>
-
+<div class="section-title">
+<h2>What Makes VeriBuild Different</h2>
 </div>
-
-</section>
-
-<section class="section">
-
-<h2 class="section-title">What Makes VeriBuild Different?</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>Verification First</h3>
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Escrow Protection</h3>
 <p>
-We focus on contractor verification to help homeowners make informed decisions.
+Project funds remain secure and are only released when approved milestones are completed.
 </p>
 </div>
 
 <div class="card">
-<h3>Transparency</h3>
+<i class="fa-solid fa-user-check"></i>
+<h3>Verified Contractors</h3>
 <p>
-Homeowners can compare contractors and access project information in one place.
+Contractors undergo verification processes to help maintain professional standards across the platform.
 </p>
 </div>
 
 <div class="card">
-<h3>Trust & Accountability</h3>
+<i class="fa-solid fa-list-check"></i>
+<h3>Project Governance</h3>
 <p>
-Reviews, ratings, and verification help create a more reliable construction marketplace.
+Every project follows a structured process with milestone tracking and documented approvals.
 </p>
 </div>
 
-<div class="card">
-<h3>South African Focus</h3>
-<p>
-Built specifically with South African homeowners, contractors, and suppliers in mind.
-</p>
 </div>
 
 </div>
 
 </section>
 
-<section class="cta">
+<section>
 
-<h2>Ready to Build with Confidence?</h2>
+<div class="container">
 
-<a href="post-project.html" class="btn">Post a Project</a>
+<div class="section-title">
+<h2>Who We Serve</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-house"></i>
+<h3>Homeowners</h3>
+<p>
+Gain visibility into every stage of your project while keeping your funds protected.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-helmet-safety"></i>
+<h3>Contractors</h3>
+<p>
+Access structured projects, transparent milestones and dependable payment processes.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-truck-ramp-box"></i>
+<h3>Merchants</h3>
+<p>
+Participate in material procurement workflows with secure payment settlement.
+</p>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
-<footer>
+<section class="highlight">
 
-<p>© 2026 VeriBuild. All Rights Reserved.</p>
+<div class="container">
+
+<div class="section-title">
+<h2>Our Vision</h2>
+</div>
+
+<p style="text-align:center;max-width:900px;margin:auto;">
+We envision a construction industry where trust is built into every transaction. By combining technology, financial governance and project oversight, VeriBuild aims to become the standard platform for secure residential construction projects throughout South Africa.
+</p>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
+<h2>VeriBuild</h2>
+
+<p style="margin:20px 0;">
+Verified Contractors. Protected Payments. Transparent Projects.
+</p>
+
+<p>
+© 2026 VeriBuild. All Rights Reserved.
+</p>
+
+</div>
 
 </footer>
 
