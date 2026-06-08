@@ -168,15 +168,10 @@ Veri<span>Build</span>
 
 <div class="profile-area">
 
-<img
-id="profilePicture"
-class="profile-pic"
-src="https://via.placeholder.com/60">
+<img id="profilePicture" class="profile-pic" src="https://via.placeholder.com/60">
 
 <div>
-<strong id="welcomeUser">
-Contractor
-</strong>
+<strong id="welcomeUser">Contractor</strong>
 </div>
 
 </div>
@@ -187,17 +182,13 @@ Contractor
 
 <div class="welcome">
 
-<h1 id="welcomeMessage">
-Welcome, Contractor
-</h1>
+<h1 id="welcomeMessage">Welcome, Contractor</h1>
 
 <p>
 Manage quotes, jobs, project progress and your contractor profile.
 </p>
 
-<a href="index.html" class="back-btn">
-Back To Homepage
-</a>
+<a href="index.html" class="back-btn">Back To Homepage</a>
 
 </div>
 
@@ -253,43 +244,28 @@ Back To Homepage
 
 </div>
 
-<div
-id="contentPanel"
-class="content-panel">
+<div id="contentPanel" class="content-panel">
 
 <div class="empty-state">
-
-<h2>
-Select an option above
-</h2>
-
-<p>
-Your contractor tools will appear here.
-</p>
-
+<h2>Select an option above</h2>
+<p>Your contractor tools will appear here.</p>
 </div>
 
 </div>
+
 <script>
 
 const user =
 JSON.parse(localStorage.getItem("veribuildUser"));
 
 if(!user){
-
-window.location.href =
-"login.html";
-
+window.location.href = "login.html";
 }
 
 const userName =
-user.name ||
-user.fullName ||
-user.username ||
-"Contractor";
+user.name || user.fullName || user.username || "Contractor";
 
-document.getElementById("welcomeUser").innerText =
-userName;
+document.getElementById("welcomeUser").innerText = userName;
 
 document.getElementById("welcomeMessage").innerText =
 `Welcome, ${userName}`;
@@ -298,240 +274,154 @@ const savedPicture =
 localStorage.getItem("profilePicture");
 
 if(savedPicture){
-
-document.getElementById("profilePicture").src =
-savedPicture;
-
+document.getElementById("profilePicture").src = savedPicture;
 }
-
 function showSection(section){
 
-const panel =
-document.getElementById("contentPanel");
+const panel = document.getElementById("contentPanel");
 
 if(section === "projects"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Available Projects</h2>
 <p>No projects available yet.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "quote"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Give Quote</h2>
 <p>No projects available to quote on yet.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "myquotes"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>My Quotes</h2>
 <p>You have submitted 0 quotes.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "jobs"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Accepted Jobs</h2>
 <p>You currently have 0 accepted jobs.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "completed"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Completed Projects</h2>
 <p>You have completed 0 projects.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "messages"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Messages</h2>
 <p>You have 0 messages.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "settings"){
-
 panel.innerHTML = `
-
-<h2 style="margin-bottom:20px;">
-Profile Settings
-</h2>
+<h2 style="margin-bottom:20px;">Profile Settings</h2>
 
 <label>Change Name</label>
-<input
-type="text"
-id="newName"
-placeholder="Enter new name">
-
-<button
-class="btn"
-onclick="saveName()">
-Save Name
-</button>
+<input type="text" id="newName" placeholder="Enter new name">
+<button class="btn" onclick="saveName()">Save Name</button>
 
 <br><br>
 
 <label>Change Email</label>
-<input
-type="email"
-id="newEmail"
-placeholder="Enter new email">
-
-<button
-class="btn"
-onclick="saveEmail()">
-Save Email
-</button>
+<input type="email" id="newEmail" placeholder="Enter new email">
+<button class="btn" onclick="saveEmail()">Save Email</button>
 
 <br><br>
 
 <label>Change Password</label>
-<input
-type="password"
-id="newPassword"
-placeholder="Enter new password">
-
-<button
-class="btn"
-onclick="savePassword()">
-Save Password
-</button>
+<input type="password" id="newPassword" placeholder="Enter new password">
+<button class="btn" onclick="savePassword()">Save Password</button>
 
 <br><br>
 
 <label>Upload Profile Picture</label>
-
-<input
-type="file"
-accept="image/*"
-onchange="uploadProfilePicture(event)">
-
+<input type="file" accept="image/*" onchange="uploadProfilePicture(event)">
 `;
-
 }
 
 }
 
 function saveName(){
 
-const name =
-document.getElementById("newName").value;
-
+const name = document.getElementById("newName").value;
 if(!name) return;
 
 user.name = name;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
-document.getElementById("welcomeUser").innerText =
-name;
-
-document.getElementById("welcomeMessage").innerText =
-`Welcome, ${name}`;
+document.getElementById("welcomeUser").innerText = name;
+document.getElementById("welcomeMessage").innerText = `Welcome, ${name}`;
 
 alert("Name updated successfully.");
-
 }
 
 function saveEmail(){
 
-const email =
-document.getElementById("newEmail").value;
-
+const email = document.getElementById("newEmail").value;
 if(!email) return;
 
 user.email = email;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
 alert("Email updated successfully.");
-
 }
 
 function savePassword(){
 
-const password =
-document.getElementById("newPassword").value;
-
+const password = document.getElementById("newPassword").value;
 if(!password) return;
 
 user.password = password;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
 alert("Password updated successfully.");
-
 }
 
 function uploadProfilePicture(event){
 
-const file =
-event.target.files[0];
-
+const file = event.target.files[0];
 if(!file) return;
 
-const reader =
-new FileReader();
+const reader = new FileReader();
 
 reader.onload = function(e){
 
-localStorage.setItem(
-"profilePicture",
-e.target.result
-);
+localStorage.setItem("profilePicture", e.target.result);
 
-document.getElementById("profilePicture").src =
-e.target.result;
+document.getElementById("profilePicture").src = e.target.result;
 
 alert("Profile picture updated.");
 
 };
 
 reader.readAsDataURL(file);
-
 }
 
+/* ✅ FIXED LOGOUT FUNCTION */
 function logoutUser(){
 
 localStorage.removeItem("veribuildUser");
 
-window.location.href =
-"login.html";
+window.location.href = "index.html";
 
 }
 
