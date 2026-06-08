@@ -3,84 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sign Up | VeriBuild</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+:root{
+    --navy:#102A43;
+    --mustard:#E8B231;
+    --white:#ffffff;
+    --light:#f5f7fa;
+    --gray:#6b7280;
+}
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
 }
 
 body{
-background:#f4f6f9;
-min-height:100vh;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#102A43,#1f4a72);
+    padding:20px;
 }
 
-header{
-background:#0A2342;
-padding:20px;
-text-align:center;
+.signup-card{
+    width:100%;
+    max-width:600px;
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
 }
 
-header h1{
-color:white;
-margin:0;
+.logo{
+    text-align:center;
+    font-size:2rem;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:10px;
 }
 
-header span{
-color:#D4A017;
+.logo span{
+    color:var(--mustard);
 }
 
-.container{
-max-width:500px;
-margin:60px auto;
-background:white;
-padding:30px;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
+.subtitle{
+    text-align:center;
+    color:var(--gray);
+    margin-bottom:30px;
 }
 
-h2{
-text-align:center;
-color:#0A2342;
-margin-bottom:20px;
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+    color:var(--navy);
 }
 
 input, select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ccc;
-border-radius:6px;
+    width:100%;
+    padding:14px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:1rem;
 }
 
-button{
-width:100%;
-padding:12px;
-background:#D4A017;
-border:none;
-color:#0A2342;
-font-weight:bold;
-border-radius:6px;
-cursor:pointer;
+input:focus,
+select:focus{
+    outline:none;
+    border-color:var(--mustard);
 }
 
-button:hover{
-opacity:0.9;
+.signup-btn{
+    width:100%;
+    border:none;
+    background:var(--mustard);
+    padding:15px;
+    border-radius:10px;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
 }
 
-.link{
-text-align:center;
-margin-top:15px;
+.success{
+    display:none;
+    background:#e8f5e9;
+    color:#2e7d32;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
 }
 
-.link a{
-color:#0A2342;
-text-decoration:none;
-font-weight:bold;
+.error{
+    display:none;
+    background:#ffebee;
+    color:#c62828;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.links{
+    text-align:center;
+    margin-top:20px;
+}
+
+.links a{
+    text-decoration:none;
+    color:var(--navy);
+    font-weight:600;
+}
+
+@media(max-width:768px){
+
+.row{
+    grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -88,63 +150,175 @@ font-weight:bold;
 
 <body>
 
-<header>
-<h1>Veri<span>Build</span></h1>
-</header>
+<div class="signup-card">
 
-<div class="container">
+<div class="logo">
+Veri<span>Build</span>
+</div>
 
-<h2>Create Account</h2>
+<p class="subtitle">
+Create Your VeriBuild Account
+</p>
 
-<!-- NAME -->
-<input type="text" id="name" placeholder="Full Name" required>
+<div id="successMessage" class="success">
+Account created successfully. Redirecting to login...
+</div>
 
-<!-- EMAIL -->
-<input type="email" id="email" placeholder="Email" required>
+<div id="errorMessage" class="error">
+Please complete all required fields.
+</div>
 
-<!-- PASSWORD -->
-<input type="password" id="password" placeholder="Password" required>
+<form id="signupForm">
 
-<!-- ROLE -->
+<div class="row">
+
+<div class="input-group">
+<label>First Name</label>
+<input type="text" id="firstName" required>
+</div>
+
+<div class="input-group">
+<label>Last Name</label>
+<input type="text" id="lastName" required>
+</div>
+
+</div>
+
+<div class="input-group">
+<label>Email Address</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="input-group">
+<label>Phone Number</label>
+<input type="tel" id="phone" required>
+</div>
+
+<div class="input-group">
+<label>Select Role</label>
 <select id="role" required>
-<option value="">Select Account Type</option>
+<option value="">Choose a Role</option>
 <option value="homeowner">Homeowner</option>
 <option value="contractor">Contractor</option>
-<option value="supplier">Supplier</option>
+<option value="merchant">Merchant</option>
+<option value="admin">Admin</option>
 </select>
+</div>
 
-<button onclick="signup()">
+<div class="input-group">
+<label>Password</label>
+<input type="password" id="password" required>
+</div>
+
+<div class="input-group">
+<label>Confirm Password</label>
+<input type="password" id="confirmPassword" required>
+</div>
+
+<button type="submit" class="signup-btn">
 Create Account
 </button>
 
-<div class="link">
-<p>Already have an account? <a href="login.html">Login</a></p>
+</form>
+
+<div class="links">
+Already have an account?
+<a href="login.html">Login</a>
+<br><br>
+<a href="index.html">
+<i class="fa-solid fa-arrow-left"></i> Back Home
+</a>
 </div>
 
 </div>
-
 <script>
 
-function signup(){
+const params = new URLSearchParams(window.location.search);
+const selectedRole = params.get("role");
 
-let name = document.getElementById("name").value;
-let email = document.getElementById("email").value;
-let role = document.getElementById("role").value;
-
-if(!name || !email || !role){
-alert("Please fill in all fields");
-return;
+if(selectedRole){
+    document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("role").value = selectedRole;
+    });
 }
 
-// SAVE USER (MVP STORAGE)
-localStorage.setItem("name", name);
-localStorage.setItem("email", email);
-localStorage.setItem("role", role);
+document
+.getElementById("signupForm")
+.addEventListener("submit", function(e){
 
-// REDIRECT TO DASHBOARD
-window.location.href = role + "-dashboard.html";
+e.preventDefault();
 
+const firstName =
+document.getElementById("firstName").value;
+
+const lastName =
+document.getElementById("lastName").value;
+
+const email =
+document.getElementById("email").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const role =
+document.getElementById("role").value;
+
+const password =
+document.getElementById("password").value;
+
+const confirmPassword =
+document.getElementById("confirmPassword").value;
+
+const success =
+document.getElementById("successMessage");
+
+const error =
+document.getElementById("errorMessage");
+
+if(
+!firstName ||
+!lastName ||
+!email ||
+!phone ||
+!role ||
+!password ||
+!confirmPassword
+){
+    error.innerText =
+    "Please complete all required fields.";
+    error.style.display = "block";
+    return;
 }
+
+if(password !== confirmPassword){
+    error.innerText =
+    "Passwords do not match.";
+    error.style.display = "block";
+    return;
+}
+
+error.style.display = "none";
+
+const account = {
+    firstName,
+    lastName,
+    email,
+    phone,
+    role
+};
+
+localStorage.setItem(
+    "veribuildAccount",
+    JSON.stringify(account)
+);
+
+success.style.display = "block";
+
+setTimeout(() => {
+    window.location.href = "login.html";
+}, 2000);
+
+});
 
 </script>
 
