@@ -68,12 +68,41 @@ color:var(--mustard);
 .nav-links{
 display:flex;
 gap:25px;
+align-items:center;
 }
 
 .nav-links a{
 text-decoration:none;
 color:var(--navy);
 font-weight:600;
+}
+
+.user-panel{
+display:none;
+align-items:center;
+gap:12px;
+}
+
+.profile-pic{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--mustard);
+}
+
+.username{
+font-weight:700;
+color:var(--navy);
+}
+
+.logout-btn{
+background:var(--mustard);
+border:none;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:700;
 }
 
 .hero{
@@ -92,6 +121,13 @@ margin-bottom:20px;
 max-width:850px;
 margin:auto;
 font-size:1.1rem;
+}
+
+.welcome-back{
+margin-top:20px;
+font-size:1.1rem;
+font-weight:600;
+display:none;
 }
 
 section{
@@ -168,14 +204,39 @@ Veri<span>Build</span>
 </div>
 
 <div class="nav-links">
+
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="how-it-works.html">How It Works</a>
 <a href="homeowners.html">Homeowners</a>
 <a href="contractors.html">Contractors</a>
 <a href="contact.html">Contact</a>
-<a href="login.html">Login</a>
-<a href="signup.html">Sign Up</a>
+
+<a href="login.html" id="loginBtn">Login</a>
+
+<a href="signup.html" id="signupBtn">Sign Up</a>
+
+<div id="userPanel" class="user-panel">
+
+<img
+id="navProfilePic"
+class="profile-pic"
+src="https://via.placeholder.com/50">
+
+<span
+id="navUsername"
+class="username">
+User
+</span>
+
+<button
+onclick="logoutUser()"
+class="logout-btn">
+Logout
+</button>
+
+</div>
+
 </div>
 
 </div>
@@ -191,6 +252,12 @@ Veri<span>Build</span>
 <p>
 VeriBuild provides a structured construction management process that protects homeowners, supports contractors, and ensures merchants receive secure payment through milestone-based project governance.
 </p>
+
+<div
+id="welcomeBack"
+class="welcome-back">
+Welcome back, User
+</div>
 
 </div>
 
@@ -348,6 +415,63 @@ Verified Contractors. Protected Payments. Transparent Projects.
 </div>
 
 </footer>
+
+<script>
+
+window.onload = function(){
+
+const user =
+JSON.parse(localStorage.getItem("veribuildUser"));
+
+if(user){
+
+document.getElementById("loginBtn").style.display =
+"none";
+
+document.getElementById("signupBtn").style.display =
+"none";
+
+document.getElementById("userPanel").style.display =
+"flex";
+
+const userName =
+user.name ||
+user.fullName ||
+user.username ||
+"User";
+
+document.getElementById("navUsername").innerText =
+userName;
+
+document.getElementById("welcomeBack").style.display =
+"block";
+
+document.getElementById("welcomeBack").innerText =
+`Welcome back, ${userName}`;
+
+const profilePicture =
+localStorage.getItem("profilePicture");
+
+if(profilePicture){
+
+document.getElementById("navProfilePic").src =
+profilePicture;
+
+}
+
+}
+
+};
+
+function logoutUser(){
+
+localStorage.removeItem("veribuildUser");
+
+window.location.reload();
+
+}
+
+</script>
 
 </body>
 </html>
