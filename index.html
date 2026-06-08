@@ -83,6 +83,25 @@ color:var(--navy);
 font-weight:600;
 }
 
+.user-panel{
+display:none;
+align-items:center;
+gap:12px;
+}
+
+.profile-pic{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--mustard);
+}
+
+.username{
+font-weight:700;
+color:var(--navy);
+}
+
 .btn{
 padding:12px 24px;
 border:none;
@@ -137,6 +156,13 @@ opacity:.95;
 display:flex;
 gap:15px;
 flex-wrap:wrap;
+}
+
+.welcome-back{
+display:none;
+margin-top:20px;
+font-size:1.1rem;
+font-weight:600;
 }
 
 .hero-card{
@@ -271,14 +297,39 @@ Veri<span>Build</span>
 </div>
 
 <div class="nav-links">
+
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="how-it-works.html">How It Works</a>
 <a href="homeowners.html">Homeowners</a>
 <a href="contractors.html">Contractors</a>
 <a href="contact.html">Contact</a>
-<a href="login.html">Login</a>
-<a href="signup.html">Sign Up</a>
+
+<a href="login.html" id="loginBtn">Login</a>
+
+<a href="signup.html" id="signupBtn">Sign Up</a>
+
+<div id="userPanel" class="user-panel">
+
+<img
+id="navProfilePic"
+class="profile-pic"
+src="https://via.placeholder.com/50">
+
+<span
+id="navUsername"
+class="username">
+User
+</span>
+
+<button
+onclick="logoutUser()"
+class="btn btn-primary">
+Logout
+</button>
+
+</div>
+
 </div>
 
 </div>
@@ -311,6 +362,12 @@ Join As Contractor
 Dashboard Login
 </button>
 
+</div>
+
+<div
+id="welcomeBack"
+class="welcome-back">
+Welcome back, User
 </div>
 
 </div>
@@ -418,9 +475,11 @@ Provide quotations for material requirements and receive secure settlement throu
 <br><br>
 
 <div style="text-align:center;">
+
 <a href="how-it-works.html" class="btn btn-primary">
 View Full Process
 </a>
+
 </div>
 
 </div>
@@ -431,7 +490,9 @@ View Full Process
 
 <div class="container">
 
-<h2 style="margin-bottom:40px;">Trusted Project Governance</h2>
+<h2 style="margin-bottom:40px;">
+Trusted Project Governance
+</h2>
 
 <div class="stats-grid">
 
@@ -473,6 +534,8 @@ Ready To Build Smarter?
 Join South Africa's trusted construction governance platform.
 </p>
 
+<div id="guestButtons">
+
 <a href="signup.html" class="btn btn-primary">
 Create Account
 </a>
@@ -480,6 +543,18 @@ Create Account
 <a href="login.html" class="btn btn-secondary">
 Login
 </a>
+
+</div>
+
+<div id="memberButtons" style="display:none;">
+
+<button
+onclick="goToDashboard()"
+class="btn btn-primary">
+Go To My Dashboard
+</button>
+
+</div>
 
 </div>
 
@@ -505,29 +580,107 @@ Verified Contractors. Protected Payments. Transparent Projects.
 
 <script>
 
+window.onload = function(){
+
+const user =
+JSON.parse(localStorage.getItem("veribuildUser"));
+
+if(user){
+
+document.getElementById("loginBtn").style.display =
+"none";
+
+document.getElementById("signupBtn").style.display =
+"none";
+
+document.getElementById("userPanel").style.display =
+"flex";
+
+const userName =
+user.name ||
+user.fullName ||
+user.username ||
+"User";
+
+document.getElementById("navUsername").innerText =
+userName;
+
+document.getElementById("welcomeBack").style.display =
+"block";
+
+document.getElementById("welcomeBack").innerText =
+`Welcome back, ${userName}`;
+
+document.getElementById("guestButtons").style.display =
+"none";
+
+document.getElementById("memberButtons").style.display =
+"block";
+
+const profilePicture =
+localStorage.getItem("profilePicture");
+
+if(profilePicture){
+
+document.getElementById("navProfilePic").src =
+profilePicture;
+
+}
+
+}
+
+};
+
 function goToDashboard(){
 
-const user = localStorage.getItem("veribuildUser");
+const user =
+JSON.parse(localStorage.getItem("veribuildUser"));
 
 if(!user){
+
 window.location.href = "login.html";
+
 return;
+
 }
 
-const role = JSON.parse(user).role;
+const role = user.role;
 
 if(role === "homeowner"){
-window.location.href = "homeowner-dashboard.html";
+
+window.location.href =
+"homeowner-dashboard.html";
+
 }
+
 else if(role === "contractor"){
-window.location.href = "contractor-dashboard.html";
+
+window.location.href =
+"contractor-dashboard.html";
+
 }
+
 else if(role === "merchant"){
-window.location.href = "merchant-dashboard.html";
+
+window.location.href =
+"merchant-dashboard.html";
+
 }
+
 else{
-window.location.href = "login.html";
+
+window.location.href =
+"login.html";
+
 }
+
+}
+
+function logoutUser(){
+
+localStorage.removeItem("veribuildUser");
+
+window.location.reload();
 
 }
 
