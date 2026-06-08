@@ -16,308 +16,360 @@
 <style>
 
 :root{
-    --navy:#102A43;
-    --mustard:#E8B231;
-    --white:#ffffff;
-    --light:#f5f7fa;
-    --gray:#6b7280;
+--navy:#102A43;
+--mustard:#E8B231;
+--white:#ffffff;
+--light:#F5F7FA;
+--gray:#6B7280;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:white;
-    color:#222;
-    line-height:1.6;
+background:#fff;
+color:#222;
+line-height:1.6;
 }
 
 .container{
-    width:90%;
-    max-width:1200px;
-    margin:auto;
+width:90%;
+max-width:1200px;
+margin:auto;
 }
-
-.btn{
-    display:inline-block;
-    padding:14px 28px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-}
-
-.btn-primary{
-    background:var(--mustard);
-    color:black;
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-}
-
-.btn-secondary{
-    background:var(--navy);
-    color:white;
-}
-
-.btn-secondary:hover{
-    transform:translateY(-3px);
-}
-
-section{
-    padding:90px 0;
-}
-
-h1,h2,h3{
-    color:var(--navy);
-}
-
-</style>
-<style>
 
 .navbar{
-    background:white;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+background:white;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
 .nav-content{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
 }
 
 .logo{
-    font-size:1.8rem;
-    font-weight:800;
-    color:var(--navy);
+font-size:2rem;
+font-weight:800;
+color:var(--navy);
 }
 
 .logo span{
-    color:var(--mustard);
+color:var(--mustard);
 }
 
 .nav-links{
-    display:flex;
-    gap:20px;
+display:flex;
+gap:25px;
+align-items:center;
 }
 
 .nav-links a{
-    text-decoration:none;
-    color:var(--navy);
-    font-weight:600;
+text-decoration:none;
+color:var(--navy);
+font-weight:600;
+}
+
+.btn{
+padding:12px 24px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+text-decoration:none;
+display:inline-block;
+transition:.3s;
+}
+
+.btn-primary{
+background:var(--mustard);
+color:black;
+}
+
+.btn-secondary{
+background:var(--navy);
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-3px);
 }
 
 .hero{
-    background:linear-gradient(135deg,#102A43,#1f4a72);
-    color:white;
-    text-align:center;
-    padding:130px 0;
+background:linear-gradient(135deg,#102A43,#1c476f);
+padding:120px 0;
+color:white;
+}
+
+.hero-content{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
 }
 
 .hero h1{
-    color:white;
-    font-size:4rem;
-    margin-bottom:20px;
+font-size:4rem;
+line-height:1.1;
+margin-bottom:20px;
 }
 
 .hero p{
-    max-width:700px;
-    margin:auto;
-    margin-bottom:35px;
-    font-size:1.1rem;
+font-size:1.1rem;
+margin-bottom:30px;
+opacity:.95;
 }
 
 .hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.hero-card{
+background:white;
+padding:35px;
+border-radius:20px;
+color:black;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+}
+
+.hero-card h3{
+color:var(--navy);
+margin-bottom:15px;
+}
+
+.hero-card ul{
+list-style:none;
+}
+
+.hero-card li{
+padding:10px 0;
+}
+
+.hero-card i{
+color:var(--mustard);
+margin-right:10px;
+}
+
+section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+color:var(--navy);
+font-size:2.5rem;
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .card{
-    background:white;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+transform:translateY(-8px);
 }
 
 .card i{
-    font-size:2rem;
-    color:var(--mustard);
-    margin-bottom:15px;
+font-size:2rem;
+color:var(--mustard);
+margin-bottom:15px;
 }
 
 .features{
-    background:var(--light);
+background:var(--light);
 }
 
 .stats{
-    background:var(--navy);
-    color:white;
+background:var(--navy);
+color:white;
+text-align:center;
 }
 
-.stats h2{
-    color:white;
-    text-align:center;
-    margin-bottom:40px;
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
 }
 
-.stat-card{
-    text-align:center;
-}
-
-.stat-card h3{
-    color:var(--mustard);
-    font-size:2rem;
+.stat h3{
+font-size:2.5rem;
+color:var(--mustard);
 }
 
 .footer{
-    background:var(--navy);
-    color:white;
-    padding:60px 0;
-}
-
-.footer a{
-    color:white;
-    text-decoration:none;
+background:#0b1f33;
+color:white;
+padding:60px 0;
+text-align:center;
 }
 
 @media(max-width:768px){
 
+.hero-content{
+grid-template-columns:1fr;
+}
+
 .hero h1{
-    font-size:2.6rem;
+font-size:2.8rem;
 }
 
 .nav-content{
-    flex-direction:column;
-    gap:15px;
+flex-direction:column;
+gap:15px;
 }
 
 .nav-links{
-    flex-wrap:wrap;
-    justify-content:center;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.stats-grid{
+grid-template-columns:1fr 1fr;
 }
 
 }
 
 </style>
 </head>
+
 <body>
+
 <nav class="navbar">
-    <div class="container nav-content">
 
-        <div class="logo">
-            Veri<span>Build</span>
-        </div>
+<div class="container nav-content">
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="how-it-works.html">How It Works</a>
-            <a href="homeowners.html">Homeowners</a>
-            <a href="contractors.html">Contractors</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html">Login</a>
-            <a href="signup.html">Sign Up</a>
-        </div>
+<div class="logo">
+Veri<span>Build</span>
+</div>
 
-    </div>
-</nav>  
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="homeowners.html">Homeowners</a>
+<a href="contractors.html">Contractors</a>
+<a href="contact.html">Contact</a>
+<a href="login.html">Login</a>
+<a href="signup.html">Sign Up</a>
+</div>
+
+</div>
+
+</nav>
+
 <section class="hero">
 
-<div class="container">
+<div class="container hero-content">
+
+<div>
 
 <h1>Build With Confidence</h1>
 
 <p>
-South Africa's trusted construction escrow platform connecting homeowners,
-contractors and merchants through verified projects, secure payments and
-transparent milestone tracking.
+VeriBuild provides secure construction project governance through contractor verification, escrow protection, milestone tracking and merchant integration, helping projects stay transparent from start to finish.
 </p>
 
 <div class="hero-buttons">
 
 <a href="signup.html?role=homeowner" class="btn btn-primary">
-Start a Project
+Start Your Project
 </a>
 
 <a href="signup.html?role=contractor" class="btn btn-primary">
-Become a Contractor
+Join As Contractor
 </a>
 
-<button class="btn btn-secondary" onclick="goToDashboard()">
-Go To Dashboard
+<button onclick="goToDashboard()" class="btn btn-secondary">
+Dashboard Login
 </button>
 
 </div>
 
 </div>
 
+<div class="hero-card">
+
+<h3>Why VeriBuild?</h3>
+
+<ul>
+<li><i class="fa-solid fa-shield-halved"></i> Secure Escrow Payments</li>
+<li><i class="fa-solid fa-user-check"></i> Verified Contractors</li>
+<li><i class="fa-solid fa-list-check"></i> Milestone Tracking</li>
+<li><i class="fa-solid fa-file-contract"></i> Digital Documentation</li>
+<li><i class="fa-solid fa-building-columns"></i> Finance Integration</li>
+</ul>
+
+</div>
+
+</div>
+
 </section>
 <section>
 
 <div class="container">
 
-<h2 style="text-align:center;margin-bottom:40px;">
-Choose Your Role
-</h2>
+<div class="section-title">
+<h2>Built For Construction Professionals</h2>
+</div>
 
 <div class="cards">
 
 <div class="card">
 <i class="fa-solid fa-house"></i>
-<h3>Homeowner</h3>
-<p>Post projects, compare contractors and protect your funds with escrow.</p>
+<h3>Homeowners</h3>
+<p>
+Manage projects, review milestones, approve work and keep payments protected through escrow.
+</p>
 <br>
 <a href="homeowners.html" class="btn btn-primary">Learn More</a>
 </div>
 
 <div class="card">
-<i class="fa-solid fa-hard-hat"></i>
-<h3>Contractor</h3>
-<p>Access verified leads and receive milestone-based payments.</p>
+<i class="fa-solid fa-helmet-safety"></i>
+<h3>Contractors</h3>
+<p>
+Submit quotations, manage project milestones and build a trusted professional reputation.
+</p>
 <br>
 <a href="contractors.html" class="btn btn-primary">Learn More</a>
 </div>
 
 <div class="card">
-<i class="fa-solid fa-truck"></i>
-<h3>Merchant</h3>
-<p>Supply materials and receive secure direct payments.</p>
+<i class="fa-solid fa-truck-ramp-box"></i>
+<h3>Merchants</h3>
+<p>
+Provide quotations for material requirements and receive secure settlement through verified projects.
+</p>
 <br>
-<a href="signup.html?role=merchant" class="btn btn-primary">Join</a>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-user-shield"></i>
-<h3>Admin</h3>
-<p>Manage compliance, users, projects and platform operations.</p>
-<br>
-<a href="login.html" class="btn btn-primary">Access</a>
+<a href="signup.html?role=merchant" class="btn btn-primary">Join VeriBuild</a>
 </div>
 
 </div>
@@ -325,64 +377,47 @@ Choose Your Role
 </div>
 
 </section>
+
 <section class="features">
 
 <div class="container">
 
-<h2 style="text-align:center;margin-bottom:40px;">
-Why VeriBuild?
-</h2>
+<div class="section-title">
+<h2>How VeriBuild Works</h2>
+</div>
 
 <div class="cards">
 
 <div class="card">
-<i class="fa-solid fa-shield"></i>
-<h3>Verified Contractors</h3>
+<h3>1. Project Submission</h3>
+<p>Homeowners submit project requirements and documentation.</p>
 </div>
 
 <div class="card">
-<i class="fa-solid fa-lock"></i>
-<h3>Secure Escrow</h3>
+<h3>2. Contractor Consultation</h3>
+<p>Verified contractors inspect and prepare quotations.</p>
 </div>
 
 <div class="card">
-<i class="fa-solid fa-money-check-dollar"></i>
-<h3>Protected Payments</h3>
+<h3>3. Escrow Funding</h3>
+<p>Project funds are secured before work begins.</p>
 </div>
 
 <div class="card">
-<i class="fa-solid fa-chart-line"></i>
-<h3>Milestone Tracking</h3>
+<h3>4. Milestone Completion</h3>
+<p>Progress is tracked and verified through the platform.</p>
+</div>
+
+<div class="card">
+<h3>5. Payment Release</h3>
+<p>Funds are released upon approved milestone completion.</p>
 </div>
 
 </div>
 
-</div>
+<br><br>
 
-</section>
-<section>
-
-<div class="container">
-
-<h2 style="text-align:center;margin-bottom:40px;">
-How It Works
-</h2>
-
-<div class="cards">
-
-<div class="card"><h3>1. Post Project</h3></div>
-
-<div class="card"><h3>2. Receive Quotes</h3></div>
-
-<div class="card"><h3>3. Fund Escrow</h3></div>
-
-<div class="card"><h3>4. Track Progress</h3></div>
-
-<div class="card"><h3>5. Release Payments</h3></div>
-
-</div>
-
-<div style="text-align:center;margin-top:40px;">
+<div style="text-align:center;">
 <a href="how-it-works.html" class="btn btn-primary">
 View Full Process
 </a>
@@ -391,32 +426,33 @@ View Full Process
 </div>
 
 </section>
+
 <section class="stats">
 
 <div class="container">
 
-<h2>Trusted Construction Marketplace</h2>
+<h2 style="margin-bottom:40px;">Trusted Project Governance</h2>
 
-<div class="cards">
+<div class="stats-grid">
 
-<div class="stat-card">
+<div class="stat">
 <h3>500+</h3>
 <p>Verified Contractors</p>
 </div>
 
-<div class="stat-card">
+<div class="stat">
 <h3>R50M+</h3>
-<p>Protected Through Escrow</p>
+<p>Protected Funds</p>
 </div>
 
-<div class="stat-card">
+<div class="stat">
 <h3>95%</h3>
-<p>Completion Rate</p>
+<p>Project Success Rate</p>
 </div>
 
-<div class="stat-card">
+<div class="stat">
 <h3>4.9/5</h3>
-<p>User Rating</p>
+<p>Client Satisfaction</p>
 </div>
 
 </div>
@@ -424,13 +460,18 @@ View Full Process
 </div>
 
 </section>
+
 <section>
 
 <div class="container" style="text-align:center;">
 
-<h2>Ready To Build Smarter?</h2>
+<h2 style="margin-bottom:20px;">
+Ready To Build Smarter?
+</h2>
 
-<br>
+<p style="margin-bottom:30px;">
+Join South Africa's trusted construction governance platform.
+</p>
 
 <a href="signup.html" class="btn btn-primary">
 Create Account
@@ -448,15 +489,11 @@ Login
 
 <div class="container">
 
-<h2 style="color:white;">
-VeriBuild
-</h2>
+<h2>VeriBuild</h2>
 
-<p>
-Verified contractors. Protected payments. Transparent projects.
+<p style="margin:20px 0;">
+Verified Contractors. Protected Payments. Transparent Projects.
 </p>
-
-<br>
 
 <p>
 © 2026 VeriBuild. All Rights Reserved.
@@ -465,6 +502,7 @@ Verified contractors. Protected payments. Transparent projects.
 </div>
 
 </footer>
+
 <script>
 
 function goToDashboard(){
@@ -472,26 +510,23 @@ function goToDashboard(){
 const user = localStorage.getItem("veribuildUser");
 
 if(!user){
-    window.location.href = "login.html";
-    return;
+window.location.href = "login.html";
+return;
 }
 
 const role = JSON.parse(user).role;
 
 if(role === "homeowner"){
-    window.location.href = "homeowner-dashboard.html";
+window.location.href = "homeowner-dashboard.html";
 }
 else if(role === "contractor"){
-    window.location.href = "contractor-dashboard.html";
+window.location.href = "contractor-dashboard.html";
 }
 else if(role === "merchant"){
-    window.location.href = "merchant-dashboard.html";
-}
-else if(role === "admin"){
-    window.location.href = "admin-dashboard.html";
+window.location.href = "merchant-dashboard.html";
 }
 else{
-    window.location.href = "login.html";
+window.location.href = "login.html";
 }
 
 }
@@ -500,6 +535,3 @@ else{
 
 </body>
 </html>
-  
-  
-  
