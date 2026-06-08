@@ -20,7 +20,6 @@
 --mustard:#E8B231;
 --white:#ffffff;
 --light:#F5F7FA;
---gray:#6B7280;
 }
 
 *{
@@ -28,10 +27,6 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Inter',sans-serif;
-}
-
-html{
-scroll-behavior:smooth;
 }
 
 body{
@@ -64,23 +59,24 @@ padding:20px 0;
 .logo{
 font-size:2rem;
 font-weight:800;
-color:var(--navy);
+color:#102A43;
 }
 
 .logo span{
-color:var(--mustard);
+color:#E8B231;
 }
 
 .nav-links{
 display:flex;
 gap:25px;
 align-items:center;
+flex-wrap:wrap;
 }
 
 .nav-links a{
 text-decoration:none;
-color:var(--navy);
 font-weight:600;
+color:#102A43;
 }
 
 .user-panel{
@@ -94,12 +90,12 @@ width:50px;
 height:50px;
 border-radius:50%;
 object-fit:cover;
-border:3px solid var(--mustard);
+border:3px solid #E8B231;
 }
 
 .username{
 font-weight:700;
-color:var(--navy);
+color:#102A43;
 }
 
 .btn{
@@ -114,12 +110,12 @@ transition:.3s;
 }
 
 .btn-primary{
-background:var(--mustard);
+background:#E8B231;
 color:black;
 }
 
 .btn-secondary{
-background:var(--navy);
+background:#102A43;
 color:white;
 }
 
@@ -149,7 +145,6 @@ margin-bottom:20px;
 .hero p{
 font-size:1.1rem;
 margin-bottom:30px;
-opacity:.95;
 }
 
 .hero-buttons{
@@ -174,7 +169,7 @@ box-shadow:0 15px 35px rgba(0,0,0,.15);
 }
 
 .hero-card h3{
-color:var(--navy);
+color:#102A43;
 margin-bottom:15px;
 }
 
@@ -187,74 +182,8 @@ padding:10px 0;
 }
 
 .hero-card i{
-color:var(--mustard);
+color:#E8B231;
 margin-right:10px;
-}
-
-section{
-padding:90px 0;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.section-title h2{
-color:var(--navy);
-font-size:2.5rem;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-8px);
-}
-
-.card i{
-font-size:2rem;
-color:var(--mustard);
-margin-bottom:15px;
-}
-
-.features{
-background:var(--light);
-}
-
-.stats{
-background:var(--navy);
-color:white;
-text-align:center;
-}
-
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:20px;
-}
-
-.stat h3{
-font-size:2.5rem;
-color:var(--mustard);
-}
-
-.footer{
-background:#0b1f33;
-color:white;
-padding:60px 0;
-text-align:center;
 }
 
 @media(max-width:768px){
@@ -270,15 +199,6 @@ font-size:2.8rem;
 .nav-content{
 flex-direction:column;
 gap:15px;
-}
-
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.stats-grid{
-grid-template-columns:1fr 1fr;
 }
 
 }
@@ -359,7 +279,7 @@ Join As Contractor
 </a>
 
 <button onclick="goToDashboard()" class="btn btn-secondary">
-Dashboard Login
+Go To Dashboard
 </button>
 
 </div>
@@ -367,7 +287,7 @@ Dashboard Login
 <div
 id="welcomeBack"
 class="welcome-back">
-Welcome back, User
+Welcome Back
 </div>
 
 </div>
@@ -394,39 +314,65 @@ Welcome back, User
 <div class="container">
 
 <div class="section-title">
-<h2>Built For Construction Professionals</h2>
+<h2 style="color:#102A43;font-size:2.5rem;text-align:center;margin-bottom:50px;">
+Built For Construction Professionals
+</h2>
 </div>
 
-<div class="cards">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;">
 
-<div class="card">
-<i class="fa-solid fa-house"></i>
-<h3>Homeowners</h3>
+<div style="background:white;padding:30px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);">
+
+<i class="fa-solid fa-house" style="font-size:2rem;color:#E8B231;"></i>
+
+<h3 style="margin:15px 0;">Homeowners</h3>
+
 <p>
 Manage projects, review milestones, approve work and keep payments protected through escrow.
 </p>
+
 <br>
-<a href="homeowners.html" class="btn btn-primary">Learn More</a>
+
+<a href="homeowners.html" class="btn btn-primary">
+Learn More
+</a>
+
 </div>
 
-<div class="card">
-<i class="fa-solid fa-helmet-safety"></i>
-<h3>Contractors</h3>
+<div style="background:white;padding:30px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);">
+
+<i class="fa-solid fa-helmet-safety" style="font-size:2rem;color:#E8B231;"></i>
+
+<h3 style="margin:15px 0;">Contractors</h3>
+
 <p>
 Submit quotations, manage project milestones and build a trusted professional reputation.
 </p>
+
 <br>
-<a href="contractors.html" class="btn btn-primary">Learn More</a>
+
+<a href="contractors.html" class="btn btn-primary">
+Learn More
+</a>
+
 </div>
 
-<div class="card">
-<i class="fa-solid fa-truck-ramp-box"></i>
-<h3>Merchants</h3>
+<div style="background:white;padding:30px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);">
+
+<i class="fa-solid fa-truck-ramp-box" style="font-size:2rem;color:#E8B231;"></i>
+
+<h3 style="margin:15px 0;">Merchants</h3>
+
 <p>
 Provide quotations for material requirements and receive secure settlement through verified projects.
 </p>
+
 <br>
-<a href="signup.html?role=merchant" class="btn btn-primary">Join VeriBuild</a>
+
+<a href="signup.html?role=merchant" class="btn btn-primary">
+Join VeriBuild
+</a>
+
 </div>
 
 </div>
@@ -435,39 +381,39 @@ Provide quotations for material requirements and receive secure settlement throu
 
 </section>
 
-<section class="features">
+<section style="background:#F5F7FA;padding:90px 0;">
 
 <div class="container">
 
-<div class="section-title">
-<h2>How VeriBuild Works</h2>
-</div>
+<h2 style="color:#102A43;text-align:center;font-size:2.5rem;margin-bottom:50px;">
+How VeriBuild Works
+</h2>
 
-<div class="cards">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;">
 
-<div class="card">
+<div class="hero-card">
 <h3>1. Project Submission</h3>
 <p>Homeowners submit project requirements and documentation.</p>
 </div>
 
-<div class="card">
+<div class="hero-card">
 <h3>2. Contractor Consultation</h3>
 <p>Verified contractors inspect and prepare quotations.</p>
 </div>
 
-<div class="card">
+<div class="hero-card">
 <h3>3. Escrow Funding</h3>
 <p>Project funds are secured before work begins.</p>
 </div>
 
-<div class="card">
+<div class="hero-card">
 <h3>4. Milestone Completion</h3>
-<p>Progress is tracked and verified through the platform.</p>
+<p>Progress is tracked and verified.</p>
 </div>
 
-<div class="card">
+<div class="hero-card">
 <h3>5. Payment Release</h3>
-<p>Funds are released upon approved milestone completion.</p>
+<p>Funds are released after approved milestones.</p>
 </div>
 
 </div>
@@ -486,33 +432,33 @@ View Full Process
 
 </section>
 
-<section class="stats">
+<section style="background:#102A43;color:white;padding:90px 0;">
 
 <div class="container">
 
-<h2 style="margin-bottom:40px;">
+<h2 style="text-align:center;margin-bottom:50px;">
 Trusted Project Governance
 </h2>
 
-<div class="stats-grid">
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px;text-align:center;">
 
-<div class="stat">
-<h3>500+</h3>
+<div>
+<h3 style="color:#E8B231;font-size:2.5rem;">500+</h3>
 <p>Verified Contractors</p>
 </div>
 
-<div class="stat">
-<h3>R50M+</h3>
+<div>
+<h3 style="color:#E8B231;font-size:2.5rem;">R50M+</h3>
 <p>Protected Funds</p>
 </div>
 
-<div class="stat">
-<h3>95%</h3>
+<div>
+<h3 style="color:#E8B231;font-size:2.5rem;">95%</h3>
 <p>Project Success Rate</p>
 </div>
 
-<div class="stat">
-<h3>4.9/5</h3>
+<div>
+<h3 style="color:#E8B231;font-size:2.5rem;">4.9/5</h3>
 <p>Client Satisfaction</p>
 </div>
 
@@ -522,7 +468,7 @@ Trusted Project Governance
 
 </section>
 
-<section>
+<section style="padding:90px 0;">
 
 <div class="container" style="text-align:center;">
 
@@ -560,7 +506,7 @@ Go To My Dashboard
 
 </section>
 
-<footer class="footer">
+<footer style="background:#0b1f33;color:white;padding:60px 0;text-align:center;">
 
 <div class="container">
 
@@ -580,12 +526,43 @@ Verified Contractors. Protected Payments. Transparent Projects.
 
 <script>
 
-window.onload = function(){
+function checkLoginState(){
+
+const userData =
+localStorage.getItem("veribuildUser");
+
+if(!userData){
+
+document.getElementById("loginBtn").style.display =
+"inline-block";
+
+document.getElementById("signupBtn").style.display =
+"inline-block";
+
+document.getElementById("userPanel").style.display =
+"none";
+
+document.getElementById("guestButtons").style.display =
+"block";
+
+document.getElementById("memberButtons").style.display =
+"none";
+
+document.getElementById("welcomeBack").style.display =
+"none";
+
+return;
+
+}
 
 const user =
-JSON.parse(localStorage.getItem("veribuildUser"));
+JSON.parse(userData);
 
-if(user){
+const userName =
+user.name ||
+user.fullName ||
+user.username ||
+"User";
 
 document.getElementById("loginBtn").style.display =
 "none";
@@ -596,26 +573,20 @@ document.getElementById("signupBtn").style.display =
 document.getElementById("userPanel").style.display =
 "flex";
 
-const userName =
-user.name ||
-user.fullName ||
-user.username ||
-"User";
-
-document.getElementById("navUsername").innerText =
-userName;
-
-document.getElementById("welcomeBack").style.display =
-"block";
-
-document.getElementById("welcomeBack").innerText =
-`Welcome back, ${userName}`;
-
 document.getElementById("guestButtons").style.display =
 "none";
 
 document.getElementById("memberButtons").style.display =
 "block";
+
+document.getElementById("welcomeBack").style.display =
+"block";
+
+document.getElementById("welcomeBack").innerText =
+`Welcome Back, ${userName}`;
+
+document.getElementById("navUsername").innerText =
+userName;
 
 const profilePicture =
 localStorage.getItem("profilePicture");
@@ -629,38 +600,38 @@ profilePicture;
 
 }
 
-};
-
 function goToDashboard(){
 
-const user =
-JSON.parse(localStorage.getItem("veribuildUser"));
+const userData =
+localStorage.getItem("veribuildUser");
 
-if(!user){
+if(!userData){
 
-window.location.href = "login.html";
+window.location.href =
+"login.html";
 
 return;
 
 }
 
-const role = user.role;
+const user =
+JSON.parse(userData);
 
-if(role === "homeowner"){
+if(user.role === "homeowner"){
 
 window.location.href =
 "homeowner-dashboard.html";
 
 }
 
-else if(role === "contractor"){
+else if(user.role === "contractor"){
 
 window.location.href =
 "contractor-dashboard.html";
 
 }
 
-else if(role === "merchant"){
+else if(user.role === "merchant"){
 
 window.location.href =
 "merchant-dashboard.html";
@@ -680,9 +651,14 @@ function logoutUser(){
 
 localStorage.removeItem("veribuildUser");
 
-window.location.reload();
+checkLoginState();
 
 }
+
+window.addEventListener(
+"DOMContentLoaded",
+checkLoginState
+);
 
 </script>
 
