@@ -11,12 +11,13 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
 :root{
 --navy:#102A43;
 --mustard:#E8B231;
---light:#F5F7FA;
 --gray:#6B7280;
 }
 
@@ -32,7 +33,7 @@ background:linear-gradient(135deg,#102A43,#1c476f);
 padding:30px;
 }
 
-.form-container{
+.container{
 max-width:950px;
 margin:auto;
 background:white;
@@ -64,8 +65,6 @@ margin:30px 0 15px;
 font-size:1.2rem;
 font-weight:700;
 color:var(--navy);
-border-bottom:2px solid #eee;
-padding-bottom:10px;
 }
 
 .row{
@@ -95,37 +94,30 @@ border-radius:10px;
 font-size:1rem;
 }
 
-input:focus,
-select:focus,
-textarea:focus{
-outline:none;
-border-color:var(--mustard);
-}
-
 textarea{
 min-height:120px;
 resize:vertical;
 }
 
 .notice{
-background:#fff8e6;
+background:#f8f9fc;
 border-left:5px solid var(--mustard);
-padding:15px;
-margin-top:20px;
+padding:18px;
 border-radius:10px;
+margin-top:20px;
+margin-bottom:20px;
 }
 
 .notice a{
 color:var(--navy);
 font-weight:700;
-text-decoration:none;
 }
 
 .checkbox{
 display:flex;
 gap:12px;
-margin-top:20px;
 align-items:flex-start;
+margin-top:15px;
 }
 
 .checkbox input{
@@ -133,16 +125,31 @@ width:auto;
 margin-top:5px;
 }
 
-.submit-btn{
+.btn{
 width:100%;
 padding:15px;
-margin-top:25px;
 border:none;
-background:var(--mustard);
-font-weight:700;
-font-size:1rem;
 border-radius:10px;
+font-size:1rem;
+font-weight:700;
 cursor:pointer;
+margin-top:15px;
+}
+
+.submit-btn{
+background:var(--mustard);
+}
+
+.home-btn{
+display:block;
+text-align:center;
+text-decoration:none;
+background:var(--navy);
+color:white;
+padding:15px;
+border-radius:10px;
+font-weight:700;
+margin-top:15px;
 }
 
 .alert{
@@ -175,7 +182,7 @@ grid-template-columns:1fr;
 
 <body>
 
-<div class="form-container">
+<div class="container">
 
 <div class="logo">
 Veri<span>Build</span>
@@ -202,12 +209,12 @@ Personal Information
 <div class="row">
 
 <div class="input-group">
-<label>Full Name *</label>
+<label>Full Name</label>
 <input type="text" id="fullName" required>
 </div>
 
 <div class="input-group">
-<label>Email Address *</label>
+<label>Email Address</label>
 <input type="email" id="email" required>
 </div>
 
@@ -216,12 +223,12 @@ Personal Information
 <div class="row">
 
 <div class="input-group">
-<label>Phone Number *</label>
+<label>Phone Number</label>
 <input type="tel" id="phone" required>
 </div>
 
 <div class="input-group">
-<label>South African ID Number *</label>
+<label>South African ID Number</label>
 <input type="text" id="idNumber" required>
 </div>
 
@@ -235,11 +242,11 @@ Business Information
 
 <div class="input-group">
 <label>Company Name</label>
-<input type="text" id="company">
+<input type="text" id="companyName">
 </div>
 
 <div class="input-group">
-<label>Trade / Specialisation *</label>
+<label>Trade / Specialisation</label>
 <select id="trade" required>
 <option value="">Select Trade</option>
 <option>General Building</option>
@@ -249,7 +256,6 @@ Business Information
 <option>Tiling</option>
 <option>Painting</option>
 <option>Carpentry</option>
-<option>Landscaping</option>
 <option>Other</option>
 </select>
 </div>
@@ -259,24 +265,24 @@ Business Information
 <div class="row">
 
 <div class="input-group">
-<label>Years Of Experience *</label>
+<label>Years Of Experience</label>
 <input type="number" id="experience" required>
 </div>
 
 <div class="input-group">
-<label>Primary Service Area *</label>
-<input type="text" id="serviceArea" required>
+<label>Service Area</label>
+<input type="text" id="serviceArea" placeholder="Johannesburg, Pretoria, Centurion etc.">
 </div>
 
 </div>
 
 <div class="input-group">
-<label>CIPC Registration Number</label>
+<label>CIPC Registration Number (Optional)</label>
 <input type="text" id="cipc">
 </div>
 
 <div class="input-group">
-<label>NHBRC Registration Number (if applicable)</label>
+<label>NHBRC Registration Number (If Applicable)</label>
 <input type="text" id="nhbrc">
 </div>
 
@@ -286,7 +292,7 @@ Business Information
 </div>
 
 <div class="section-title">
-Supporting Documentation
+Verification Documents
 </div>
 
 <div class="input-group">
@@ -295,19 +301,26 @@ Supporting Documentation
 </div>
 
 <div class="input-group">
-<label>Upload Additional Compliance Documents</label>
-<input type="file" id="docsUpload" multiple>
+<label>Upload Supporting Documents</label>
+<input type="file" id="supportingDocs" multiple>
 </div>
 
 <div class="notice">
-<strong>POPIA Notice:</strong><br><br>
 
-VeriBuild collects personal information and supporting documentation for contractor verification, compliance monitoring, project governance and platform operations.
+<strong>POPIA Notice</strong>
 
-Before submitting your application, please review our
+<p style="margin-top:10px;">
+VeriBuild collects and processes personal information solely for contractor verification, compliance checks, project administration and platform operations. By submitting this application, you acknowledge that your information will be processed in accordance with South Africa's Protection of Personal Information Act (POPIA).
+</p>
+
+<p>
+Please read our
 <a href="privacy-terms.html" target="_blank">
-Privacy Policy & Terms & Conditions
-</a>.
+Privacy Policy & Terms and Conditions
+</a>
+before continuing.
+</p>
+
 </div>
 
 <div class="checkbox">
@@ -315,20 +328,18 @@ Privacy Policy & Terms & Conditions
 <input type="checkbox" id="popiaConsent">
 
 <label for="popiaConsent">
-I have read and agree to the VeriBuild
-<a href="privacy-terms.html" target="_blank">
-Privacy Policy & Terms & Conditions
-</a>
-and consent to the processing of my personal information in accordance with POPIA.
+I have read and agree to the Privacy Policy, Terms & Conditions, and POPIA consent requirements.
 </label>
 
 </div>
 
-<button type="submit" class="submit-btn">
+<button type="submit" class="btn submit-btn">
 Submit Contractor Application
 </button>
 
-</form>
+<a href="index.html" class="home-btn">
+Back To Homepage
+</a>
 <script>
 
 document
@@ -355,10 +366,7 @@ document.getElementById("trade").value;
 const experience =
 document.getElementById("experience").value;
 
-const serviceArea =
-document.getElementById("serviceArea").value.trim();
-
-const popiaConsent =
+const consent =
 document.getElementById("popiaConsent").checked;
 
 const success =
@@ -373,8 +381,7 @@ if(
 !phone ||
 !idNumber ||
 !trade ||
-!experience ||
-!serviceArea
+!experience
 ){
 
 error.innerHTML =
@@ -386,10 +393,10 @@ return;
 
 }
 
-if(!popiaConsent){
+if(!consent){
 
 error.innerHTML =
-"You must read and accept the Privacy Policy, Terms & Conditions, and POPIA consent before submitting.";
+"You must accept the Privacy Policy, Terms & Conditions and POPIA consent before submitting.";
 
 error.style.display = "block";
 
@@ -399,21 +406,22 @@ return;
 
 error.style.display = "none";
 
-const contractorApplication = {
+const application = {
 
 fullName: fullName,
 email: email,
 phone: phone,
 idNumber: idNumber,
 
-company:
-document.getElementById("company").value,
+companyName:
+document.getElementById("companyName").value,
 
 trade: trade,
 
 experience: experience,
 
-serviceArea: serviceArea,
+serviceArea:
+document.getElementById("serviceArea").value,
 
 cipc:
 document.getElementById("cipc").value,
@@ -433,7 +441,7 @@ new Date().toLocaleDateString()
 
 localStorage.setItem(
 "contractorApplication",
-JSON.stringify(contractorApplication)
+JSON.stringify(application)
 );
 
 success.style.display = "block";
