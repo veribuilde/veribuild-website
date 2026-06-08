@@ -35,8 +35,8 @@ min-height:100vh;
 .sidebar{
 width:280px;
 background:#102A43;
-color:white;
 padding:25px;
+color:white;
 }
 
 .logo{
@@ -76,6 +76,20 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 margin-bottom:30px;
+}
+
+.header-left{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.profile-pic{
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #E8B231;
 }
 
 .welcome{
@@ -121,15 +135,11 @@ border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
-.card h3{
-color:#102A43;
-margin-bottom:10px;
-}
-
 .card-number{
 font-size:2rem;
 font-weight:800;
 color:#E8B231;
+margin-top:10px;
 }
 
 .section{
@@ -145,13 +155,12 @@ display:block;
 }
 
 .section h2{
-color:#102A43;
 margin-bottom:20px;
+color:#102A43;
 }
 
 input,
-textarea,
-select{
+textarea{
 width:100%;
 padding:12px;
 margin-bottom:15px;
@@ -180,6 +189,16 @@ border-radius:10px;
 margin-bottom:10px;
 }
 
+.profile-preview{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #E8B231;
+display:block;
+margin-bottom:20px;
+}
+
 @media(max-width:900px){
 
 .dashboard{
@@ -193,7 +212,7 @@ width:100%;
 .header{
 flex-direction:column;
 align-items:flex-start;
-gap:15px;
+gap:20px;
 }
 
 }
@@ -212,19 +231,12 @@ Veri<span>Build</span>
 </div>
 
 <button onclick="showSection('dashboardHome')">Dashboard Home</button>
-
 <button onclick="showSection('postProject')">Post New Project</button>
-
 <button onclick="showSection('projects')">Projects Posted</button>
-
 <button onclick="showSection('quotes')">Received Quotes</button>
-
 <button onclick="showSection('accepted')">Projects Accepted</button>
-
 <button onclick="showSection('payments')">Payments</button>
-
 <button onclick="showSection('messages')">Messages</button>
-
 <button onclick="showSection('profile')">Profile Settings</button>
 
 </div>
@@ -233,18 +245,37 @@ Veri<span>Build</span>
 
 <div class="header">
 
-<div class="welcome" id="welcomeText">
+<div class="header-left">
+
+<img
+id="profilePreview"
+class="profile-pic"
+src="https://via.placeholder.com/150">
+
+<div>
+
+<div
+class="welcome"
+id="welcomeText">
 Welcome, User
+</div>
+
+<p>Homeowner Dashboard</p>
+
+</div>
+
 </div>
 
 <div class="action-buttons">
 
-<button class="home-btn"
+<button
+class="home-btn"
 onclick="window.location.href='index.html'">
 Back To Homepage
 </button>
 
-<button class="logout-btn"
+<button
+class="logout-btn"
 onclick="logoutUser()">
 Logout
 </button>
@@ -288,17 +319,17 @@ Logout
 </div>
 
 <div id="postProject" class="section">
-
 <h2>Post New Project</h2>
 
 <input type="text" id="projectTitle" placeholder="Project Title">
 
-<input type="text" id="projectLocation" placeholder="Location">
+<input type="text" id="projectLocation" placeholder="Project Location">
 
 <textarea id="projectDescription"
 placeholder="Describe your project"></textarea>
 
-<button class="submit-btn"
+<button
+class="submit-btn"
 onclick="createProject()">
 Post Project
 </button>
@@ -318,7 +349,7 @@ Post Project
 </div>
 
 <div id="accepted" class="section">
-<h2>Accepted Projects</h2>
+<h2>Projects Accepted</h2>
 <div id="acceptedList">
 <p>No accepted projects yet.</p>
 </div>
@@ -335,10 +366,12 @@ Post Project
 
 <h2>Messages</h2>
 
-<textarea id="messageInput"
-placeholder="Write a message..."></textarea>
+<textarea
+id="messageInput"
+placeholder="Write a message"></textarea>
 
-<button class="submit-btn"
+<button
+class="submit-btn"
 onclick="sendMessage()">
 Send Message
 </button>
@@ -353,15 +386,38 @@ Send Message
 
 <h2>Profile Settings</h2>
 
-<input type="text"
-id="profileName"
-placeholder="Full Name">
+<label>Profile Picture</label>
 
-<input type="email"
-id="profileEmail"
-placeholder="Email">
+<input
+type="file"
+id="profileImage"
+accept="image/*">
 
-<button class="submit-btn"
+<img
+id="profileImagePreview"
+class="profile-preview"
+src="https://via.placeholder.com/150">
+
+<label>Full Name</label>
+<input type="text" id="profileName">
+
+<label>Email Address</label>
+<input type="email" id="profileEmail">
+
+<label>New Password</label>
+<input type="password" id="newPassword">
+
+<label>Confirm New Password</label>
+<input type="password" id="confirmPassword">
+
+<label>Account Type</label>
+<input type="text" value="Homeowner" readonly>
+
+<label>Account Created</label>
+<input type="text" id="createdDate" readonly>
+
+<button
+class="submit-btn"
 onclick="saveProfile()">
 Save Changes
 </button>
@@ -375,7 +431,7 @@ JSON.parse(localStorage.getItem("homeownerProjects")) || [];
 let messages =
 JSON.parse(localStorage.getItem("homeownerMessages")) || [];
 
-const currentUser =
+let currentUser =
 JSON.parse(localStorage.getItem("veribuildUser")) || {};
 
 window.onload = function(){
@@ -406,6 +462,22 @@ userName;
 
 document.getElementById("profileEmail").value =
 currentUser.email || "";
+
+document.getElementById("createdDate").value =
+currentUser.createdDate || "Not Available";
+
+const savedImage =
+localStorage.getItem("profilePicture");
+
+if(savedImage){
+
+document.getElementById("profilePreview").src =
+savedImage;
+
+document.getElementById("profileImagePreview").src =
+savedImage;
+
+}
 
 }
 
@@ -449,11 +521,10 @@ title,
 location,
 description,
 
-date:
-new Date().toLocaleDateString(),
+status:"Awaiting Quotes",
 
-status:
-"Awaiting Quotes"
+date:
+new Date().toLocaleDateString()
 
 };
 
@@ -508,7 +579,7 @@ container.innerHTML += `
 
 <p><strong>Status:</strong> ${project.status}</p>
 
-<p><strong>Date:</strong> ${project.date}</p>
+<p><strong>Posted:</strong> ${project.date}</p>
 
 </div>
 
@@ -533,7 +604,7 @@ return;
 
 const message = {
 
-text,
+text:text,
 
 date:
 new Date().toLocaleString()
@@ -563,7 +634,7 @@ document.getElementById("messagesList");
 if(messages.length === 0){
 
 container.innerHTML =
-"<p>No messages.</p>";
+"<p>No messages available.</p>";
 
 return;
 
@@ -589,38 +660,6 @@ container.innerHTML += `
 
 }
 
-function saveProfile(){
-
-const name =
-document.getElementById("profileName").value.trim();
-
-const email =
-document.getElementById("profileEmail").value.trim();
-
-if(!name || !email){
-
-alert("Please complete all profile fields.");
-
-return;
-
-}
-
-currentUser.name = name;
-
-currentUser.email = email;
-
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(currentUser)
-);
-
-document.getElementById("welcomeText")
-.innerHTML = `Welcome, ${name}`;
-
-alert("Profile updated successfully.");
-
-}
-
 function updateCounters(){
 
 document.getElementById("projectCount")
@@ -640,11 +679,101 @@ document.getElementById("messageCount")
 
 }
 
+document
+.getElementById("profileImage")
+.addEventListener("change", function(){
+
+const file = this.files[0];
+
+if(!file) return;
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+document
+.getElementById("profileImagePreview")
+.src = e.target.result;
+
+document
+.getElementById("profilePreview")
+.src = e.target.result;
+
+localStorage.setItem(
+"profilePicture",
+e.target.result
+);
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+function saveProfile(){
+
+const name =
+document.getElementById("profileName").value.trim();
+
+const email =
+document.getElementById("profileEmail").value.trim();
+
+const password =
+document.getElementById("newPassword").value;
+
+const confirmPassword =
+document.getElementById("confirmPassword").value;
+
+if(!name || !email){
+
+alert("Name and Email are required.");
+
+return;
+
+}
+
+if(password !== confirmPassword){
+
+alert("Passwords do not match.");
+
+return;
+
+}
+
+currentUser.name = name;
+
+currentUser.email = email;
+
+if(password.length > 0){
+
+currentUser.password = password;
+
+}
+
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(currentUser)
+);
+
+document.getElementById("welcomeText")
+.innerHTML = `Welcome, ${name}`;
+
+document.getElementById("newPassword").value = "";
+document.getElementById("confirmPassword").value = "";
+
+alert("Profile updated successfully.");
+
+}
+
 function logoutUser(){
+
+if(confirm("Are you sure you want to logout?")){
 
 localStorage.removeItem("veribuildUser");
 
 window.location.href = "login.html";
+
+}
 
 }
 
