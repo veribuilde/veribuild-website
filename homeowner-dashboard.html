@@ -6,7 +6,12 @@
 
 <title>Homeowner Dashboard | VeriBuild</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -24,197 +29,140 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-background:#f4f7fb;
+background:var(--light);
 }
 
-.dashboard{
+.header{
+background:white;
+padding:20px 40px;
 display:flex;
-min-height:100vh;
-}
-
-.sidebar{
-width:280px;
-background:#102A43;
-padding:25px;
-color:white;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
 }
 
 .logo{
 font-size:2rem;
 font-weight:800;
-margin-bottom:30px;
+color:var(--navy);
 }
 
 .logo span{
-color:#E8B231;
+color:var(--mustard);
 }
 
-.sidebar button{
-width:100%;
-padding:14px;
-margin-bottom:10px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:600;
-background:rgba(255,255,255,0.1);
-color:white;
-}
-
-.sidebar button:hover{
-background:#E8B231;
-color:black;
-}
-
-.main{
-flex:1;
-padding:30px;
-}
-
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:30px;
-}
-
-.header-left{
+.profile-area{
 display:flex;
 align-items:center;
-gap:20px;
+gap:15px;
 }
 
 .profile-pic{
-width:80px;
-height:80px;
+width:60px;
+height:60px;
 border-radius:50%;
 object-fit:cover;
-border:4px solid #E8B231;
+border:3px solid var(--mustard);
+}
+
+.dashboard{
+padding:40px;
+max-width:1300px;
+margin:auto;
 }
 
 .welcome{
-font-size:2rem;
-font-weight:700;
-color:#102A43;
-}
-
-.action-buttons{
-display:flex;
-gap:10px;
-}
-
-.home-btn,
-.logout-btn{
-padding:12px 20px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:700;
-}
-
-.home-btn{
-background:#102A43;
+background:linear-gradient(135deg,#102A43,#1c476f);
 color:white;
-}
-
-.logout-btn{
-background:#E8B231;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+padding:40px;
+border-radius:20px;
 margin-bottom:30px;
+}
+
+.welcome h1{
+margin-bottom:10px;
+}
+
+.dashboard-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+cursor:pointer;
+transition:.3s;
 }
 
-.card-number{
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card i{
 font-size:2rem;
-font-weight:800;
-color:#E8B231;
-margin-top:10px;
-}
-
-.section{
-display:none;
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
-
-.section.active{
-display:block;
-}
-
-.section h2{
-margin-bottom:20px;
-color:#102A43;
-}
-
-input,
-textarea{
-width:100%;
-padding:12px;
+color:var(--mustard);
 margin-bottom:15px;
-border:2px solid #ddd;
-border-radius:10px;
 }
 
-textarea{
-min-height:120px;
-resize:vertical;
+.card h3{
+color:var(--navy);
+margin-bottom:10px;
 }
 
-.submit-btn{
-background:#E8B231;
+.content-panel{
+background:white;
+padding:30px;
+border-radius:20px;
+margin-top:30px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.btn{
+background:var(--mustard);
 border:none;
-padding:12px 20px;
+padding:12px 22px;
 border-radius:10px;
 font-weight:700;
 cursor:pointer;
 }
 
-.list-item{
-background:#f5f7fa;
-padding:15px;
+.back-btn{
+background:var(--navy);
+color:white;
+text-decoration:none;
+padding:12px 22px;
 border-radius:10px;
-margin-bottom:10px;
+font-weight:700;
+display:inline-block;
+margin-top:20px;
 }
 
-.profile-preview{
-width:150px;
-height:150px;
-border-radius:50%;
-object-fit:cover;
-border:4px solid #E8B231;
-display:block;
-margin-bottom:20px;
+.empty-state{
+text-align:center;
+padding:50px;
+color:#777;
 }
 
-@media(max-width:900px){
-
-.dashboard{
-flex-direction:column;
-}
-
-.sidebar{
+input{
 width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:10px;
 }
 
-.header{
-flex-direction:column;
-align-items:flex-start;
-gap:20px;
-}
-
+textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:10px;
+resize:vertical;
+min-height:120px;
 }
 
 </style>
@@ -222,566 +170,399 @@ gap:20px;
 
 <body>
 
-<div class="dashboard">
-
-<div class="sidebar">
+<div class="header">
 
 <div class="logo">
 Veri<span>Build</span>
 </div>
 
-<button onclick="showSection('dashboardHome')">Dashboard Home</button>
-<button onclick="showSection('postProject')">Post New Project</button>
-<button onclick="showSection('projects')">Projects Posted</button>
-<button onclick="showSection('quotes')">Received Quotes</button>
-<button onclick="showSection('accepted')">Projects Accepted</button>
-<button onclick="showSection('payments')">Payments</button>
-<button onclick="showSection('messages')">Messages</button>
-<button onclick="showSection('profile')">Profile Settings</button>
-
-</div>
-
-<div class="main">
-
-<div class="header">
-
-<div class="header-left">
+<div class="profile-area">
 
 <img
-id="profilePreview"
+id="profilePicture"
 class="profile-pic"
-src="https://via.placeholder.com/150">
+src="https://via.placeholder.com/60">
 
 <div>
+<strong id="welcomeUser">
+Homeowner
+</strong>
+</div>
+
+</div>
+
+</div>
+
+<div class="dashboard">
+
+<div class="welcome">
+
+<h1 id="welcomeMessage">
+Welcome, Homeowner
+</h1>
+
+<p>
+Manage your projects, quotes, payments and profile from one place.
+</p>
+
+<a href="index.html" class="back-btn">
+Back To Homepage
+</a>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="card" onclick="showSection('quotes')">
+<i class="fa-solid fa-file-signature"></i>
+<h3>Received Quotes</h3>
+<p>0 Quotes Received</p>
+</div>
+
+<div class="card" onclick="showSection('posted')">
+<i class="fa-solid fa-folder-plus"></i>
+<h3>Projects Posted</h3>
+<p>0 Projects Posted</p>
+</div>
+
+<div class="card" onclick="showSection('accepted')">
+<i class="fa-solid fa-circle-check"></i>
+<h3>Projects Accepted</h3>
+<p>0 Accepted Projects</p>
+</div>
+
+<div class="card" onclick="showSection('newproject')">
+<i class="fa-solid fa-plus"></i>
+<h3>Post New Project</h3>
+<p>Create A Project</p>
+</div>
+
+<div class="card" onclick="showSection('payments')">
+<i class="fa-solid fa-credit-card"></i>
+<h3>Payments</h3>
+<p>0 Payments</p>
+</div>
+
+<div class="card" onclick="showSection('messages')">
+<i class="fa-solid fa-envelope"></i>
+<h3>Messages</h3>
+<p>0 Messages</p>
+</div>
+
+<div class="card" onclick="showSection('settings')">
+<i class="fa-solid fa-gear"></i>
+<h3>Profile Settings</h3>
+<p>Manage Account</p>
+</div>
+
+<div class="card" onclick="logoutUser()">
+<i class="fa-solid fa-right-from-bracket"></i>
+<h3>Logout</h3>
+<p>Sign Out</p>
+</div>
+
+</div>
 
 <div
-class="welcome"
-id="welcomeText">
-Welcome, User
-</div>
+id="contentPanel"
+class="content-panel">
 
-<p>Homeowner Dashboard</p>
+<div class="empty-state">
 
-</div>
+<h2>Select an option above</h2>
 
-</div>
-
-<div class="action-buttons">
-
-<button
-class="home-btn"
-onclick="window.location.href='index.html'">
-Back To Homepage
-</button>
-
-<button
-class="logout-btn"
-onclick="logoutUser()">
-Logout
-</button>
+<p>Your homeowner tools will appear here.</p>
 
 </div>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<h3>Projects Posted</h3>
-<div class="card-number" id="projectCount">0</div>
-</div>
-
-<div class="card">
-<h3>Received Quotes</h3>
-<div class="card-number" id="quoteCount">0</div>
-</div>
-
-<div class="card">
-<h3>Accepted Projects</h3>
-<div class="card-number" id="acceptedCount">0</div>
-</div>
-
-<div class="card">
-<h3>Payments</h3>
-<div class="card-number" id="paymentCount">0</div>
-</div>
-
-<div class="card">
-<h3>Messages</h3>
-<div class="card-number" id="messageCount">0</div>
-</div>
-
-</div>
-
-<div id="dashboardHome" class="section active">
-<h2>Dashboard Overview</h2>
-<p>Welcome to your VeriBuild homeowner dashboard.</p>
-</div>
-
-<div id="postProject" class="section">
-<h2>Post New Project</h2>
-
-<input type="text" id="projectTitle" placeholder="Project Title">
-
-<input type="text" id="projectLocation" placeholder="Project Location">
-
-<textarea id="projectDescription"
-placeholder="Describe your project"></textarea>
-
-<button
-class="submit-btn"
-onclick="createProject()">
-Post Project
-</button>
-
-</div>
-
-<div id="projects" class="section">
-<h2>Projects Posted</h2>
-<div id="projectsList"></div>
-</div>
-
-<div id="quotes" class="section">
-<h2>Received Quotes</h2>
-<div id="quotesList">
-<p>No quotes received yet.</p>
-</div>
-</div>
-
-<div id="accepted" class="section">
-<h2>Projects Accepted</h2>
-<div id="acceptedList">
-<p>No accepted projects yet.</p>
-</div>
-</div>
-
-<div id="payments" class="section">
-<h2>Payments</h2>
-<div id="paymentsList">
-<p>No payments available.</p>
-</div>
-</div>
-
-<div id="messages" class="section">
-
-<h2>Messages</h2>
-
-<textarea
-id="messageInput"
-placeholder="Write a message"></textarea>
-
-<button
-class="submit-btn"
-onclick="sendMessage()">
-Send Message
-</button>
-
-<br><br>
-
-<div id="messagesList"></div>
-
-</div>
-
-<div id="profile" class="section">
-
-<h2>Profile Settings</h2>
-
-<label>Profile Picture</label>
-
-<input
-type="file"
-id="profileImage"
-accept="image/*">
-
-<img
-id="profileImagePreview"
-class="profile-preview"
-src="https://via.placeholder.com/150">
-
-<label>Full Name</label>
-<input type="text" id="profileName">
-
-<label>Email Address</label>
-<input type="email" id="profileEmail">
-
-<label>New Password</label>
-<input type="password" id="newPassword">
-
-<label>Confirm New Password</label>
-<input type="password" id="confirmPassword">
-
-<label>Account Type</label>
-<input type="text" value="Homeowner" readonly>
-
-<label>Account Created</label>
-<input type="text" id="createdDate" readonly>
-
-<button
-class="submit-btn"
-onclick="saveProfile()">
-Save Changes
-</button>
 
 </div>
 <script>
 
-let projects =
-JSON.parse(localStorage.getItem("homeownerProjects")) || [];
+const user =
+JSON.parse(localStorage.getItem("veribuildUser"));
 
-let messages =
-JSON.parse(localStorage.getItem("homeownerMessages")) || [];
+if(!user){
 
-let currentUser =
-JSON.parse(localStorage.getItem("veribuildUser")) || {};
+window.location.href =
+"login.html";
 
-window.onload = function(){
-
-loadUser();
-
-renderProjects();
-
-renderMessages();
-
-updateCounters();
-
-};
-
-function loadUser(){
+}
 
 const userName =
-currentUser.name ||
-currentUser.fullName ||
-currentUser.username ||
-"User";
+user.name ||
+user.fullName ||
+user.username ||
+"Homeowner";
 
-document.getElementById("welcomeText")
-.innerHTML = `Welcome, ${userName}`;
-
-document.getElementById("profileName").value =
+document.getElementById("welcomeUser").innerText =
 userName;
 
-document.getElementById("profileEmail").value =
-currentUser.email || "";
+document.getElementById("welcomeMessage").innerText =
+`Welcome, ${userName}`;
 
-document.getElementById("createdDate").value =
-currentUser.createdDate || "Not Available";
-
-const savedImage =
+const savedPicture =
 localStorage.getItem("profilePicture");
 
-if(savedImage){
+if(savedPicture){
 
-document.getElementById("profilePreview").src =
-savedImage;
-
-document.getElementById("profileImagePreview").src =
-savedImage;
+document.getElementById("profilePicture").src =
+savedPicture;
 
 }
 
-}
+function showSection(section){
 
-function showSection(sectionId){
+const panel =
+document.getElementById("contentPanel");
 
-const sections =
-document.querySelectorAll(".section");
+if(section === "quotes"){
 
-sections.forEach(section => {
-section.classList.remove("active");
-});
-
-document
-.getElementById(sectionId)
-.classList.add("active");
-
-}
-
-function createProject(){
-
-const title =
-document.getElementById("projectTitle").value.trim();
-
-const location =
-document.getElementById("projectLocation").value.trim();
-
-const description =
-document.getElementById("projectDescription").value.trim();
-
-if(!title || !location || !description){
-
-alert("Please complete all project fields.");
-
-return;
-
-}
-
-const project = {
-
-title,
-location,
-description,
-
-status:"Awaiting Quotes",
-
-date:
-new Date().toLocaleDateString()
-
-};
-
-projects.push(project);
-
-localStorage.setItem(
-"homeownerProjects",
-JSON.stringify(projects)
-);
-
-document.getElementById("projectTitle").value = "";
-document.getElementById("projectLocation").value = "";
-document.getElementById("projectDescription").value = "";
-
-renderProjects();
-
-updateCounters();
-
-alert("Project posted successfully.");
-
-showSection("projects");
-
-}
-
-function renderProjects(){
-
-const container =
-document.getElementById("projectsList");
-
-if(projects.length === 0){
-
-container.innerHTML =
-"<p>No projects posted yet.</p>";
-
-return;
-
-}
-
-container.innerHTML = "";
-
-projects.forEach(project => {
-
-container.innerHTML += `
-
-<div class="list-item">
-
-<h3>${project.title}</h3>
-
-<p><strong>Location:</strong> ${project.location}</p>
-
-<p>${project.description}</p>
-
-<p><strong>Status:</strong> ${project.status}</p>
-
-<p><strong>Posted:</strong> ${project.date}</p>
-
+panel.innerHTML = `
+<div class="empty-state">
+<h2>Received Quotes</h2>
+<p>You have received 0 quotes.</p>
 </div>
+`;
+
+}
+
+else if(section === "posted"){
+
+panel.innerHTML = `
+<div class="empty-state">
+<h2>Projects Posted</h2>
+<p>You have posted 0 projects.</p>
+</div>
+`;
+
+}
+
+else if(section === "accepted"){
+
+panel.innerHTML = `
+<div class="empty-state">
+<h2>Projects Accepted</h2>
+<p>You currently have 0 accepted projects.</p>
+</div>
+`;
+
+}
+
+else if(section === "newproject"){
+
+panel.innerHTML = `
+
+<h2 style="margin-bottom:20px;">
+Post New Project
+</h2>
+
+<input
+type="text"
+placeholder="Project Title">
+
+<textarea
+placeholder="Describe your project..."></textarea>
+
+<input
+type="text"
+placeholder="Project Location">
+
+<button
+class="btn"
+onclick="alert('Project posting system not connected yet.')">
+Submit Project
+</button>
 
 `;
 
-});
-
 }
 
-function sendMessage(){
+else if(section === "payments"){
 
-const text =
-document.getElementById("messageInput").value.trim();
-
-if(!text){
-
-alert("Please enter a message.");
-
-return;
-
-}
-
-const message = {
-
-text:text,
-
-date:
-new Date().toLocaleString()
-
-};
-
-messages.push(message);
-
-localStorage.setItem(
-"homeownerMessages",
-JSON.stringify(messages)
-);
-
-document.getElementById("messageInput").value = "";
-
-renderMessages();
-
-updateCounters();
-
-}
-
-function renderMessages(){
-
-const container =
-document.getElementById("messagesList");
-
-if(messages.length === 0){
-
-container.innerHTML =
-"<p>No messages available.</p>";
-
-return;
-
-}
-
-container.innerHTML = "";
-
-messages.forEach(message => {
-
-container.innerHTML += `
-
-<div class="list-item">
-
-<p>${message.text}</p>
-
-<small>${message.date}</small>
-
+panel.innerHTML = `
+<div class="empty-state">
+<h2>Payments</h2>
+<p>You have made 0 payments.</p>
 </div>
+`;
+
+}
+
+else if(section === "messages"){
+
+panel.innerHTML = `
+<div class="empty-state">
+<h2>Messages</h2>
+<p>You have 0 messages.</p>
+</div>
+`;
+
+}
+
+else if(section === "settings"){
+
+panel.innerHTML = `
+
+<h2 style="margin-bottom:20px;">
+Profile Settings
+</h2>
+
+<label>Change Name</label>
+
+<input
+type="text"
+id="newName"
+placeholder="Enter new name">
+
+<button
+class="btn"
+onclick="saveName()">
+Save Name
+</button>
+
+<br><br>
+
+<label>Change Email</label>
+
+<input
+type="email"
+id="newEmail"
+placeholder="Enter new email">
+
+<button
+class="btn"
+onclick="saveEmail()">
+Save Email
+</button>
+
+<br><br>
+
+<label>Change Password</label>
+
+<input
+type="password"
+id="newPassword"
+placeholder="Enter new password">
+
+<button
+class="btn"
+onclick="savePassword()">
+Save Password
+</button>
+
+<br><br>
+
+<label>Upload Profile Picture</label>
+
+<input
+type="file"
+accept="image/*"
+onchange="uploadProfilePicture(event)">
 
 `;
 
-});
+}
 
 }
 
-function updateCounters(){
+function saveName(){
 
-document.getElementById("projectCount")
-.innerText = projects.length;
+const name =
+document.getElementById("newName").value;
 
-document.getElementById("quoteCount")
-.innerText = "0";
+if(!name) return;
 
-document.getElementById("acceptedCount")
-.innerText = "0";
+user.name = name;
 
-document.getElementById("paymentCount")
-.innerText = "0";
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
 
-document.getElementById("messageCount")
-.innerText = messages.length;
+document.getElementById("welcomeUser").innerText =
+name;
+
+document.getElementById("welcomeMessage").innerText =
+`Welcome, ${name}`;
+
+alert("Name updated successfully.");
 
 }
 
-document
-.getElementById("profileImage")
-.addEventListener("change", function(){
+function saveEmail(){
 
-const file = this.files[0];
+const email =
+document.getElementById("newEmail").value;
+
+if(!email) return;
+
+user.email = email;
+
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
+
+alert("Email updated successfully.");
+
+}
+
+function savePassword(){
+
+const password =
+document.getElementById("newPassword").value;
+
+if(!password) return;
+
+user.password = password;
+
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
+
+alert("Password updated successfully.");
+
+}
+
+function uploadProfilePicture(event){
+
+const file =
+event.target.files[0];
 
 if(!file) return;
 
-const reader = new FileReader();
+const reader =
+new FileReader();
 
 reader.onload = function(e){
-
-document
-.getElementById("profileImagePreview")
-.src = e.target.result;
-
-document
-.getElementById("profilePreview")
-.src = e.target.result;
 
 localStorage.setItem(
 "profilePicture",
 e.target.result
 );
 
+document.getElementById("profilePicture").src =
+e.target.result;
+
+alert("Profile picture updated.");
+
 };
 
 reader.readAsDataURL(file);
-
-});
-
-function saveProfile(){
-
-const name =
-document.getElementById("profileName").value.trim();
-
-const email =
-document.getElementById("profileEmail").value.trim();
-
-const password =
-document.getElementById("newPassword").value;
-
-const confirmPassword =
-document.getElementById("confirmPassword").value;
-
-if(!name || !email){
-
-alert("Name and Email are required.");
-
-return;
-
-}
-
-if(password !== confirmPassword){
-
-alert("Passwords do not match.");
-
-return;
-
-}
-
-currentUser.name = name;
-
-currentUser.email = email;
-
-if(password.length > 0){
-
-currentUser.password = password;
-
-}
-
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(currentUser)
-);
-
-document.getElementById("welcomeText")
-.innerHTML = `Welcome, ${name}`;
-
-document.getElementById("newPassword").value = "";
-document.getElementById("confirmPassword").value = "";
-
-alert("Profile updated successfully.");
 
 }
 
 function logoutUser(){
 
-if(confirm("Are you sure you want to logout?")){
-
 localStorage.removeItem("veribuildUser");
 
-window.location.href = "login.html";
-
-}
+window.location.href =
+"login.html";
 
 }
 
 </script>
-
-</div>
-
-</div>
 
 </body>
 </html>
