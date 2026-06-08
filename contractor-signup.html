@@ -3,303 +3,418 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contractor Signup | VeriBuild</title>
+
+<title>Contractor Registration | VeriBuild</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+:root{
+--navy:#102A43;
+--mustard:#E8B231;
+--light:#F5F7FA;
+--gray:#6B7280;
+}
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
 body{
-    background:#f8f9fb;
-    color:#333;
+background:linear-gradient(135deg,#102A43,#1c476f);
+padding:30px;
 }
 
-header{
-    background:#0A2342;
-    padding:20px 8%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.form-container{
+max-width:900px;
+margin:auto;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,.2);
 }
 
 .logo{
-    color:white;
-    font-size:30px;
-    font-weight:bold;
+text-align:center;
+font-size:2rem;
+font-weight:800;
+color:var(--navy);
+margin-bottom:10px;
 }
 
 .logo span{
-    color:#D4A017;
+color:var(--mustard);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#D4A017;
-}
-
-.hero{
-    background:#0A2342;
-    color:white;
-    text-align:center;
-    padding:80px 20px;
-}
-
-.hero h1{
-    font-size:3rem;
-    margin-bottom:15px;
-}
-
-.hero p{
-    max-width:700px;
-    margin:auto;
-    line-height:1.8;
-}
-
-.container{
-    max-width:900px;
-    margin:50px auto;
-    padding:0 20px;
-}
-
-.form-box{
-    background:white;
-    padding:40px;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+.subtitle{
+text-align:center;
+color:var(--gray);
+margin-bottom:30px;
 }
 
 .section-title{
-    color:#0A2342;
-    margin-bottom:20px;
-    margin-top:30px;
+margin:30px 0 15px;
+color:var(--navy);
+font-size:1.2rem;
+font-weight:700;
 }
 
-.form-group{
-    margin-bottom:20px;
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.input-group{
+margin-bottom:18px;
 }
 
 label{
-    display:block;
-    margin-bottom:8px;
-    font-weight:bold;
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:var(--navy);
 }
 
 input,
 select,
 textarea{
-    width:100%;
-    padding:14px;
-    border:1px solid #ddd;
-    border-radius:8px;
+width:100%;
+padding:14px;
+border:2px solid #ddd;
+border-radius:10px;
+font-size:1rem;
 }
 
 textarea{
-    min-height:120px;
+resize:vertical;
+min-height:120px;
+}
+
+.checkbox{
+display:flex;
+align-items:flex-start;
+gap:12px;
+margin-top:20px;
+}
+
+.checkbox input{
+width:auto;
+margin-top:5px;
 }
 
 .submit-btn{
-    background:#D4A017;
-    color:#0A2342;
-    border:none;
-    padding:15px 30px;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
-    width:100%;
+width:100%;
+padding:15px;
+border:none;
+background:var(--mustard);
+border-radius:10px;
+font-size:1rem;
+font-weight:700;
+cursor:pointer;
+margin-top:20px;
 }
 
-.submit-btn:hover{
-    opacity:0.9;
+.alert{
+display:none;
+padding:12px;
+border-radius:10px;
+margin-bottom:20px;
 }
 
-.note{
-    background:#fff8e1;
-    border-left:5px solid #D4A017;
-    padding:15px;
-    margin-bottom:25px;
+.success{
+background:#e8f5e9;
+color:#2e7d32;
 }
 
-footer{
-    background:#081A33;
-    color:white;
-    text-align:center;
-    padding:25px;
-    margin-top:50px;
+.error{
+background:#ffebee;
+color:#c62828;
 }
 
 @media(max-width:768px){
 
-    header{
-        flex-direction:column;
-    }
+.row{
+grid-template-columns:1fr;
+}
 
-    nav{
-        margin-top:15px;
-    }
-
-    nav a{
-        display:block;
-        margin:10px 0;
-        text-align:center;
-    }
-
-    .hero h1{
-        font-size:2.2rem;
-    }
 }
 
 </style>
 </head>
+
 <body>
 
-<header>
+<div class="form-container">
 
 <div class="logo">
 Veri<span>Build</span>
 </div>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="how-it-works.html">How It Works</a>
-<a href="homeowners.html">Homeowners</a>
-<a href="contractors.html">Contractors</a>
-<a href="contact.html">Contact</a>
-</nav>
-
-</header>
-
-<section class="hero">
-
-<h1>Join VeriBuild</h1>
-
-<p>
-Create your contractor account and start receiving project opportunities from homeowners.
+<p class="subtitle">
+Contractor Registration & Verification Application
 </p>
 
-</section>
-
-<div class="container">
-
-<div class="form-box">
-
-<div class="note">
-<strong>Verification happens after registration.</strong>
-Create your account first, then complete your contractor verification from your dashboard.
+<div id="successMessage" class="alert success">
+Application submitted successfully.
 </div>
 
-<form>
-
-<h2 class="section-title">Account Information</h2>
-
-<div class="form-group">
-<label>Company Name</label>
-<input type="text" required>
+<div id="errorMessage" class="alert error">
+Please complete all required fields.
 </div>
 
-<div class="form-group">
-<label>Contact Person</label>
-<input type="text" required>
+<form id="contractorForm">
+
+<div class="section-title">
+Personal Information
 </div>
 
-<div class="form-group">
+<div class="row">
+
+<div class="input-group">
+<label>Full Name</label>
+<input type="text" id="fullName" required>
+</div>
+
+<div class="input-group">
 <label>Email Address</label>
-<input type="email" required>
+<input type="email" id="email" required>
 </div>
 
-<div class="form-group">
+</div>
+
+<div class="row">
+
+<div class="input-group">
 <label>Phone Number</label>
-<input type="tel" required>
+<input type="tel" id="phone" required>
 </div>
 
-<div class="form-group">
-<label>Create Password</label>
-<input type="password" required>
+<div class="input-group">
+<label>ID Number</label>
+<input type="text" id="idNumber" required>
 </div>
 
-<div class="form-group">
-<label>Confirm Password</label>
-<input type="password" required>
 </div>
 
-<h2 class="section-title">Business Details</h2>
+<div class="section-title">
+Business Information
+</div>
 
-<div class="form-group">
-<label>Province</label>
-<select required>
-<option value="">Select Province</option>
-<option>Gauteng</option>
-<option>Western Cape</option>
-<option>KwaZulu-Natal</option>
-<option>Eastern Cape</option>
-<option>Free State</option>
-<option>Limpopo</option>
-<option>Mpumalanga</option>
-<option>North West</option>
-<option>Northern Cape</option>
+<div class="row">
+
+<div class="input-group">
+<label>Company Name</label>
+<input type="text" id="company">
+</div>
+
+<div class="input-group">
+<label>Trade / Specialisation</label>
+<select id="trade" required>
+<option value="">Select Trade</option>
+<option>General Building</option>
+<option>Plumbing</option>
+<option>Electrical</option>
+<option>Roofing</option>
+<option>Tiling</option>
+<option>Painting</option>
+<option>Carpentry</option>
+<option>Other</option>
 </select>
 </div>
 
-<div class="form-group">
-<label>City / Suburb</label>
-<input type="text" required>
 </div>
 
-<div class="form-group">
-<label>Years in Business</label>
-<input type="number">
+<div class="row">
+
+<div class="input-group">
+<label>Years Of Experience</label>
+<input type="number" id="experience" required>
 </div>
 
-<div class="form-group">
-<label>Main Services Offered</label>
-<textarea placeholder="e.g. New Builds, Renovations, Roofing, Plumbing"></textarea>
+<div class="input-group">
+<label>Service Area</label>
+<input type="text" id="serviceArea" placeholder="e.g. Johannesburg, Pretoria">
 </div>
 
-<h2 class="section-title">Verification Status</h2>
-
-<div class="note">
-After signup you'll be able to upload:
-<ul style="margin-top:10px; margin-left:20px;">
-<li>CIPC Registration</li>
-<li>NHBRC Certificate</li>
-<li>COIDA Letter of Good Standing</li>
-<li>SARS Tax Compliance</li>
-<li>Public Liability Insurance</li>
-<li>Portfolio Photos</li>
-</ul>
 </div>
 
-<div class="form-group">
-<input type="checkbox" required>
-I agree to VeriBuild's Terms of Service and consent to the processing of my information in accordance with POPIA.
+<div class="input-group">
+<label>CIPC Registration Number (Optional)</label>
+<input type="text" id="cipc">
+</div>
+
+<div class="input-group">
+<label>NHBRC Registration Number (If Applicable)</label>
+<input type="text" id="nhbrc">
+</div>
+
+<div class="input-group">
+<label>Business Description</label>
+<textarea id="description"></textarea>
+</div>
+
+<div class="section-title">
+Document Uploads
+</div>
+
+<div class="input-group">
+<label>Upload South African ID</label>
+<input type="file" id="idUpload">
+</div>
+
+<div class="input-group">
+<label>Upload Supporting Documents</label>
+<input type="file" id="docsUpload" multiple>
+</div>
+
+<div class="checkbox">
+<input type="checkbox" id="popiaConsent">
+<label for="popiaConsent">
+I acknowledge that VeriBuild will collect, process and store my personal information and supporting documents for contractor verification, compliance and platform operations in accordance with South Africa's Protection of Personal Information Act (POPIA).
+</label>
 </div>
 
 <button type="submit" class="submit-btn">
-Create Contractor Account
+Submit Application
 </button>
 
 </form>
+<script>
+
+document
+.getElementById("contractorForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+const fullName =
+document.getElementById("fullName").value;
+
+const email =
+document.getElementById("email").value;
+
+const phone =
+document.getElementById("phone").value;
+
+const idNumber =
+document.getElementById("idNumber").value;
+
+const trade =
+document.getElementById("trade").value;
+
+const experience =
+document.getElementById("experience").value;
+
+const popiaConsent =
+document.getElementById("popiaConsent").checked;
+
+const success =
+document.getElementById("successMessage");
+
+const error =
+document.getElementById("errorMessage");
+
+if(
+!fullName ||
+!email ||
+!phone ||
+!idNumber ||
+!trade ||
+!experience
+){
+
+error.innerHTML =
+"Please complete all required fields.";
+
+error.style.display = "block";
+
+return;
+
+}
+
+if(!popiaConsent){
+
+error.innerHTML =
+"You must accept the POPIA notice before submitting your application.";
+
+error.style.display = "block";
+
+return;
+
+}
+
+error.style.display = "none";
+
+const contractorApplication = {
+
+fullName:
+document.getElementById("fullName").value,
+
+email:
+document.getElementById("email").value,
+
+phone:
+document.getElementById("phone").value,
+
+idNumber:
+document.getElementById("idNumber").value,
+
+company:
+document.getElementById("company").value,
+
+trade:
+document.getElementById("trade").value,
+
+experience:
+document.getElementById("experience").value,
+
+serviceArea:
+document.getElementById("serviceArea").value,
+
+cipc:
+document.getElementById("cipc").value,
+
+nhbrc:
+document.getElementById("nhbrc").value,
+
+description:
+document.getElementById("description").value,
+
+status:"Pending Verification",
+
+submitted:
+new Date().toLocaleDateString()
+
+};
+
+localStorage.setItem(
+"contractorApplication",
+JSON.stringify(contractorApplication)
+);
+
+success.style.display = "block";
+
+setTimeout(() => {
+
+window.location.href = "login.html";
+
+}, 2500);
+
+});
+
+</script>
 
 </div>
-
-</div>
-
-<footer>
-
-<p>© 2026 VeriBuild. All Rights Reserved.</p>
-
-</footer>
 
 </body>
 </html>
