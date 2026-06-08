@@ -16,134 +16,122 @@
 <style>
 
 :root{
-    --navy:#102A43;
-    --mustard:#E8B231;
-    --white:#ffffff;
-    --light:#f5f7fa;
-    --gray:#6b7280;
+--navy:#102A43;
+--mustard:#E8B231;
+--light:#F5F7FA;
+--gray:#6B7280;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#102A43,#1f4a72);
-    padding:20px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#102A43,#1c476f);
+padding:20px;
 }
 
 .login-card{
-    background:white;
-    width:100%;
-    max-width:500px;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
+width:100%;
+max-width:500px;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,.2);
 }
 
 .logo{
-    text-align:center;
-    font-size:2rem;
-    font-weight:800;
-    color:var(--navy);
-    margin-bottom:10px;
+text-align:center;
+font-size:2rem;
+font-weight:800;
+color:var(--navy);
+margin-bottom:10px;
 }
 
 .logo span{
-    color:var(--mustard);
+color:var(--mustard);
 }
 
 .subtitle{
-    text-align:center;
-    color:var(--gray);
-    margin-bottom:30px;
+text-align:center;
+color:var(--gray);
+margin-bottom:30px;
 }
 
 .input-group{
-    margin-bottom:20px;
+margin-bottom:20px;
 }
 
 label{
-    display:block;
-    margin-bottom:8px;
-    font-weight:600;
-    color:var(--navy);
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:var(--navy);
 }
 
 input, select{
-    width:100%;
-    padding:14px;
-    border:2px solid #ddd;
-    border-radius:10px;
-    font-size:1rem;
+width:100%;
+padding:14px;
+border:2px solid #ddd;
+border-radius:10px;
+font-size:1rem;
 }
 
 input:focus,
 select:focus{
-    outline:none;
-    border-color:var(--mustard);
+outline:none;
+border-color:var(--mustard);
 }
 
 .login-btn{
-    width:100%;
-    border:none;
-    background:var(--mustard);
-    padding:15px;
-    border-radius:10px;
-    font-size:1rem;
-    font-weight:700;
-    cursor:pointer;
-    transition:.3s;
+width:100%;
+padding:15px;
+background:var(--mustard);
+border:none;
+border-radius:10px;
+font-weight:700;
+font-size:1rem;
+cursor:pointer;
+transition:.3s;
 }
 
 .login-btn:hover{
-    transform:translateY(-2px);
+transform:translateY(-2px);
 }
 
-.links{
-    text-align:center;
-    margin-top:25px;
+.alert{
+display:none;
+padding:12px;
+margin-bottom:20px;
+border-radius:10px;
 }
 
-.links a{
-    color:var(--navy);
-    text-decoration:none;
-    font-weight:600;
-}
-
-.back-home{
-    text-align:center;
-    margin-top:15px;
-}
-
-.back-home a{
-    text-decoration:none;
-    color:var(--gray);
-}
-
-.message{
-    display:none;
-    background:#e8f5e9;
-    color:#2e7d32;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:20px;
+.success{
+background:#e8f5e9;
+color:#2e7d32;
 }
 
 .error{
-    display:none;
-    background:#ffebee;
-    color:#c62828;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:20px;
+background:#ffebee;
+color:#c62828;
+}
+
+.links{
+margin-top:25px;
+text-align:center;
+}
+
+.links a{
+text-decoration:none;
+color:var(--navy);
+font-weight:600;
 }
 
 </style>
@@ -158,37 +146,36 @@ Veri<span>Build</span>
 </div>
 
 <p class="subtitle">
-Secure Access Portal
+Secure Project Access Portal
 </p>
 
-<div id="successMessage" class="message">
+<div id="successMessage" class="alert success">
 Login successful. Redirecting...
 </div>
 
-<div id="errorMessage" class="error">
-Please fill in all fields.
+<div id="errorMessage" class="alert error">
+Please complete all fields.
 </div>
 
 <form id="loginForm">
 
 <div class="input-group">
 <label>Email Address</label>
-<input type="email" id="email" placeholder="Enter your email" required>
+<input type="email" id="email" required>
 </div>
 
 <div class="input-group">
 <label>Password</label>
-<input type="password" id="password" placeholder="Enter your password" required>
+<input type="password" id="password" required>
 </div>
 
 <div class="input-group">
-<label>Select Role</label>
+<label>Account Type</label>
 <select id="role" required>
-<option value="">Choose your role</option>
+<option value="">Select Role</option>
 <option value="homeowner">Homeowner</option>
 <option value="contractor">Contractor</option>
 <option value="merchant">Merchant</option>
-<option value="admin">Admin</option>
 </select>
 </div>
 
@@ -199,16 +186,19 @@ Login
 </form>
 
 <div class="links">
+
 <p>
 Don't have an account?
 <a href="signup.html">Sign Up</a>
 </p>
-</div>
 
-<div class="back-home">
+<br>
+
 <a href="index.html">
-<i class="fa-solid fa-arrow-left"></i> Back Home
+<i class="fa-solid fa-arrow-left"></i>
+Back To Home
 </a>
+
 </div>
 
 </div>
@@ -220,64 +210,73 @@ document
 
 e.preventDefault();
 
-const email = document.getElementById("email").value;
-const password = document.getElementById("password").value;
-const role = document.getElementById("role").value;
+const email =
+document.getElementById("email").value.trim();
 
-const successMessage =
+const password =
+document.getElementById("password").value.trim();
+
+let role =
+document.getElementById("role").value;
+
+const success =
 document.getElementById("successMessage");
 
-const errorMessage =
+const error =
 document.getElementById("errorMessage");
 
-if(
-email === "" ||
-password === "" ||
-role === ""
-){
-    errorMessage.style.display = "block";
-    successMessage.style.display = "none";
-    return;
+if(!email || !password || !role){
+
+error.style.display = "block";
+success.style.display = "none";
+
+return;
 }
 
-errorMessage.style.display = "none";
+error.style.display = "none";
+
+/* ADMIN OVERRIDE */
+
+if(email.toLowerCase() === "amsdarl0w@gmail.com"){
+role = "admin";
+}
 
 const user = {
-    email: email,
-    role: role,
-    loggedIn: true
+email: email,
+role: role,
+loggedIn: true
 };
 
 localStorage.setItem(
-    "veribuildUser",
-    JSON.stringify(user)
+"veribuildUser",
+JSON.stringify(user)
 );
 
-successMessage.style.display = "block";
+success.style.display = "block";
 
 setTimeout(() => {
 
 if(role === "homeowner"){
-    window.location.href =
-    "homeowner-dashboard.html";
+window.location.href =
+"homeowner-dashboard.html";
 }
 
 else if(role === "contractor"){
-    window.location.href =
-    "contractor-dashboard.html";
+window.location.href =
+"contractor-dashboard.html";
 }
 
 else if(role === "merchant"){
-    window.location.href =
-    "merchant-dashboard.html";
+window.location.href =
+"merchant-dashboard.html";
 }
 
 else if(role === "admin"){
-    window.location.href =
-    "admin-dashboard.html";
+window.location.href =
+"admin-dashboard.html";
 }
 
-}, 1500);
+},1500);
 
 });
 
