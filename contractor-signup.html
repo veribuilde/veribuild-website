@@ -11,8 +11,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 <style>
 
 :root{
@@ -35,7 +33,7 @@ padding:30px;
 }
 
 .form-container{
-max-width:900px;
+max-width:950px;
 margin:auto;
 background:white;
 padding:40px;
@@ -63,9 +61,11 @@ margin-bottom:30px;
 
 .section-title{
 margin:30px 0 15px;
-color:var(--navy);
 font-size:1.2rem;
 font-weight:700;
+color:var(--navy);
+border-bottom:2px solid #eee;
+padding-bottom:10px;
 }
 
 .row{
@@ -95,16 +95,37 @@ border-radius:10px;
 font-size:1rem;
 }
 
+input:focus,
+select:focus,
+textarea:focus{
+outline:none;
+border-color:var(--mustard);
+}
+
 textarea{
-resize:vertical;
 min-height:120px;
+resize:vertical;
+}
+
+.notice{
+background:#fff8e6;
+border-left:5px solid var(--mustard);
+padding:15px;
+margin-top:20px;
+border-radius:10px;
+}
+
+.notice a{
+color:var(--navy);
+font-weight:700;
+text-decoration:none;
 }
 
 .checkbox{
 display:flex;
-align-items:flex-start;
 gap:12px;
 margin-top:20px;
+align-items:flex-start;
 }
 
 .checkbox input{
@@ -115,13 +136,13 @@ margin-top:5px;
 .submit-btn{
 width:100%;
 padding:15px;
+margin-top:25px;
 border:none;
 background:var(--mustard);
-border-radius:10px;
-font-size:1rem;
 font-weight:700;
+font-size:1rem;
+border-radius:10px;
 cursor:pointer;
-margin-top:20px;
 }
 
 .alert{
@@ -165,7 +186,7 @@ Contractor Registration & Verification Application
 </p>
 
 <div id="successMessage" class="alert success">
-Application submitted successfully.
+Application submitted successfully. Redirecting...
 </div>
 
 <div id="errorMessage" class="alert error">
@@ -181,12 +202,12 @@ Personal Information
 <div class="row">
 
 <div class="input-group">
-<label>Full Name</label>
+<label>Full Name *</label>
 <input type="text" id="fullName" required>
 </div>
 
 <div class="input-group">
-<label>Email Address</label>
+<label>Email Address *</label>
 <input type="email" id="email" required>
 </div>
 
@@ -195,12 +216,12 @@ Personal Information
 <div class="row">
 
 <div class="input-group">
-<label>Phone Number</label>
+<label>Phone Number *</label>
 <input type="tel" id="phone" required>
 </div>
 
 <div class="input-group">
-<label>ID Number</label>
+<label>South African ID Number *</label>
 <input type="text" id="idNumber" required>
 </div>
 
@@ -218,16 +239,17 @@ Business Information
 </div>
 
 <div class="input-group">
-<label>Trade / Specialisation</label>
+<label>Trade / Specialisation *</label>
 <select id="trade" required>
 <option value="">Select Trade</option>
 <option>General Building</option>
-<option>Plumbing</option>
 <option>Electrical</option>
+<option>Plumbing</option>
 <option>Roofing</option>
 <option>Tiling</option>
 <option>Painting</option>
 <option>Carpentry</option>
+<option>Landscaping</option>
 <option>Other</option>
 </select>
 </div>
@@ -237,24 +259,24 @@ Business Information
 <div class="row">
 
 <div class="input-group">
-<label>Years Of Experience</label>
+<label>Years Of Experience *</label>
 <input type="number" id="experience" required>
 </div>
 
 <div class="input-group">
-<label>Service Area</label>
-<input type="text" id="serviceArea" placeholder="e.g. Johannesburg, Pretoria">
+<label>Primary Service Area *</label>
+<input type="text" id="serviceArea" required>
 </div>
 
 </div>
 
 <div class="input-group">
-<label>CIPC Registration Number (Optional)</label>
+<label>CIPC Registration Number</label>
 <input type="text" id="cipc">
 </div>
 
 <div class="input-group">
-<label>NHBRC Registration Number (If Applicable)</label>
+<label>NHBRC Registration Number (if applicable)</label>
 <input type="text" id="nhbrc">
 </div>
 
@@ -264,28 +286,46 @@ Business Information
 </div>
 
 <div class="section-title">
-Document Uploads
+Supporting Documentation
 </div>
 
 <div class="input-group">
-<label>Upload South African ID</label>
+<label>Upload ID Document</label>
 <input type="file" id="idUpload">
 </div>
 
 <div class="input-group">
-<label>Upload Supporting Documents</label>
+<label>Upload Additional Compliance Documents</label>
 <input type="file" id="docsUpload" multiple>
 </div>
 
+<div class="notice">
+<strong>POPIA Notice:</strong><br><br>
+
+VeriBuild collects personal information and supporting documentation for contractor verification, compliance monitoring, project governance and platform operations.
+
+Before submitting your application, please review our
+<a href="privacy-terms.html" target="_blank">
+Privacy Policy & Terms & Conditions
+</a>.
+</div>
+
 <div class="checkbox">
+
 <input type="checkbox" id="popiaConsent">
+
 <label for="popiaConsent">
-I acknowledge that VeriBuild will collect, process and store my personal information and supporting documents for contractor verification, compliance and platform operations in accordance with South Africa's Protection of Personal Information Act (POPIA).
+I have read and agree to the VeriBuild
+<a href="privacy-terms.html" target="_blank">
+Privacy Policy & Terms & Conditions
+</a>
+and consent to the processing of my personal information in accordance with POPIA.
 </label>
+
 </div>
 
 <button type="submit" class="submit-btn">
-Submit Application
+Submit Contractor Application
 </button>
 
 </form>
@@ -298,22 +338,25 @@ document
 e.preventDefault();
 
 const fullName =
-document.getElementById("fullName").value;
+document.getElementById("fullName").value.trim();
 
 const email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
 
 const phone =
-document.getElementById("phone").value;
+document.getElementById("phone").value.trim();
 
 const idNumber =
-document.getElementById("idNumber").value;
+document.getElementById("idNumber").value.trim();
 
 const trade =
 document.getElementById("trade").value;
 
 const experience =
 document.getElementById("experience").value;
+
+const serviceArea =
+document.getElementById("serviceArea").value.trim();
 
 const popiaConsent =
 document.getElementById("popiaConsent").checked;
@@ -330,7 +373,8 @@ if(
 !phone ||
 !idNumber ||
 !trade ||
-!experience
+!experience ||
+!serviceArea
 ){
 
 error.innerHTML =
@@ -345,7 +389,7 @@ return;
 if(!popiaConsent){
 
 error.innerHTML =
-"You must accept the POPIA notice before submitting your application.";
+"You must read and accept the Privacy Policy, Terms & Conditions, and POPIA consent before submitting.";
 
 error.style.display = "block";
 
@@ -357,29 +401,19 @@ error.style.display = "none";
 
 const contractorApplication = {
 
-fullName:
-document.getElementById("fullName").value,
-
-email:
-document.getElementById("email").value,
-
-phone:
-document.getElementById("phone").value,
-
-idNumber:
-document.getElementById("idNumber").value,
+fullName: fullName,
+email: email,
+phone: phone,
+idNumber: idNumber,
 
 company:
 document.getElementById("company").value,
 
-trade:
-document.getElementById("trade").value,
+trade: trade,
 
-experience:
-document.getElementById("experience").value,
+experience: experience,
 
-serviceArea:
-document.getElementById("serviceArea").value,
+serviceArea: serviceArea,
 
 cipc:
 document.getElementById("cipc").value,
@@ -390,9 +424,9 @@ document.getElementById("nhbrc").value,
 description:
 document.getElementById("description").value,
 
-status:"Pending Verification",
+status: "Pending Verification",
 
-submitted:
+submittedDate:
 new Date().toLocaleDateString()
 
 };
