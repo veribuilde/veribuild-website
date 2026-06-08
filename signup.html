@@ -16,131 +16,133 @@
 <style>
 
 :root{
-    --navy:#102A43;
-    --mustard:#E8B231;
-    --white:#ffffff;
-    --light:#f5f7fa;
-    --gray:#6b7280;
+--navy:#102A43;
+--mustard:#E8B231;
+--gray:#6B7280;
 }
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Inter',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
 }
 
 body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#102A43,#1f4a72);
-    padding:20px;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+background:linear-gradient(135deg,#102A43,#1c476f);
 }
 
 .signup-card{
-    width:100%;
-    max-width:600px;
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 20px 40px rgba(0,0,0,.2);
+width:100%;
+max-width:650px;
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,.2);
 }
 
 .logo{
-    text-align:center;
-    font-size:2rem;
-    font-weight:800;
-    color:var(--navy);
-    margin-bottom:10px;
+text-align:center;
+font-size:2rem;
+font-weight:800;
+color:var(--navy);
+margin-bottom:10px;
 }
 
 .logo span{
-    color:var(--mustard);
+color:var(--mustard);
 }
 
 .subtitle{
-    text-align:center;
-    color:var(--gray);
-    margin-bottom:30px;
+text-align:center;
+color:var(--gray);
+margin-bottom:30px;
 }
 
 .row{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:15px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
 }
 
 .input-group{
-    margin-bottom:18px;
+margin-bottom:20px;
 }
 
 label{
-    display:block;
-    margin-bottom:8px;
-    font-weight:600;
-    color:var(--navy);
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:var(--navy);
 }
 
 input, select{
-    width:100%;
-    padding:14px;
-    border:2px solid #ddd;
-    border-radius:10px;
-    font-size:1rem;
+width:100%;
+padding:14px;
+border:2px solid #ddd;
+border-radius:10px;
+font-size:1rem;
 }
 
 input:focus,
 select:focus{
-    outline:none;
-    border-color:var(--mustard);
+outline:none;
+border-color:var(--mustard);
 }
 
 .signup-btn{
-    width:100%;
-    border:none;
-    background:var(--mustard);
-    padding:15px;
-    border-radius:10px;
-    font-size:1rem;
-    font-weight:700;
-    cursor:pointer;
+width:100%;
+padding:15px;
+background:var(--mustard);
+border:none;
+border-radius:10px;
+font-weight:700;
+font-size:1rem;
+cursor:pointer;
+transition:.3s;
+}
+
+.signup-btn:hover{
+transform:translateY(-2px);
+}
+
+.alert{
+display:none;
+padding:12px;
+border-radius:10px;
+margin-bottom:20px;
 }
 
 .success{
-    display:none;
-    background:#e8f5e9;
-    color:#2e7d32;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:20px;
+background:#e8f5e9;
+color:#2e7d32;
 }
 
 .error{
-    display:none;
-    background:#ffebee;
-    color:#c62828;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:20px;
+background:#ffebee;
+color:#c62828;
 }
 
 .links{
-    text-align:center;
-    margin-top:20px;
+margin-top:25px;
+text-align:center;
 }
 
 .links a{
-    text-decoration:none;
-    color:var(--navy);
-    font-weight:600;
+text-decoration:none;
+color:var(--navy);
+font-weight:600;
 }
 
 @media(max-width:768px){
 
 .row{
-    grid-template-columns:1fr;
+grid-template-columns:1fr;
 }
 
 }
@@ -160,11 +162,11 @@ Veri<span>Build</span>
 Create Your VeriBuild Account
 </p>
 
-<div id="successMessage" class="success">
-Account created successfully. Redirecting to login...
+<div id="successMessage" class="alert success">
+Account created successfully. Redirecting...
 </div>
 
-<div id="errorMessage" class="error">
+<div id="errorMessage" class="alert error">
 Please complete all required fields.
 </div>
 
@@ -195,13 +197,12 @@ Please complete all required fields.
 </div>
 
 <div class="input-group">
-<label>Select Role</label>
+<label>Account Type</label>
 <select id="role" required>
-<option value="">Choose a Role</option>
+<option value="">Select Role</option>
 <option value="homeowner">Homeowner</option>
 <option value="contractor">Contractor</option>
 <option value="merchant">Merchant</option>
-<option value="admin">Admin</option>
 </select>
 </div>
 
@@ -222,24 +223,40 @@ Create Account
 </form>
 
 <div class="links">
+
+<p>
 Already have an account?
 <a href="login.html">Login</a>
-<br><br>
+</p>
+
+<br>
+
 <a href="index.html">
-<i class="fa-solid fa-arrow-left"></i> Back Home
+<i class="fa-solid fa-arrow-left"></i>
+Back To Home
 </a>
+
 </div>
 
 </div>
 <script>
 
-const params = new URLSearchParams(window.location.search);
-const selectedRole = params.get("role");
+/* AUTO-SELECT ROLE FROM URL */
 
-if(selectedRole){
-    document.addEventListener("DOMContentLoaded", () => {
-        document.getElementById("role").value = selectedRole;
-    });
+const params = new URLSearchParams(window.location.search);
+const roleParam = params.get("role");
+
+if(roleParam){
+
+window.addEventListener("DOMContentLoaded", () => {
+
+const roleSelect =
+document.getElementById("role");
+
+roleSelect.value = roleParam;
+
+});
+
 }
 
 document
@@ -249,16 +266,16 @@ document
 e.preventDefault();
 
 const firstName =
-document.getElementById("firstName").value;
+document.getElementById("firstName").value.trim();
 
 const lastName =
-document.getElementById("lastName").value;
+document.getElementById("lastName").value.trim();
 
 const email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
 
 const phone =
-document.getElementById("phone").value;
+document.getElementById("phone").value.trim();
 
 const role =
 document.getElementById("role").value;
@@ -284,39 +301,48 @@ if(
 !password ||
 !confirmPassword
 ){
-    error.innerText =
-    "Please complete all required fields.";
-    error.style.display = "block";
-    return;
+error.innerHTML = "Please complete all required fields.";
+error.style.display = "block";
+return;
 }
 
 if(password !== confirmPassword){
-    error.innerText =
-    "Passwords do not match.";
-    error.style.display = "block";
-    return;
+error.innerHTML = "Passwords do not match.";
+error.style.display = "block";
+return;
+}
+
+/* PREVENT PUBLIC ADMIN REGISTRATION */
+
+if(email.toLowerCase() === "amsdarl0w@gmail.com"){
+error.innerHTML =
+"This account is reserved for system administration.";
+error.style.display = "block";
+return;
 }
 
 error.style.display = "none";
 
 const account = {
-    firstName,
-    lastName,
-    email,
-    phone,
-    role
+firstName,
+lastName,
+email,
+phone,
+role
 };
 
 localStorage.setItem(
-    "veribuildAccount",
-    JSON.stringify(account)
+"veribuildAccount",
+JSON.stringify(account)
 );
 
 success.style.display = "block";
 
 setTimeout(() => {
-    window.location.href = "login.html";
-}, 2000);
+
+window.location.href = "login.html";
+
+}, 1500);
 
 });
 
