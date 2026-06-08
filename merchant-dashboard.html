@@ -143,7 +143,7 @@ padding:50px;
 color:#777;
 }
 
-input{
+input, textarea{
 width:100%;
 padding:12px;
 margin:10px 0;
@@ -152,11 +152,6 @@ border-radius:10px;
 }
 
 textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ddd;
-border-radius:10px;
 resize:vertical;
 min-height:120px;
 }
@@ -174,15 +169,10 @@ Veri<span>Build</span>
 
 <div class="profile-area">
 
-<img
-id="profilePicture"
-class="profile-pic"
-src="https://via.placeholder.com/60">
+<img id="profilePicture" class="profile-pic" src="https://via.placeholder.com/60">
 
 <div>
-<strong id="welcomeUser">
-Merchant
-</strong>
+<strong id="welcomeUser">Merchant</strong>
 </div>
 
 </div>
@@ -193,17 +183,13 @@ Merchant
 
 <div class="welcome">
 
-<h1 id="welcomeMessage">
-Welcome, Merchant
-</h1>
+<h1 id="welcomeMessage">Welcome, Merchant</h1>
 
 <p>
 Manage orders, quotes, inventory and business performance.
 </p>
 
-<a href="index.html" class="back-btn">
-Back To Homepage
-</a>
+<a href="index.html" class="back-btn">Back To Homepage</a>
 
 </div>
 
@@ -259,39 +245,28 @@ Back To Homepage
 
 </div>
 
-<div
-id="contentPanel"
-class="content-panel">
+<div id="contentPanel" class="content-panel">
 
 <div class="empty-state">
-
 <h2>Select an option above</h2>
-
 <p>Your merchant tools will appear here.</p>
-
 </div>
 
 </div>
+
 <script>
 
 const user =
 JSON.parse(localStorage.getItem("veribuildUser"));
 
 if(!user){
-
-window.location.href =
-"login.html";
-
+window.location.href = "login.html";
 }
 
 const userName =
-user.name ||
-user.fullName ||
-user.username ||
-"Merchant";
+user.name || user.fullName || user.username || "Merchant";
 
-document.getElementById("welcomeUser").innerText =
-userName;
+document.getElementById("welcomeUser").innerText = userName;
 
 document.getElementById("welcomeMessage").innerText =
 `Welcome, ${userName}`;
@@ -300,282 +275,165 @@ const savedPicture =
 localStorage.getItem("profilePicture");
 
 if(savedPicture){
-
-document.getElementById("profilePicture").src =
-savedPicture;
-
+document.getElementById("profilePicture").src = savedPicture;
 }
-
 function showSection(section){
 
-const panel =
-document.getElementById("contentPanel");
+const panel = document.getElementById("contentPanel");
 
 if(section === "pending"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Pending Orders</h2>
 <p>You currently have 0 pending orders.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "complete"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Complete Orders</h2>
 <p>You have completed 0 orders.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "quote"){
-
 panel.innerHTML = `
+<h2 style="margin-bottom:20px;">Create Quote</h2>
 
-<h2 style="margin-bottom:20px;">
-Create Quote
-</h2>
+<input type="text" placeholder="Project Reference">
+<input type="number" placeholder="Quote Amount (R)">
+<textarea placeholder="Quote Notes"></textarea>
 
-<input
-type="text"
-placeholder="Project Reference">
-
-<input
-type="number"
-placeholder="Quote Amount (R)">
-
-<textarea
-placeholder="Quote Notes"></textarea>
-
-<button
-class="btn"
-onclick="alert('Quote system not connected yet.')">
+<button class="btn" onclick="alert('Quote system not connected yet.')">
 Submit Quote
-</button>
-
-`;
-
+</button>`;
 }
 
 else if(section === "messages"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Messages</h2>
 <p>You have 0 messages.</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "inventory"){
-
 panel.innerHTML = `
-
-<h2 style="margin-bottom:20px;">
-Inventory Management
-</h2>
+<h2 style="margin-bottom:20px;">Inventory Management</h2>
 
 <div class="empty-state">
 <p>No inventory items added yet.</p>
 </div>
 
-<input
-type="text"
-placeholder="Product Name">
+<input type="text" placeholder="Product Name">
+<input type="number" placeholder="Product Price">
 
-<input
-type="number"
-placeholder="Product Price">
-
-<button
-class="btn"
-onclick="alert('Inventory system not connected yet.')">
+<button class="btn" onclick="alert('Inventory system not connected yet.')">
 Add Product
-</button>
-
-`;
-
+</button>`;
 }
 
 else if(section === "analytics"){
-
 panel.innerHTML = `
 <div class="empty-state">
 <h2>Analytics</h2>
 <p>Total Quotes: 0</p>
 <p>Total Orders: 0</p>
 <p>Total Revenue: R0</p>
-</div>
-`;
-
+</div>`;
 }
 
 else if(section === "settings"){
-
 panel.innerHTML = `
-
-<h2 style="margin-bottom:20px;">
-Profile Settings
-</h2>
+<h2 style="margin-bottom:20px;">Profile Settings</h2>
 
 <label>Change Name</label>
-
-<input
-type="text"
-id="newName"
-placeholder="Enter new name">
-
-<button
-class="btn"
-onclick="saveName()">
-Save Name
-</button>
+<input type="text" id="newName" placeholder="Enter new name">
+<button class="btn" onclick="saveName()">Save Name</button>
 
 <br><br>
 
 <label>Change Email</label>
-
-<input
-type="email"
-id="newEmail"
-placeholder="Enter new email">
-
-<button
-class="btn"
-onclick="saveEmail()">
-Save Email
-</button>
+<input type="email" id="newEmail" placeholder="Enter new email">
+<button class="btn" onclick="saveEmail()">Save Email</button>
 
 <br><br>
 
 <label>Change Password</label>
-
-<input
-type="password"
-id="newPassword"
-placeholder="Enter new password">
-
-<button
-class="btn"
-onclick="savePassword()">
-Save Password
-</button>
+<input type="password" id="newPassword" placeholder="Enter new password">
+<button class="btn" onclick="savePassword()">Save Password</button>
 
 <br><br>
 
 <label>Upload Profile Picture</label>
-
-<input
-type="file"
-accept="image/*"
-onchange="uploadProfilePicture(event)">
-
+<input type="file" accept="image/*" onchange="uploadProfilePicture(event)">
 `;
-
 }
 
 }
 
 function saveName(){
 
-const name =
-document.getElementById("newName").value;
-
+const name = document.getElementById("newName").value;
 if(!name) return;
 
 user.name = name;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
-document.getElementById("welcomeUser").innerText =
-name;
-
-document.getElementById("welcomeMessage").innerText =
-`Welcome, ${name}`;
+document.getElementById("welcomeUser").innerText = name;
+document.getElementById("welcomeMessage").innerText = `Welcome, ${name}`;
 
 alert("Name updated successfully.");
-
 }
 
 function saveEmail(){
 
-const email =
-document.getElementById("newEmail").value;
-
+const email = document.getElementById("newEmail").value;
 if(!email) return;
 
 user.email = email;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
 alert("Email updated successfully.");
-
 }
 
 function savePassword(){
 
-const password =
-document.getElementById("newPassword").value;
-
+const password = document.getElementById("newPassword").value;
 if(!password) return;
 
 user.password = password;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
 alert("Password updated successfully.");
-
 }
 
 function uploadProfilePicture(event){
 
-const file =
-event.target.files[0];
-
+const file = event.target.files[0];
 if(!file) return;
 
-const reader =
-new FileReader();
+const reader = new FileReader();
 
 reader.onload = function(e){
-
-localStorage.setItem(
-"profilePicture",
-e.target.result
-);
-
-document.getElementById("profilePicture").src =
-e.target.result;
-
+localStorage.setItem("profilePicture", e.target.result);
+document.getElementById("profilePicture").src = e.target.result;
 alert("Profile picture updated.");
-
 };
 
 reader.readAsDataURL(file);
-
 }
 
+/* ✅ FIXED LOGOUT */
 function logoutUser(){
 
 localStorage.removeItem("veribuildUser");
 
-window.location.href =
-"login.html";
+window.location.href = "index.html";
 
 }
 
