@@ -81,7 +81,8 @@ font-weight:600;
 color:var(--navy);
 }
 
-input, select{
+input,
+select{
 width:100%;
 padding:14px;
 border:2px solid #ddd;
@@ -159,7 +160,7 @@ Veri<span>Build</span>
 </div>
 
 <p class="subtitle">
-Create Your VeriBuild Account
+Join South Africa's Construction Trust Network
 </p>
 
 <div id="successMessage" class="alert success">
@@ -198,12 +199,27 @@ Please complete all required fields.
 
 <div class="input-group">
 <label>Account Type</label>
+
 <select id="role" required>
-<option value="">Select Role</option>
-<option value="homeowner">Homeowner</option>
-<option value="contractor">Contractor</option>
-<option value="merchant">Merchant</option>
+
+<option value="">
+Select Role
+</option>
+
+<option value="homeowner">
+Homeowner
+</option>
+
+<option value="contractor">
+Contractor / Tasker
+</option>
+
+<option value="merchant">
+Merchant
+</option>
+
 </select>
+
 </div>
 
 <div class="input-group">
@@ -243,54 +259,88 @@ Back To Home
 
 /* AUTO-SELECT ROLE FROM URL */
 
-const params = new URLSearchParams(window.location.search);
-const roleParam = params.get("role");
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const roleParam =
+params.get("role");
 
 if(roleParam){
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener(
+"DOMContentLoaded",
+() => {
 
-const roleSelect =
-document.getElementById("role");
-
-roleSelect.value = roleParam;
+document.getElementById(
+"role"
+).value = roleParam;
 
 });
 
 }
 
+/* SIGNUP */
+
 document
 .getElementById("signupForm")
-.addEventListener("submit", function(e){
+.addEventListener(
+"submit",
+function(e){
 
 e.preventDefault();
 
 const firstName =
-document.getElementById("firstName").value.trim();
+document
+.getElementById("firstName")
+.value
+.trim();
 
 const lastName =
-document.getElementById("lastName").value.trim();
+document
+.getElementById("lastName")
+.value
+.trim();
 
 const email =
-document.getElementById("email").value.trim();
+document
+.getElementById("email")
+.value
+.trim();
 
 const phone =
-document.getElementById("phone").value.trim();
+document
+.getElementById("phone")
+.value
+.trim();
 
 const role =
-document.getElementById("role").value;
+document
+.getElementById("role")
+.value;
 
 const password =
-document.getElementById("password").value;
+document
+.getElementById("password")
+.value;
 
 const confirmPassword =
-document.getElementById("confirmPassword").value;
+document
+.getElementById("confirmPassword")
+.value;
 
 const success =
-document.getElementById("successMessage");
+document.getElementById(
+"successMessage"
+);
 
 const error =
-document.getElementById("errorMessage");
+document.getElementById(
+"errorMessage"
+);
+
+/* VALIDATION */
 
 if(
 !firstName ||
@@ -301,48 +351,240 @@ if(
 !password ||
 !confirmPassword
 ){
-error.innerHTML = "Please complete all required fields.";
-error.style.display = "block";
+
+error.innerHTML =
+"Please complete all required fields.";
+
+error.style.display =
+"block";
+
+success.style.display =
+"none";
+
 return;
+
 }
 
-if(password !== confirmPassword){
-error.innerHTML = "Passwords do not match.";
-error.style.display = "block";
+/* PASSWORD CHECK */
+
+if(
+password !==
+confirmPassword
+){
+
+error.innerHTML =
+"Passwords do not match.";
+
+error.style.display =
+"block";
+
+success.style.display =
+"none";
+
 return;
+
 }
 
-/* PREVENT PUBLIC ADMIN REGISTRATION */
+/* ADMIN PROTECTION */
 
-if(email.toLowerCase() === "amsdarl0w@gmail.com"){
+if(
+email.toLowerCase() ===
+"amsdarl0w@gmail.com"
+){
+
 error.innerHTML =
 "This account is reserved for system administration.";
-error.style.display = "block";
+
+error.style.display =
+"block";
+
+success.style.display =
+"none";
+
 return;
+
 }
 
-error.style.display = "none";
+error.style.display =
+"none";
 
-const account = {
+/* BASE ACCOUNT */
+
+let account = {
+
+firstName:
 firstName,
+
+lastName:
 lastName,
+
+fullName:
+`${firstName} ${lastName}`,
+
+email:
 email,
+
+phone:
 phone,
-role
+
+role:
+role,
+
+accountStatus:
+"Active",
+
+verificationStatus:
+"Pending",
+
+joinedDate:
+new Date().toLocaleDateString()
+
 };
+
+/* HOMEOWNER */
+
+if(
+role ===
+"homeowner"
+){
+
+account.accountType =
+"Homeowner";
+
+account.activeProjects =
+0;
+
+account.completedProjects =
+0;
+
+}
+
+/* CONTRACTOR / TASKER */
+
+else if(
+role ===
+"contractor"
+){
+
+account.accountType =
+"Contractor";
+
+account.contractorTier =
+"Tier 1";
+
+account.trustLevel =
+1;
+
+account.projectCap =
+5000;
+
+account.activeJobs =
+0;
+
+account.completedJobs =
+0;
+
+account.rating =
+0;
+
+account.verificationStatus =
+"Pending";
+
+}
+
+/* MERCHANT */
+
+else if(
+role ===
+"merchant"
+){
+
+account.accountType =
+"Merchant";
+
+account.activeOrders =
+0;
+
+account.completedOrders =
+0;
+
+account.verificationStatus =
+"Verified";
+
+}
+
+/* SAVE */
 
 localStorage.setItem(
 "veribuildAccount",
 JSON.stringify(account)
 );
 
-success.style.display = "block";
+/* AUTO LOGIN OBJECT */
+
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify({
+
+name:
+account.fullName,
+
+email:
+account.email,
+
+role:
+account.role,
+
+loggedIn:
+true,
+
+verificationStatus:
+account.verificationStatus,
+
+trustLevel:
+account.trustLevel || 1
+
+})
+);
+
+/* SUCCESS */
+
+success.style.display =
+"block";
 
 setTimeout(() => {
 
-window.location.href = "login.html";
+if(
+role ===
+"homeowner"
+){
 
-}, 1500);
+window.location.href =
+"homeowner-dashboard.html";
+
+}
+
+else if(
+role ===
+"contractor"
+){
+
+window.location.href =
+"contractor-dashboard.html";
+
+}
+
+else if(
+role ===
+"merchant"
+){
+
+window.location.href =
+"merchant-dashboard.html";
+
+}
+
+},1500);
 
 });
 
