@@ -11,7 +11,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -19,6 +20,7 @@
 --navy:#102A43;
 --mustard:#E8B231;
 --light:#F5F7FA;
+--gray:#6B7280;
 }
 
 *{
@@ -30,6 +32,7 @@ font-family:'Inter',sans-serif;
 
 body{
 background:var(--light);
+color:#222;
 }
 
 .header{
@@ -58,54 +61,74 @@ gap:15px;
 }
 
 .profile-pic{
-width:60px;
-height:60px;
+width:65px;
+height:65px;
 border-radius:50%;
 object-fit:cover;
 border:3px solid var(--mustard);
 }
 
+.profile-name{
+font-weight:700;
+color:var(--navy);
+}
+
 .dashboard{
-padding:40px;
 max-width:1300px;
 margin:auto;
+padding:40px;
 }
 
 .welcome{
 background:linear-gradient(135deg,#102A43,#1c476f);
 color:white;
-padding:40px;
+padding:45px;
 border-radius:20px;
-margin-bottom:30px;
+margin-bottom:35px;
 }
 
 .welcome h1{
+font-size:2.2rem;
 margin-bottom:10px;
+}
+
+.welcome p{
+margin-bottom:25px;
+}
+
+.back-btn{
+display:inline-block;
+background:white;
+color:var(--navy);
+padding:14px 24px;
+border-radius:10px;
+text-decoration:none;
+font-weight:700;
 }
 
 .dashboard-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
 
 .card{
 background:white;
 padding:30px;
-border-radius:18px;
+border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
 cursor:pointer;
 transition:.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
 }
 
 .card i{
 font-size:2rem;
 color:var(--mustard);
-margin-bottom:15px;
+margin-bottom:18px;
 }
 
 .card h3{
@@ -113,56 +136,77 @@ color:var(--navy);
 margin-bottom:10px;
 }
 
+.card p{
+color:var(--gray);
+}
+
 .content-panel{
 background:white;
-padding:30px;
+padding:35px;
 border-radius:20px;
-margin-top:30px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
+margin-top:35px;
+}
+
+.empty-state{
+text-align:center;
+padding:60px 20px;
+color:var(--gray);
+}
+
+.empty-state i{
+font-size:3rem;
+color:var(--mustard);
+margin-bottom:20px;
 }
 
 .btn{
 background:var(--mustard);
 border:none;
-padding:12px 22px;
+padding:14px 24px;
 border-radius:10px;
 font-weight:700;
 cursor:pointer;
 }
 
-.back-btn{
-background:var(--navy);
-color:white;
-text-decoration:none;
-padding:12px 22px;
-border-radius:10px;
-font-weight:700;
-display:inline-block;
-margin-top:20px;
-}
-
-.empty-state{
-text-align:center;
-padding:50px;
-color:#777;
-}
-
-input{
+input,
+textarea{
 width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ddd;
+padding:14px;
+border:2px solid #ddd;
 border-radius:10px;
+margin-top:10px;
+margin-bottom:20px;
+font-size:1rem;
 }
 
 textarea{
-width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ddd;
-border-radius:10px;
 resize:vertical;
-min-height:120px;
+min-height:130px;
+}
+
+.section-title{
+color:var(--navy);
+margin-bottom:25px;
+}
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+gap:20px;
+padding:25px;
+text-align:center;
+}
+
+.dashboard{
+padding:25px;
+}
+
+.welcome h1{
+font-size:1.8rem;
+}
+
 }
 
 </style>
@@ -181,12 +225,19 @@ Veri<span>Build</span>
 <img
 id="profilePicture"
 class="profile-pic"
-src="https://via.placeholder.com/60">
+src="https://via.placeholder.com/65">
 
 <div>
-<strong id="welcomeUser">
+
+<div class="profile-name"
+id="welcomeUser">
 Homeowner
-</strong>
+</div>
+
+<div style="color:#6B7280;">
+Homeowner Account
+</div>
+
 </div>
 
 </div>
@@ -202,7 +253,7 @@ Welcome, Homeowner
 </h1>
 
 <p>
-Manage your projects, quotes, payments and profile from one place.
+Manage your projects, quotations, payments and profile settings from one secure location.
 </p>
 
 <a href="index.html" class="back-btn">
@@ -216,49 +267,49 @@ Back To Homepage
 <div class="card" onclick="showSection('quotes')">
 <i class="fa-solid fa-file-signature"></i>
 <h3>Received Quotes</h3>
-<p>0 Quotes Received</p>
+<p>View contractor quotations</p>
 </div>
 
 <div class="card" onclick="showSection('posted')">
 <i class="fa-solid fa-folder-plus"></i>
 <h3>Projects Posted</h3>
-<p>0 Projects Posted</p>
+<p>Manage your projects</p>
 </div>
 
 <div class="card" onclick="showSection('accepted')">
 <i class="fa-solid fa-circle-check"></i>
-<h3>Projects Accepted</h3>
-<p>0 Accepted Projects</p>
+<h3>Accepted Projects</h3>
+<p>Monitor active work</p>
 </div>
 
 <div class="card" onclick="showSection('newproject')">
 <i class="fa-solid fa-plus"></i>
 <h3>Post New Project</h3>
-<p>Create A Project</p>
+<p>Create a new project</p>
 </div>
 
 <div class="card" onclick="showSection('payments')">
 <i class="fa-solid fa-credit-card"></i>
 <h3>Payments</h3>
-<p>0 Payments</p>
+<p>Escrow and transactions</p>
 </div>
 
 <div class="card" onclick="showSection('messages')">
 <i class="fa-solid fa-envelope"></i>
 <h3>Messages</h3>
-<p>0 Messages</p>
+<p>Communication centre</p>
 </div>
 
 <div class="card" onclick="showSection('settings')">
 <i class="fa-solid fa-gear"></i>
 <h3>Profile Settings</h3>
-<p>Manage Account</p>
+<p>Manage your account</p>
 </div>
 
 <div class="card" onclick="logoutUser()">
 <i class="fa-solid fa-right-from-bracket"></i>
 <h3>Logout</h3>
-<p>Sign Out</p>
+<p>Sign out securely</p>
 </div>
 
 </div>
@@ -269,9 +320,15 @@ class="content-panel">
 
 <div class="empty-state">
 
-<h2>Select an option above</h2>
+<i class="fa-solid fa-house"></i>
 
-<p>Your homeowner tools will appear here.</p>
+<h2>
+Select an option above
+</h2>
+
+<p>
+Your homeowner tools will appear here.
+</p>
 
 </div>
 
@@ -282,10 +339,7 @@ const user =
 JSON.parse(localStorage.getItem("veribuildUser"));
 
 if(!user){
-
-window.location.href =
-"login.html";
-
+window.location.href = "login.html";
 }
 
 const userName =
@@ -304,10 +358,8 @@ const savedPicture =
 localStorage.getItem("profilePicture");
 
 if(savedPicture){
-
 document.getElementById("profilePicture").src =
 savedPicture;
-
 }
 
 function showSection(section){
@@ -318,10 +370,21 @@ document.getElementById("contentPanel");
 if(section === "quotes"){
 
 panel.innerHTML = `
+
 <div class="empty-state">
-<h2>Received Quotes</h2>
-<p>You have received 0 quotes.</p>
+
+<i class="fa-solid fa-file-signature"></i>
+
+<h2>
+Received Quotes
+</h2>
+
+<p>
+You have not received any quotations yet.
+</p>
+
 </div>
+
 `;
 
 }
@@ -329,10 +392,21 @@ panel.innerHTML = `
 else if(section === "posted"){
 
 panel.innerHTML = `
+
 <div class="empty-state">
-<h2>Projects Posted</h2>
-<p>You have posted 0 projects.</p>
+
+<i class="fa-solid fa-folder-plus"></i>
+
+<h2>
+Projects Posted
+</h2>
+
+<p>
+You have not posted any projects yet.
+</p>
+
 </div>
+
 `;
 
 }
@@ -340,10 +414,21 @@ panel.innerHTML = `
 else if(section === "accepted"){
 
 panel.innerHTML = `
+
 <div class="empty-state">
-<h2>Projects Accepted</h2>
-<p>You currently have 0 accepted projects.</p>
+
+<i class="fa-solid fa-circle-check"></i>
+
+<h2>
+Accepted Projects
+</h2>
+
+<p>
+You currently have no accepted projects.
+</p>
+
 </div>
+
 `;
 
 }
@@ -352,25 +437,39 @@ else if(section === "newproject"){
 
 panel.innerHTML = `
 
-<h2 style="margin-bottom:20px;">
+<h2 class="section-title">
 Post New Project
 </h2>
 
+<label>
+Project Title
+</label>
+
 <input
 type="text"
-placeholder="Project Title">
+placeholder="Kitchen Renovation">
+
+<label>
+Project Description
+</label>
 
 <textarea
-placeholder="Describe your project..."></textarea>
+placeholder="Describe your project requirements..."></textarea>
+
+<label>
+Project Location
+</label>
 
 <input
 type="text"
-placeholder="Project Location">
+placeholder="Johannesburg">
 
 <button
 class="btn"
-onclick="alert('Project posting system not connected yet.')">
+onclick="alert('Project posting system will be connected soon.')">
+
 Submit Project
+
 </button>
 
 `;
@@ -380,10 +479,21 @@ Submit Project
 else if(section === "payments"){
 
 panel.innerHTML = `
+
 <div class="empty-state">
-<h2>Payments</h2>
-<p>You have made 0 payments.</p>
+
+<i class="fa-solid fa-credit-card"></i>
+
+<h2>
+Payments
+</h2>
+
+<p>
+No payment records available.
+</p>
+
 </div>
+
 `;
 
 }
@@ -391,10 +501,21 @@ panel.innerHTML = `
 else if(section === "messages"){
 
 panel.innerHTML = `
+
 <div class="empty-state">
-<h2>Messages</h2>
-<p>You have 0 messages.</p>
+
+<i class="fa-solid fa-envelope"></i>
+
+<h2>
+Messages
+</h2>
+
+<p>
+You currently have no messages.
+</p>
+
 </div>
+
 `;
 
 }
@@ -403,11 +524,13 @@ else if(section === "settings"){
 
 panel.innerHTML = `
 
-<h2 style="margin-bottom:20px;">
+<h2 class="section-title">
 Profile Settings
 </h2>
 
-<label>Change Name</label>
+<label>
+Change Name
+</label>
 
 <input
 type="text"
@@ -417,12 +540,16 @@ placeholder="Enter new name">
 <button
 class="btn"
 onclick="saveName()">
+
 Save Name
+
 </button>
 
 <br><br>
 
-<label>Change Email</label>
+<label>
+Change Email
+</label>
 
 <input
 type="email"
@@ -432,12 +559,16 @@ placeholder="Enter new email">
 <button
 class="btn"
 onclick="saveEmail()">
+
 Save Email
+
 </button>
 
 <br><br>
 
-<label>Change Password</label>
+<label>
+Change Password
+</label>
 
 <input
 type="password"
@@ -447,12 +578,16 @@ placeholder="Enter new password">
 <button
 class="btn"
 onclick="savePassword()">
+
 Save Password
+
 </button>
 
 <br><br>
 
-<label>Upload Profile Picture</label>
+<label>
+Upload Profile Picture
+</label>
 
 <input
 type="file"
@@ -545,7 +680,9 @@ e.target.result
 document.getElementById("profilePicture").src =
 e.target.result;
 
-alert("Profile picture updated.");
+alert(
+"Profile picture updated successfully."
+);
 
 };
 
@@ -555,7 +692,9 @@ reader.readAsDataURL(file);
 
 function logoutUser(){
 
-localStorage.removeItem("veribuildUser");
+localStorage.removeItem(
+"veribuildUser"
+);
 
 window.location.href =
 "index.html";
