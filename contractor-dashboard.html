@@ -19,6 +19,7 @@
 --navy:#102A43;
 --mustard:#E8B231;
 --light:#F5F7FA;
+--gray:#6B7280;
 }
 
 *{
@@ -30,15 +31,29 @@ font-family:'Inter',sans-serif;
 
 body{
 background:var(--light);
+color:#222;
+line-height:1.6;
 }
 
-.header{
+.container{
+width:90%;
+max-width:1400px;
+margin:auto;
+}
+
+.navbar{
+position:sticky;
+top:0;
 background:white;
-padding:20px 40px;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.nav-content{
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.08);
+padding:20px 0;
 }
 
 .logo{
@@ -65,34 +80,85 @@ object-fit:cover;
 border:3px solid var(--mustard);
 }
 
-.dashboard{
-padding:40px;
-max-width:1300px;
-margin:auto;
+.profile-info{
+display:flex;
+flex-direction:column;
 }
 
-.welcome{
+.profile-info strong{
+color:var(--navy);
+}
+
+.hero{
 background:linear-gradient(135deg,#102A43,#1c476f);
 color:white;
-padding:40px;
-border-radius:20px;
-margin-bottom:30px;
+padding:70px 0;
 }
 
-.welcome h1{
+.hero-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.hero h1{
+font-size:3rem;
 margin-bottom:10px;
+}
+
+.hero p{
+font-size:1.05rem;
+max-width:700px;
+}
+
+.hero-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.btn{
+padding:12px 24px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:700;
+text-decoration:none;
+display:inline-block;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.btn-primary{
+background:var(--mustard);
+color:black;
+}
+
+.btn-secondary{
+background:white;
+color:var(--navy);
+}
+
+.dashboard{
+padding:50px 0;
 }
 
 .dashboard-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
 
 .card{
 background:white;
 padding:30px;
-border-radius:18px;
+border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
 cursor:pointer;
 transition:.3s;
@@ -113,46 +179,97 @@ color:var(--navy);
 margin-bottom:10px;
 }
 
+.card p{
+color:var(--gray);
+}
+
 .content-panel{
 background:white;
-padding:30px;
+padding:35px;
 border-radius:20px;
-margin-top:30px;
+margin-top:35px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-.btn{
-background:var(--mustard);
-border:none;
-padding:12px 22px;
-border-radius:10px;
-font-weight:700;
-cursor:pointer;
-}
-
-.back-btn{
-background:var(--navy);
-color:white;
-text-decoration:none;
-padding:12px 22px;
-border-radius:10px;
-font-weight:700;
-display:inline-block;
-margin-top:20px;
+min-height:350px;
 }
 
 .empty-state{
 text-align:center;
-padding:50px;
-color:#777;
+padding:60px 20px;
 }
 
-input{
+.empty-state i{
+font-size:4rem;
+color:var(--mustard);
+margin-bottom:20px;
+}
+
+.empty-state h2{
+color:var(--navy);
+margin-bottom:10px;
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+.form-group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+color:var(--navy);
+}
+
+input,
+textarea,
+select{
 width:100%;
-padding:12px;
-margin:10px 0;
-border:1px solid #ddd;
+padding:14px;
+border:2px solid #ddd;
 border-radius:10px;
+font-size:1rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+outline:none;
+border-color:var(--mustard);
+}
+
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.section-title{
+color:var(--navy);
+margin-bottom:25px;
+}
+
+.footer{
+background:#0b1f33;
+color:white;
+text-align:center;
+padding:50px 0;
+margin-top:60px;
+}
+
+@media(max-width:768px){
+
+.nav-content{
+flex-direction:column;
+gap:15px;
+}
+
+.hero h1{
+font-size:2.3rem;
+}
+
+.hero-content{
+flex-direction:column;
+align-items:flex-start;
+}
+
 }
 
 </style>
@@ -160,7 +277,9 @@ border-radius:10px;
 
 <body>
 
-<div class="header">
+<nav class="navbar">
+
+<div class="container nav-content">
 
 <div class="logo">
 Veri<span>Build</span>
@@ -168,78 +287,115 @@ Veri<span>Build</span>
 
 <div class="profile-area">
 
-<img id="profilePicture" class="profile-pic" src="https://via.placeholder.com/60">
+<img
+id="profilePicture"
+class="profile-pic"
+src="https://via.placeholder.com/60">
+
+<div class="profile-info">
+
+<strong id="welcomeUser">
+Contractor
+</strong>
+
+<span>
+Verified Contractor Portal
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="container hero-content">
 
 <div>
-<strong id="welcomeUser">Contractor</strong>
-</div>
 
-</div>
-
-</div>
-
-<div class="dashboard">
-
-<div class="welcome">
-
-<h1 id="welcomeMessage">Welcome, Contractor</h1>
+<h1 id="welcomeMessage">
+Welcome, Contractor
+</h1>
 
 <p>
-Manage quotes, jobs, project progress and your contractor profile.
+Manage quotations, monitor projects, communicate with homeowners, track milestones and grow your professional reputation through VeriBuild.
 </p>
 
-<a href="index.html" class="back-btn">Back To Homepage</a>
+<div class="hero-buttons">
+
+<a href="index.html" class="btn btn-primary">
+Back To Homepage
+</a>
+
+<button
+onclick="showSection('projects')"
+class="btn btn-secondary">
+View Projects
+</button>
 
 </div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="dashboard">
+
+<div class="container">
 
 <div class="dashboard-grid">
 
 <div class="card" onclick="showSection('projects')">
 <i class="fa-solid fa-briefcase"></i>
 <h3>Available Projects</h3>
-<p>0 Projects Available</p>
+<p>Browse projects open for quotations.</p>
 </div>
 
 <div class="card" onclick="showSection('quote')">
 <i class="fa-solid fa-file-signature"></i>
-<h3>Give Quote</h3>
-<p>Create New Quote</p>
+<h3>Submit Quote</h3>
+<p>Create and submit project quotations.</p>
 </div>
 
 <div class="card" onclick="showSection('myquotes')">
 <i class="fa-solid fa-file-lines"></i>
 <h3>My Quotes</h3>
-<p>0 Active Quotes</p>
+<p>Review all submitted quotations.</p>
 </div>
 
 <div class="card" onclick="showSection('jobs')">
 <i class="fa-solid fa-hammer"></i>
-<h3>Accepted Jobs</h3>
-<p>0 Active Jobs</p>
+<h3>Active Jobs</h3>
+<p>Manage ongoing construction work.</p>
 </div>
 
 <div class="card" onclick="showSection('completed')">
 <i class="fa-solid fa-circle-check"></i>
 <h3>Completed Projects</h3>
-<p>0 Completed</p>
+<p>View completed project history.</p>
 </div>
 
 <div class="card" onclick="showSection('messages')">
 <i class="fa-solid fa-envelope"></i>
 <h3>Messages</h3>
-<p>0 Messages</p>
+<p>Communicate with project stakeholders.</p>
 </div>
 
 <div class="card" onclick="showSection('settings')">
 <i class="fa-solid fa-gear"></i>
 <h3>Profile Settings</h3>
-<p>Manage Account</p>
+<p>Manage account information.</p>
 </div>
 
 <div class="card" onclick="logoutUser()">
 <i class="fa-solid fa-right-from-bracket"></i>
 <h3>Logout</h3>
-<p>Sign Out</p>
+<p>Sign out of your account.</p>
 </div>
 
 </div>
@@ -247,25 +403,38 @@ Manage quotes, jobs, project progress and your contractor profile.
 <div id="contentPanel" class="content-panel">
 
 <div class="empty-state">
-<h2>Select an option above</h2>
-<p>Your contractor tools will appear here.</p>
-</div>
+
+<i class="fa-solid fa-hard-hat"></i>
+
+<h2>Welcome To Your Contractor Dashboard</h2>
+
+<p>
+Select a dashboard tool above to begin managing your projects and quotations.
+</p>
 
 </div>
 
+</div>
 <script>
 
 const user =
 JSON.parse(localStorage.getItem("veribuildUser"));
 
 if(!user){
-window.location.href = "login.html";
+
+window.location.href =
+"login.html";
+
 }
 
 const userName =
-user.name || user.fullName || user.username || "Contractor";
+user.name ||
+user.fullName ||
+user.username ||
+"Contractor";
 
-document.getElementById("welcomeUser").innerText = userName;
+document.getElementById("welcomeUser").innerText =
+userName;
 
 document.getElementById("welcomeMessage").innerText =
 `Welcome, ${userName}`;
@@ -274,158 +443,391 @@ const savedPicture =
 localStorage.getItem("profilePicture");
 
 if(savedPicture){
-document.getElementById("profilePicture").src = savedPicture;
+
+document.getElementById("profilePicture").src =
+savedPicture;
+
 }
+
 function showSection(section){
 
-const panel = document.getElementById("contentPanel");
+const panel =
+document.getElementById("contentPanel");
 
 if(section === "projects"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
+<i class="fa-solid fa-briefcase"></i>
+
 <h2>Available Projects</h2>
-<p>No projects available yet.</p>
-</div>`;
+
+<p>
+There are currently no projects available for quotation.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "quote"){
+
 panel.innerHTML = `
-<div class="empty-state">
-<h2>Give Quote</h2>
-<p>No projects available to quote on yet.</p>
-</div>`;
+
+<h2 class="section-title">
+Submit A Quote
+</h2>
+
+<div class="form-group">
+<label>Project Name</label>
+<input type="text" placeholder="Project Name">
+</div>
+
+<div class="form-group">
+<label>Estimated Labour Cost</label>
+<input type="number" placeholder="Amount">
+</div>
+
+<div class="form-group">
+<label>Estimated Duration</label>
+<input type="text" placeholder="Example: 3 Weeks">
+</div>
+
+<div class="form-group">
+<label>Additional Notes</label>
+<textarea placeholder="Notes"></textarea>
+</div>
+
+<button class="btn btn-primary">
+Submit Quote
+</button>
+
+`;
+
 }
 
 else if(section === "myquotes"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
+<i class="fa-solid fa-file-lines"></i>
+
 <h2>My Quotes</h2>
-<p>You have submitted 0 quotes.</p>
-</div>`;
+
+<p>
+You currently have no submitted quotations.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "jobs"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
-<h2>Accepted Jobs</h2>
-<p>You currently have 0 accepted jobs.</p>
-</div>`;
+
+<i class="fa-solid fa-hammer"></i>
+
+<h2>Active Jobs</h2>
+
+<p>
+You currently have no active jobs.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "completed"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
+<i class="fa-solid fa-circle-check"></i>
+
 <h2>Completed Projects</h2>
-<p>You have completed 0 projects.</p>
-</div>`;
+
+<p>
+You have not completed any projects yet.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "messages"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
+<i class="fa-solid fa-envelope"></i>
+
 <h2>Messages</h2>
-<p>You have 0 messages.</p>
-</div>`;
+
+<p>
+You currently have no messages.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "settings"){
+
 panel.innerHTML = `
-<h2 style="margin-bottom:20px;">Profile Settings</h2>
+
+<h2 class="section-title">
+Profile Settings
+</h2>
+
+<div class="form-group">
 
 <label>Change Name</label>
-<input type="text" id="newName" placeholder="Enter new name">
-<button class="btn" onclick="saveName()">Save Name</button>
+
+<input
+type="text"
+id="newName"
+placeholder="Enter new name">
+
+</div>
+
+<button
+class="btn btn-primary"
+onclick="saveName()">
+
+Save Name
+
+</button>
 
 <br><br>
+
+<div class="form-group">
 
 <label>Change Email</label>
-<input type="email" id="newEmail" placeholder="Enter new email">
-<button class="btn" onclick="saveEmail()">Save Email</button>
+
+<input
+type="email"
+id="newEmail"
+placeholder="Enter new email">
+
+</div>
+
+<button
+class="btn btn-primary"
+onclick="saveEmail()">
+
+Save Email
+
+</button>
 
 <br><br>
+
+<div class="form-group">
 
 <label>Change Password</label>
-<input type="password" id="newPassword" placeholder="Enter new password">
-<button class="btn" onclick="savePassword()">Save Password</button>
+
+<input
+type="password"
+id="newPassword"
+placeholder="Enter new password">
+
+</div>
+
+<button
+class="btn btn-primary"
+onclick="savePassword()">
+
+Save Password
+
+</button>
 
 <br><br>
 
+<div class="form-group">
+
 <label>Upload Profile Picture</label>
-<input type="file" accept="image/*" onchange="uploadProfilePicture(event)">
+
+<input
+type="file"
+accept="image/*"
+onchange="uploadProfilePicture(event)">
+
+</div>
+
 `;
+
 }
 
 }
 
 function saveName(){
 
-const name = document.getElementById("newName").value;
-if(!name) return;
+const name =
+document.getElementById("newName").value;
+
+if(!name){
+
+return;
+
+}
 
 user.name = name;
 
-localStorage.setItem("veribuildUser", JSON.stringify(user));
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
 
-document.getElementById("welcomeUser").innerText = name;
-document.getElementById("welcomeMessage").innerText = `Welcome, ${name}`;
+document.getElementById("welcomeUser").innerText =
+name;
 
-alert("Name updated successfully.");
+document.getElementById("welcomeMessage").innerText =
+`Welcome, ${name}`;
+
+alert(
+"Name updated successfully."
+);
+
 }
 
 function saveEmail(){
 
-const email = document.getElementById("newEmail").value;
-if(!email) return;
+const email =
+document.getElementById("newEmail").value;
+
+if(!email){
+
+return;
+
+}
 
 user.email = email;
 
-localStorage.setItem("veribuildUser", JSON.stringify(user));
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
 
-alert("Email updated successfully.");
+alert(
+"Email updated successfully."
+);
+
 }
 
 function savePassword(){
 
-const password = document.getElementById("newPassword").value;
-if(!password) return;
+const password =
+document.getElementById("newPassword").value;
+
+if(!password){
+
+return;
+
+}
 
 user.password = password;
 
-localStorage.setItem("veribuildUser", JSON.stringify(user));
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
 
-alert("Password updated successfully.");
+alert(
+"Password updated successfully."
+);
+
 }
 
 function uploadProfilePicture(event){
 
-const file = event.target.files[0];
-if(!file) return;
+const file =
+event.target.files[0];
 
-const reader = new FileReader();
+if(!file){
+
+return;
+
+}
+
+const reader =
+new FileReader();
 
 reader.onload = function(e){
 
-localStorage.setItem("profilePicture", e.target.result);
+localStorage.setItem(
+"profilePicture",
+e.target.result
+);
 
-document.getElementById("profilePicture").src = e.target.result;
+document.getElementById("profilePicture").src =
+e.target.result;
 
-alert("Profile picture updated.");
+alert(
+"Profile picture updated successfully."
+);
 
 };
 
 reader.readAsDataURL(file);
+
 }
 
-/* ✅ FIXED LOGOUT FUNCTION */
 function logoutUser(){
 
-localStorage.removeItem("veribuildUser");
+localStorage.removeItem(
+"veribuildUser"
+);
 
-window.location.href = "index.html";
+window.location.href =
+"index.html";
 
 }
 
 </script>
+
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
+<h2>
+VeriBuild
+</h2>
+
+<p style="margin:20px 0;">
+
+Verified Contractors. Protected Payments. Transparent Projects.
+
+</p>
+
+<p>
+
+© 2026 VeriBuild. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
 
 </body>
 </html>
