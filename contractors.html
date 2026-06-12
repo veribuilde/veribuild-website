@@ -11,7 +11,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -19,6 +20,7 @@
 --navy:#102A43;
 --mustard:#E8B231;
 --light:#F5F7FA;
+--gray:#6B7280;
 }
 
 *{
@@ -29,8 +31,9 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-line-height:1.7;
+background:white;
 color:#222;
+line-height:1.7;
 }
 
 .container{
@@ -68,6 +71,7 @@ color:var(--mustard);
 display:flex;
 gap:25px;
 align-items:center;
+flex-wrap:wrap;
 }
 
 .nav-links a{
@@ -105,58 +109,105 @@ font-weight:700;
 }
 
 .hero{
-background:linear-gradient(135deg,#102A43,#1c476f);
+background:
+linear-gradient(
+135deg,
+#102A43,
+#1c476f
+);
 color:white;
-padding:100px 0;
+padding:120px 0;
 text-align:center;
 }
 
 .hero h1{
-font-size:3.5rem;
+font-size:3.8rem;
 margin-bottom:20px;
 }
 
 .hero p{
 max-width:850px;
 margin:auto;
-margin-bottom:30px;
-font-size:1.1rem;
+margin-bottom:35px;
+font-size:1.15rem;
 }
 
-.welcome-back{
-margin-top:20px;
-font-size:1.1rem;
-font-weight:600;
-display:none;
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
 }
 
 .btn{
 display:inline-block;
 padding:14px 30px;
-background:var(--mustard);
-color:black;
-font-weight:700;
+border-radius:12px;
 text-decoration:none;
-border-radius:10px;
+font-weight:700;
 transition:.3s;
 }
 
+.btn-primary{
+background:var(--mustard);
+color:black;
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.15);
+color:white;
+border:1px solid rgba(255,255,255,.25);
+}
+
 .btn:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
+}
+
+.welcome-back{
+margin-top:25px;
+display:none;
+font-weight:600;
 }
 
 section{
-padding:80px 0;
+padding:90px 0;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:60px;
 }
 
 .section-title h2{
 color:var(--navy);
+font-size:2.6rem;
+margin-bottom:10px;
+}
+
+.section-title p{
+color:var(--gray);
+max-width:700px;
+margin:auto;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat-card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.stat-card h3{
 font-size:2.5rem;
+color:var(--mustard);
+margin-bottom:10px;
 }
 
 .cards{
@@ -167,14 +218,19 @@ gap:25px;
 
 .card{
 background:white;
-padding:30px;
-border-radius:18px;
+padding:35px;
+border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
 .card i{
-font-size:2rem;
+font-size:2.3rem;
 color:var(--mustard);
+margin-bottom:18px;
+}
+
+.card h3{
+color:var(--navy);
 margin-bottom:15px;
 }
 
@@ -196,13 +252,13 @@ flex-direction:column;
 gap:15px;
 }
 
-.nav-links{
-flex-wrap:wrap;
-justify-content:center;
+.hero h1{
+font-size:2.8rem;
 }
 
-.hero h1{
-font-size:2.5rem;
+.hero-buttons{
+flex-direction:column;
+align-items:center;
 }
 
 }
@@ -264,57 +320,213 @@ Logout
 
 <div class="container">
 
-<h1>For Contractors</h1>
+<h1>
+Build Your Business With VeriBuild
+</h1>
 
 <p>
-Grow your construction business with access to structured projects, milestone-based payments, verified homeowners, and a professional reputation system designed to reward quality workmanship.
+Access verified projects, receive milestone-based payments, grow your professional reputation and connect with homeowners looking for trusted construction professionals.
 </p>
 
-<a href="contractor-signup.html" class="btn">
+<div class="hero-buttons">
+
+<a
+href="contractor-signup.html"
+class="btn btn-primary">
+
 Become A Contractor
+
 </a>
+
+<a
+href="how-it-works.html"
+class="btn btn-secondary">
+
+Learn How It Works
+
+</a>
+
+</div>
 
 <div
 id="welcomeBack"
 class="welcome-back">
+
 Welcome back, User
+
 </div>
 
 </div>
 
 </section>
+
 <section>
 
 <div class="container">
 
 <div class="section-title">
-<h2>Why Join VeriBuild?</h2>
+
+<h2>
+Why Contractors Choose VeriBuild
+</h2>
+
+<p>
+Everything you need to manage projects professionally and grow your construction business.
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat-card">
+<h3>100%</h3>
+<p>Transparent Payment Tracking</p>
+</div>
+
+<div class="stat-card">
+<h3>24/7</h3>
+<p>Project Visibility</p>
+</div>
+
+<div class="stat-card">
+<h3>5★</h3>
+<p>Reputation & Ratings</p>
+</div>
+
+<div class="stat-card">
+<h3>Secure</h3>
+<p>Milestone-Based Payments</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="highlight">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Why Join VeriBuild?
+</h2>
+
+<p>
+VeriBuild gives contractors the tools and credibility needed to build successful businesses.
+</p>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
+
 <i class="fa-solid fa-money-bill-wave"></i>
-<h3>Milestone Payments</h3>
+
+<h3>
+Milestone Payments
+</h3>
+
 <p>
-Receive payments based on approved project milestones instead of waiting until project completion.
+Receive payments as approved milestones are completed instead of waiting until the end of a project.
 </p>
+
 </div>
 
 <div class="card">
+
 <i class="fa-solid fa-file-signature"></i>
-<h3>Professional Quotations</h3>
+
+<h3>
+Professional Quotations
+</h3>
+
 <p>
-Submit labour quotations and manage project documentation through a structured platform.
+Prepare quotations, manage project information and communicate with homeowners through one platform.
 </p>
+
 </div>
 
 <div class="card">
+
 <i class="fa-solid fa-star"></i>
-<h3>Build Your Reputation</h3>
+
+<h3>
+Build Your Reputation
+</h3>
+
 <p>
-Earn ratings and reviews that improve your visibility and credibility on future projects.
+Earn ratings and reviews that help attract more opportunities and strengthen your credibility.
 </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Contractor Verification
+</h2>
+
+<p>
+Verification helps create a trusted construction ecosystem for everyone.
+</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<i class="fa-solid fa-id-card"></i>
+
+<h3>
+Identity Verification
+</h3>
+
+<p>
+Contractors are required to verify their identity before participating on the platform.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-building"></i>
+
+<h3>
+Business Compliance
+</h3>
+
+<p>
+Business registration and supporting documentation may be required depending on project scope.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-shield-halved"></i>
+
+<h3>
+Trust & Accountability
+</h3>
+
+<p>
+Verification improves transparency and helps homeowners identify qualified professionals.
+</p>
+
 </div>
 
 </div>
@@ -328,33 +540,77 @@ Earn ratings and reviews that improve your visibility and credibility on future 
 <div class="container">
 
 <div class="section-title">
-<h2>Contractor Verification</h2>
+
+<h2>
+How It Works For Contractors
+</h2>
+
+<p>
+A straightforward process designed to help contractors succeed.
+</p>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
-<i class="fa-solid fa-id-card"></i>
-<h3>Identity Verification</h3>
+
+<h3>
+1. Register & Verify
+</h3>
+
 <p>
-All contractors undergo identity verification before participating on the platform.
+Create your contractor account and submit verification information.
 </p>
+
 </div>
 
 <div class="card">
-<i class="fa-solid fa-building"></i>
-<h3>Business Compliance</h3>
+
+<h3>
+2. Receive Project Opportunities
+</h3>
+
 <p>
-Business registrations and supporting documentation may be required depending on project type.
+Browse projects and connect with homeowners seeking trusted professionals.
 </p>
+
 </div>
 
 <div class="card">
-<i class="fa-solid fa-shield"></i>
-<h3>Trust & Accountability</h3>
+
+<h3>
+3. Submit Quotations
+</h3>
+
 <p>
-Verification helps homeowners identify qualified professionals and improves trust across the ecosystem.
+Provide labour pricing and project recommendations.
 </p>
+
+</div>
+
+<div class="card">
+
+<h3>
+4. Complete Milestones
+</h3>
+
+<p>
+Track progress and submit completed work for approval.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+5. Receive Secure Payments
+</h3>
+
+<p>
+Payments are released according to approved milestones.
+</p>
+
 </div>
 
 </div>
@@ -367,16 +623,24 @@ Verification helps homeowners identify qualified professionals and improves trus
 
 <div class="container" style="text-align:center;">
 
-<h2 style="margin-bottom:20px;color:#102A43;">
+<h2 style="color:#102A43;font-size:2.5rem;margin-bottom:20px;">
+
 Ready To Grow Your Business?
+
 </h2>
 
-<p style="max-width:700px;margin:auto;margin-bottom:30px;">
-Join VeriBuild and gain access to secure projects, transparent workflows and a trusted construction network.
+<p style="max-width:700px;margin:auto;margin-bottom:35px;color:#6B7280;">
+
+Join VeriBuild and gain access to structured projects, secure payment workflows and a trusted network of homeowners and construction professionals.
+
 </p>
 
-<a href="contractor-signup.html" class="btn">
+<a
+href="contractor-signup.html"
+class="btn btn-primary">
+
 Become A Contractor
+
 </a>
 
 </div>
@@ -387,14 +651,20 @@ Become A Contractor
 
 <div class="container">
 
-<h2>VeriBuild</h2>
+<h2>
+VeriBuild
+</h2>
 
 <p style="margin:20px 0;">
+
 Verified Contractors. Protected Payments. Transparent Projects.
+
 </p>
 
 <p>
+
 © 2026 VeriBuild. All Rights Reserved.
+
 </p>
 
 </div>
