@@ -11,7 +11,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -66,9 +67,9 @@ border:3px solid var(--mustard);
 }
 
 .dashboard{
-padding:40px;
 max-width:1300px;
 margin:auto;
+padding:40px;
 }
 
 .welcome{
@@ -76,19 +77,34 @@ background:linear-gradient(135deg,#102A43,#1c476f);
 color:white;
 padding:40px;
 border-radius:20px;
-margin-bottom:30px;
+margin-bottom:35px;
+}
+
+.welcome h1{
+margin-bottom:10px;
+}
+
+.back-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 22px;
+background:white;
+color:var(--navy);
+font-weight:700;
+text-decoration:none;
+border-radius:12px;
 }
 
 .dashboard-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
 gap:25px;
 }
 
 .card{
 background:white;
 padding:30px;
-border-radius:18px;
+border-radius:20px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
 cursor:pointer;
 transition:.3s;
@@ -109,9 +125,13 @@ color:var(--navy);
 margin-bottom:10px;
 }
 
+.card p{
+color:#666;
+}
+
 .content-panel{
 background:white;
-padding:30px;
+padding:35px;
 border-radius:20px;
 margin-top:30px;
 box-shadow:0 10px 25px rgba(0,0,0,.08);
@@ -127,17 +147,37 @@ color:#777;
 background:var(--mustard);
 border:none;
 padding:12px 22px;
-border-radius:10px;
+border-radius:12px;
 font-weight:700;
 cursor:pointer;
 }
 
-input, textarea{
+input,
+textarea{
 width:100%;
-padding:12px;
+padding:14px;
 margin:10px 0;
 border:1px solid #ddd;
-border-radius:10px;
+border-radius:12px;
+}
+
+textarea{
+resize:vertical;
+min-height:120px;
+}
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+gap:20px;
+text-align:center;
+}
+
+.dashboard{
+padding:25px;
+}
+
 }
 
 </style>
@@ -153,10 +193,17 @@ Veri<span>Build</span>
 
 <div class="profile-area">
 
-<img id="profilePicture" class="profile-pic" src="https://via.placeholder.com/60">
+<img
+id="profilePicture"
+class="profile-pic"
+src="https://via.placeholder.com/60">
 
 <div>
-<strong id="welcomeUser">Admin</strong>
+
+<strong id="welcomeUser">
+Admin
+</strong>
+
 </div>
 
 </div>
@@ -167,246 +214,511 @@ Veri<span>Build</span>
 
 <div class="welcome">
 
-<h1 id="welcomeMessage">Welcome, Admin</h1>
+<h1 id="welcomeMessage">
+Welcome, Admin
+</h1>
 
 <p>
-System control panel — manage users, projects, quotes and platform activity.
+Manage users, projects, quotations, verification requests and platform activity from one central control panel.
 </p>
+
+<a href="index.html" class="back-btn">
+Back To Homepage
+</a>
 
 </div>
 
 <div class="dashboard-grid">
 
 <div class="card" onclick="showSection('homeowners')">
+
 <i class="fa-solid fa-house"></i>
+
 <h3>Homeowners</h3>
-<p>Manage users</p>
+
+<p>
+Manage homeowner accounts
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('contractors')">
+
 <i class="fa-solid fa-hammer"></i>
+
 <h3>Contractors</h3>
-<p>Manage contractors</p>
+
+<p>
+Manage contractor accounts
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('merchants')">
+
 <i class="fa-solid fa-store"></i>
+
 <h3>Merchants</h3>
-<p>Manage merchants</p>
+
+<p>
+Manage merchant accounts
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('projects')">
+
 <i class="fa-solid fa-diagram-project"></i>
+
 <h3>Projects</h3>
-<p>All platform projects</p>
+
+<p>
+View all platform projects
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('quotes')">
+
 <i class="fa-solid fa-file-signature"></i>
+
 <h3>Quotes</h3>
-<p>All system quotes</p>
+
+<p>
+Review submitted quotations
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('messages')">
+
 <i class="fa-solid fa-envelope"></i>
+
 <h3>Messages</h3>
-<p>All communications</p>
+
+<p>
+Platform communications
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('verification')">
+
 <i class="fa-solid fa-user-check"></i>
+
 <h3>Verification Requests</h3>
-<p>Approve users</p>
+
+<p>
+Approve contractor verification
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('stats')">
+
 <i class="fa-solid fa-chart-line"></i>
+
 <h3>Statistics</h3>
-<p>Platform analytics</p>
+
+<p>
+Platform analytics
+</p>
+
 </div>
 
 <div class="card" onclick="showSection('settings')">
+
 <i class="fa-solid fa-gear"></i>
+
 <h3>Profile Settings</h3>
-<p>Admin account</p>
+
+<p>
+Manage admin account
+</p>
+
 </div>
 
 <div class="card" onclick="logoutUser()">
+
 <i class="fa-solid fa-right-from-bracket"></i>
+
 <h3>Logout</h3>
-<p>Sign out</p>
-</div>
+
+<p>
+Sign out
+</p>
 
 </div>
 
-<div id="contentPanel" class="content-panel">
+</div>
+
+<div
+id="contentPanel"
+class="content-panel">
 
 <div class="empty-state">
-<h2>Select a module</h2>
-<p>Admin tools will appear here.</p>
+
+<h2>Select a module above</h2>
+
+<p>
+Admin tools will appear here.
+</p>
+
 </div>
 
 </div>
 
 <script>
-const user = JSON.parse(localStorage.getItem("veribuildUser"));
 
-// 🔐 ADMIN CHECK
-const adminEmail = "amsdarl0w@gmail.com";
+const user =
+JSON.parse(localStorage.getItem("veribuildUser"));
+
+const adminEmail =
+"amsdarl0w@gmail.com";
 
 if(!user || user.email !== adminEmail){
-window.location.href = "index.html";
+
+window.location.href =
+"index.html";
+
 }
 
 const userName =
-user.name || user.fullName || user.username || "Admin";
+user.name ||
+user.fullName ||
+user.username ||
+"Admin";
 
-document.getElementById("welcomeUser").innerText = userName;
-document.getElementById("welcomeMessage").innerText = `Welcome, ${userName}`;
+document.getElementById("welcomeUser").innerText =
+userName;
 
-const savedPicture = localStorage.getItem("profilePicture");
+document.getElementById("welcomeMessage").innerText =
+`Welcome, ${userName}`;
+
+const savedPicture =
+localStorage.getItem("profilePicture");
 
 if(savedPicture){
-document.getElementById("profilePicture").src = savedPicture;
+
+document.getElementById("profilePicture").src =
+savedPicture;
+
 }
 
 function showSection(section){
 
-const panel = document.getElementById("contentPanel");
-
+const panel =
+document.getElementById("contentPanel");
 if(section === "homeowners"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
 <h2>Homeowners</h2>
-<p>Manage all registered homeowners.</p>
-</div>`;
+
+<p>
+Manage all registered homeowner accounts.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "contractors"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
 <h2>Contractors</h2>
-<p>Manage all registered contractors.</p>
-</div>`;
+
+<p>
+Manage all registered contractor accounts.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "merchants"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
 <h2>Merchants</h2>
-<p>Manage all registered merchants.</p>
-</div>`;
+
+<p>
+Manage all registered merchant accounts.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "projects"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
 <h2>Projects</h2>
-<p>View all platform projects.</p>
-</div>`;
+
+<p>
+View and manage all projects on the platform.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "quotes"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
 <h2>Quotes</h2>
-<p>All submitted quotes appear here.</p>
-</div>`;
+
+<p>
+Review all submitted quotations.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "messages"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
 <h2>Messages</h2>
-<p>System-wide message log.</p>
-</div>`;
+
+<p>
+Monitor communications across the platform.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "verification"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
+
 <h2>Verification Requests</h2>
-<p>Approve or reject user verification requests.</p>
-</div>`;
+
+<p>
+Approve or reject contractor verification requests.
+</p>
+
+</div>
+
+`;
+
 }
 
 else if(section === "stats"){
+
 panel.innerHTML = `
+
 <div class="empty-state">
-<h2>Statistics</h2>
+
+<h2>Platform Statistics</h2>
+
 <p>Total Users: 0</p>
+
 <p>Total Projects: 0</p>
+
 <p>Total Quotes: 0</p>
+
 <p>Platform Revenue: R0</p>
-</div>`;
+
+</div>
+
+`;
+
 }
 
 else if(section === "settings"){
+
 panel.innerHTML = `
-<h2 style="margin-bottom:20px;">Admin Settings</h2>
+
+<h2 style="margin-bottom:20px;">
+Admin Settings
+</h2>
 
 <label>Change Name</label>
-<input type="text" id="newName" placeholder="Enter new name">
-<button class="btn" onclick="saveName()">Save</button>
+
+<input
+type="text"
+id="newName"
+placeholder="Enter new name">
+
+<button
+class="btn"
+onclick="saveName()">
+Save Name
+</button>
 
 <br><br>
 
 <label>Change Email</label>
-<input type="email" id="newEmail" placeholder="Enter new email">
-<button class="btn" onclick="saveEmail()">Save</button>
+
+<input
+type="email"
+id="newEmail"
+placeholder="Enter new email">
+
+<button
+class="btn"
+onclick="saveEmail()">
+Save Email
+</button>
 
 <br><br>
 
 <label>Change Password</label>
-<input type="password" id="newPassword" placeholder="Enter new password">
-<button class="btn" onclick="savePassword()">Save</button>
+
+<input
+type="password"
+id="newPassword"
+placeholder="Enter new password">
+
+<button
+class="btn"
+onclick="savePassword()">
+Save Password
+</button>
+
+<br><br>
+
+<label>Upload Profile Picture</label>
+
+<input
+type="file"
+accept="image/*"
+onchange="uploadProfilePicture(event)">
+
 `;
+
 }
 
 }
 
 function saveName(){
-const name = document.getElementById("newName").value;
+
+const name =
+document.getElementById("newName").value;
+
 if(!name) return;
 
 user.name = name;
 
-localStorage.setItem("veribuildUser", JSON.stringify(user));
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
 
-document.getElementById("welcomeUser").innerText = name;
-document.getElementById("welcomeMessage").innerText = `Welcome, ${name}`;
+document.getElementById("welcomeUser").innerText =
+name;
 
-alert("Updated.");
+document.getElementById("welcomeMessage").innerText =
+`Welcome, ${name}`;
+
+alert("Name updated successfully.");
+
 }
 
 function saveEmail(){
-const email = document.getElementById("newEmail").value;
+
+const email =
+document.getElementById("newEmail").value;
+
 if(!email) return;
 
 user.email = email;
 
-localStorage.setItem("veribuildUser", JSON.stringify(user));
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
 
-alert("Email updated.");
+alert("Email updated successfully.");
+
 }
 
 function savePassword(){
-const password = document.getElementById("newPassword").value;
+
+const password =
+document.getElementById("newPassword").value;
+
 if(!password) return;
 
 user.password = password;
 
-localStorage.setItem("veribuildUser", JSON.stringify(user));
+localStorage.setItem(
+"veribuildUser",
+JSON.stringify(user)
+);
 
-alert("Password updated.");
+alert("Password updated successfully.");
+
 }
 
-/* ✅ FIXED LOGOUT */
+function uploadProfilePicture(event){
+
+const file =
+event.target.files[0];
+
+if(!file) return;
+
+const reader =
+new FileReader();
+
+reader.onload = function(e){
+
+localStorage.setItem(
+"profilePicture",
+e.target.result
+);
+
+document.getElementById("profilePicture").src =
+e.target.result;
+
+alert("Profile picture updated.");
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
 function logoutUser(){
 
-localStorage.removeItem("veribuildUser");
+localStorage.removeItem(
+"veribuildUser"
+);
 
-window.location.href = "index.html";
+window.location.href =
+"index.html";
 
 }
 
