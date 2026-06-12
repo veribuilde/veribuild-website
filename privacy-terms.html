@@ -11,12 +11,15 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
 :root{
 --navy:#102A43;
 --mustard:#E8B231;
 --light:#F5F7FA;
+--gray:#6B7280;
 }
 
 *{
@@ -34,74 +37,255 @@ line-height:1.8;
 
 .container{
 width:90%;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 }
+
+/* NAVBAR */
+
+.navbar{
+position:sticky;
+top:0;
+background:white;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.nav-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo{
+font-size:2rem;
+font-weight:800;
+color:var(--navy);
+}
+
+.logo span{
+color:var(--mustard);
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.nav-links a{
+text-decoration:none;
+font-weight:600;
+color:var(--navy);
+}
+
+.user-panel{
+display:none;
+align-items:center;
+gap:12px;
+}
+
+.profile-pic{
+width:50px;
+height:50px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid var(--mustard);
+}
+
+.username{
+font-weight:700;
+color:var(--navy);
+}
+
+.logout-btn{
+background:var(--mustard);
+border:none;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:700;
+}
+
+/* HERO */
 
 .hero{
 background:linear-gradient(135deg,#102A43,#1c476f);
 color:white;
-padding:80px 0;
+padding:100px 0;
 text-align:center;
 }
 
 .hero h1{
-font-size:3rem;
-margin-bottom:15px;
+font-size:3.5rem;
+margin-bottom:20px;
 }
 
-.content{
+.hero p{
+max-width:850px;
+margin:auto;
+font-size:1.1rem;
+}
+
+.welcome-back{
+display:none;
+margin-top:20px;
+font-size:1.1rem;
+font-weight:600;
+}
+
+/* CONTENT */
+
+.content-section{
+padding:80px 0;
+}
+
+.content-card{
 background:white;
 padding:50px;
-margin:40px auto;
 border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-h2{
-color:#102A43;
+.content-card h2{
+color:var(--navy);
 margin-top:40px;
 margin-bottom:15px;
+font-size:2rem;
 }
 
-h3{
-color:#102A43;
+.content-card h2:first-child{
+margin-top:0;
+}
+
+.content-card h3{
+color:var(--navy);
 margin-top:25px;
 margin-bottom:10px;
 }
 
-p{
+.content-card p{
 margin-bottom:15px;
 }
 
-ul{
+.content-card ul{
 margin-left:25px;
 margin-bottom:20px;
 }
 
-.footer{
-background:#0b1f33;
-color:white;
-text-align:center;
-padding:40px 0;
-margin-top:40px;
+.content-card li{
+margin-bottom:8px;
+}
+
+.highlight{
+background:var(--light);
+padding:18px;
+border-left:5px solid var(--mustard);
+border-radius:10px;
+margin:20px 0;
 }
 
 .back-btn{
 display:inline-block;
-background:#E8B231;
+background:var(--mustard);
 color:black;
 padding:12px 24px;
 text-decoration:none;
 font-weight:700;
 border-radius:10px;
-margin-top:20px;
+margin-top:25px;
+transition:.3s;
+}
+
+.back-btn:hover{
+transform:translateY(-2px);
+}
+
+/* FOOTER */
+
+.footer{
+background:#0b1f33;
+color:white;
+text-align:center;
+padding:60px 0;
+margin-top:40px;
+}
+
+@media(max-width:768px){
+
+.nav-content{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+justify-content:center;
+}
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.content-card{
+padding:30px;
+}
+
 }
 
 </style>
 </head>
 
 <body>
+
+<nav class="navbar">
+
+<div class="container nav-content">
+
+<div class="logo">
+Veri<span>Build</span>
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="how-it-works.html">How It Works</a>
+<a href="homeowners.html">Homeowners</a>
+<a href="contractors.html">Contractors</a>
+<a href="contact.html">Contact</a>
+
+<a href="login.html" id="loginBtn">Login</a>
+
+<a href="signup.html" id="signupBtn">Sign Up</a>
+
+<div id="userPanel" class="user-panel">
+
+<img
+id="navProfilePic"
+class="profile-pic"
+src="https://via.placeholder.com/50">
+
+<span
+id="navUsername"
+class="username">
+User
+</span>
+
+<button
+onclick="logoutUser()"
+class="logout-btn">
+Logout
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</nav>
 
 <section class="hero">
 
@@ -110,21 +294,33 @@ margin-top:20px;
 <h1>Privacy Policy & Terms</h1>
 
 <p>
-VeriBuild Legal Information, User Rights & Platform Conditions
+VeriBuild Legal Information, User Rights, Platform Responsibilities and Conditions of Use.
 </p>
+
+<div
+id="welcomeBack"
+class="welcome-back">
+Welcome back, User
+</div>
 
 </div>
 
 </section>
 
+<section class="content-section">
+
 <div class="container">
 
-<div class="content">
+<div class="content-card">
 
 <h2>Privacy Policy (POPIA Compliance)</h2>
 
+<div class="highlight">
+VeriBuild is committed to protecting personal information in accordance with South Africa's Protection of Personal Information Act (POPIA).
+</div>
+
 <p>
-VeriBuild is committed to protecting your personal information in accordance with South Africa's Protection of Personal Information Act (POPIA).
+This Privacy Policy explains how VeriBuild collects, stores, protects and processes information supplied through the platform.
 </p>
 
 <h3>Information We Collect</h3>
@@ -133,90 +329,97 @@ VeriBuild is committed to protecting your personal information in accordance wit
 <li>Name and contact information</li>
 <li>Email addresses and phone numbers</li>
 <li>Business registration information</li>
-<li>Contractor verification documents</li>
-<li>Project-related information</li>
-<li>Merchant and quotation information</li>
-<li>Platform activity records</li>
+<li>Contractor verification documentation</li>
+<li>Project-related information and uploaded files</li>
+<li>Merchant quotations and procurement information</li>
+<li>Project communications and platform activity records</li>
+<li>Account profile information</li>
 </ul>
 
 <h3>Why We Collect Information</h3>
 
 <ul>
-<li>To verify users and contractors</li>
-<li>To manage projects and transactions</li>
+<li>To verify users and service providers</li>
+<li>To manage projects and communications</li>
 <li>To facilitate escrow and payment processes</li>
+<li>To maintain platform security</li>
+<li>To prevent fraud and misuse</li>
 <li>To comply with legal obligations</li>
-<li>To improve platform security and functionality</li>
+<li>To improve platform performance and functionality</li>
 </ul>
 
 <h3>Protection Of Information</h3>
 
 <p>
-VeriBuild implements reasonable technical and organisational safeguards to protect information against unauthorised access, loss, misuse, alteration or disclosure.
+VeriBuild implements reasonable technical, organisational and administrative safeguards designed to protect personal information from unauthorised access, disclosure, misuse, loss or alteration.
 </p>
 
 <h3>Your Rights</h3>
 
 <p>
-Users may request access to their personal information, request corrections, update records, or request deletion where permitted by law.
+Users may request access to information held about them, request corrections, update records and request deletion of information where permitted by applicable laws and regulations.
 </p>
 
 <h3>Information Sharing</h3>
 
 <p>
-VeriBuild does not sell personal information. Information may only be shared where necessary for platform operations, legal compliance, project administration, payment processing or fraud prevention.
+VeriBuild does not sell personal information. Information may be shared only where required for platform operations, payment processing, project administration, fraud prevention or compliance with legal obligations.
 </p>
+
 <h2>Terms & Conditions</h2>
 
 <p>
-By accessing or using VeriBuild, you agree to these Terms and Conditions.
+By accessing, registering for or using VeriBuild, you agree to comply with these Terms and Conditions.
 </p>
 
 <h3>User Responsibilities</h3>
 
 <ul>
 <li>Provide accurate and truthful information.</li>
-<li>Maintain the security of account credentials.</li>
+<li>Maintain the confidentiality of login credentials.</li>
 <li>Use the platform lawfully and responsibly.</li>
-<li>Respect all project participants and platform rules.</li>
+<li>Respect all project participants and platform policies.</li>
+<li>Avoid submitting misleading or fraudulent information.</li>
 </ul>
-
 <h3>Contractor Responsibilities</h3>
 
 <ul>
 <li>Provide accurate qualifications and documentation.</li>
-<li>Maintain valid compliance certifications where applicable.</li>
+<li>Maintain applicable licences, certifications and compliance records.</li>
 <li>Complete work according to agreed project requirements.</li>
-<li>Comply with all applicable laws and regulations.</li>
+<li>Comply with all applicable laws and industry standards.</li>
+<li>Act professionally when interacting with homeowners and merchants.</li>
 </ul>
 
 <h3>Homeowner Responsibilities</h3>
 
 <ul>
 <li>Provide accurate project information.</li>
-<li>Review quotations carefully.</li>
+<li>Review quotations and documentation carefully.</li>
 <li>Approve milestone completion honestly and fairly.</li>
-<li>Comply with payment obligations.</li>
+<li>Comply with agreed payment obligations.</li>
+<li>Maintain respectful communication with project participants.</li>
 </ul>
 
 <h3>Merchant Responsibilities</h3>
 
 <ul>
-<li>Provide accurate pricing information.</li>
-<li>Deliver materials as agreed.</li>
+<li>Provide accurate pricing and quotation information.</li>
+<li>Supply materials as agreed.</li>
 <li>Maintain lawful business operations.</li>
+<li>Fulfil delivery commitments and documentation requirements.</li>
 </ul>
 
 <h3>Escrow Services</h3>
 
 <p>
-Escrow services are intended to facilitate trust between parties. VeriBuild may place conditions on the release of funds based on milestone approvals, verification procedures and platform policies.
+Escrow mechanisms are intended to promote trust between parties. VeriBuild may impose conditions relating to milestone approvals, verification procedures and platform policies before releasing funds.
 </p>
 
 <h3>Limitation Of Liability</h3>
 
 <p>
-VeriBuild provides a technology platform for project management, verification and transaction facilitation. VeriBuild does not guarantee project outcomes, contractor performance, merchant performance, or construction quality.
+VeriBuild provides a digital platform for project management, verification and transaction facilitation. VeriBuild does not guarantee project outcomes, contractor performance, merchant performance or construction quality.
 </p>
 
 <h3>Account Suspension</h3>
@@ -228,13 +431,13 @@ VeriBuild reserves the right to suspend, restrict or terminate accounts that vio
 <h3>Changes To Policies</h3>
 
 <p>
-VeriBuild may update these policies periodically. Continued use of the platform constitutes acceptance of any revised terms.
+These policies may be updated periodically. Continued use of the platform constitutes acceptance of revised terms and conditions.
 </p>
 
 <h3>Contact Information</h3>
 
 <p>
-For questions regarding these policies, users may contact VeriBuild through the platform's official contact channels.
+For questions regarding privacy, legal matters or platform policies, users may contact VeriBuild through the official contact channels provided on the platform.
 </p>
 
 <a href="index.html" class="back-btn">
@@ -245,19 +448,82 @@ Return To Homepage
 
 </div>
 
+</section>
+
 <footer class="footer">
+
+<div class="container">
 
 <h2>VeriBuild</h2>
 
-<p>
+<p style="margin:20px 0;">
 Verified Contractors. Protected Payments. Transparent Projects.
 </p>
 
-<p style="margin-top:15px;">
+<p>
 © 2026 VeriBuild. All Rights Reserved.
 </p>
 
+</div>
+
 </footer>
+
+<script>
+
+window.onload = function(){
+
+const user =
+JSON.parse(localStorage.getItem("veribuildUser"));
+
+if(user){
+
+document.getElementById("loginBtn").style.display =
+"none";
+
+document.getElementById("signupBtn").style.display =
+"none";
+
+document.getElementById("userPanel").style.display =
+"flex";
+
+const userName =
+user.name ||
+user.fullName ||
+user.username ||
+"User";
+
+document.getElementById("navUsername").innerText =
+userName;
+
+document.getElementById("welcomeBack").style.display =
+"block";
+
+document.getElementById("welcomeBack").innerText =
+`Welcome back, ${userName}`;
+
+const profilePicture =
+localStorage.getItem("profilePicture");
+
+if(profilePicture){
+
+document.getElementById("navProfilePic").src =
+profilePicture;
+
+}
+
+}
+
+};
+
+function logoutUser(){
+
+localStorage.removeItem("veribuildUser");
+
+window.location.reload();
+
+}
+
+</script>
 
 </body>
 </html>
