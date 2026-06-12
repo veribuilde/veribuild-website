@@ -19,6 +19,7 @@
 --navy:#102A43;
 --mustard:#E8B231;
 --light:#F5F7FA;
+--gray:#6B7280;
 }
 
 *{
@@ -31,6 +32,7 @@ font-family:'Inter',sans-serif;
 body{
 line-height:1.7;
 color:#222;
+background:white;
 }
 
 .container{
@@ -68,12 +70,13 @@ color:var(--mustard);
 display:flex;
 gap:25px;
 align-items:center;
+flex-wrap:wrap;
 }
 
 .nav-links a{
 text-decoration:none;
-color:var(--navy);
 font-weight:600;
+color:var(--navy);
 }
 
 .user-panel{
@@ -119,14 +122,15 @@ margin-bottom:20px;
 .hero p{
 max-width:850px;
 margin:auto;
-margin-bottom:30px;
+font-size:1.1rem;
+margin-bottom:35px;
 }
 
 .welcome-back{
-margin-top:20px;
+display:none;
+margin-top:25px;
 font-size:1.1rem;
 font-weight:600;
-display:none;
 }
 
 .btn{
@@ -137,12 +141,27 @@ color:black;
 font-weight:700;
 text-decoration:none;
 border-radius:10px;
-cursor:pointer;
 border:none;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
 }
 
 section{
 padding:80px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:2.5rem;
+color:var(--navy);
 }
 
 .cards{
@@ -164,17 +183,32 @@ color:var(--mustard);
 margin-bottom:15px;
 }
 
-.section-title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.section-title h2{
+.card h3{
 color:var(--navy);
+margin-bottom:15px;
 }
 
 .highlight{
 background:var(--light);
+}
+
+.hero-card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.hero-card h3{
+color:var(--navy);
+margin-bottom:15px;
+}
+
+.cta{
+background:#102A43;
+color:white;
+text-align:center;
+padding:90px 0;
 }
 
 .footer{
@@ -192,7 +226,6 @@ gap:15px;
 }
 
 .nav-links{
-flex-wrap:wrap;
 justify-content:center;
 }
 
@@ -259,13 +292,17 @@ Logout
 
 <div class="container">
 
-<h1>For Homeowners</h1>
+<h1>
+For Homeowners
+</h1>
 
 <p>
-Build, renovate, and improve your property with confidence. VeriBuild protects your funds through escrow, verifies contractors, and provides full visibility into every stage of your project.
+Build, renovate and improve your property with confidence. VeriBuild provides secure payments, verified contractors and complete project transparency from start to finish.
 </p>
 
-<button class="btn" onclick="postProject()">
+<button
+class="btn"
+onclick="postProject()">
 Post A Project
 </button>
 
@@ -278,38 +315,61 @@ Welcome back, User
 </div>
 
 </section>
+
 <section>
 
 <div class="container">
 
 <div class="section-title">
-<h2>Why Homeowners Choose VeriBuild</h2>
+
+<h2>
+Why Homeowners Choose VeriBuild
+</h2>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
+
 <i class="fa-solid fa-shield-halved"></i>
-<h3>Protected Payments</h3>
+
+<h3>
+Protected Payments
+</h3>
+
 <p>
-Your funds are securely held and released only when approved project milestones are completed.
+Project funds are secured through milestone-based payment releases, providing peace of mind throughout construction.
 </p>
+
 </div>
 
 <div class="card">
+
 <i class="fa-solid fa-user-check"></i>
-<h3>Verified Contractors</h3>
+
+<h3>
+Verified Contractors
+</h3>
+
 <p>
-Work with contractors who have undergone verification and compliance checks.
+Work with contractors who have completed verification and compliance processes.
 </p>
+
 </div>
 
 <div class="card">
+
 <i class="fa-solid fa-list-check"></i>
-<h3>Project Transparency</h3>
+
+<h3>
+Complete Visibility
+</h3>
+
 <p>
-Track progress, approvals, quotations, and documentation from one central platform.
+Track project milestones, quotations and approvals from one central platform.
 </p>
+
 </div>
 
 </div>
@@ -323,47 +383,171 @@ Track progress, approvals, quotations, and documentation from one central platfo
 <div class="container">
 
 <div class="section-title">
-<h2>Your Project Journey</h2>
+
+<h2>
+Your Project Journey
+</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="hero-card">
+
+<h3>
+1. Submit Project Details
+</h3>
+
+<p>
+Upload plans, photos and project requirements.
+</p>
+
+</div>
+
+<div class="hero-card">
+
+<h3>
+2. Receive Quotations
+</h3>
+
+<p>
+Review contractor and merchant pricing options.
+</p>
+
+</div>
+
+<div class="hero-card">
+
+<h3>
+3. Secure Escrow Funding
+</h3>
+
+<p>
+Protect funds before construction begins.
+</p>
+
+</div>
+<div class="hero-card">
+
+<h3>
+4. Track Project Progress
+</h3>
+
+<p>
+Monitor milestones, approvals and documentation throughout the project lifecycle.
+</p>
+
+</div>
+
+<div class="hero-card">
+
+<h3>
+5. Approve Completed Work
+</h3>
+
+<p>
+Review completed stages and release milestone payments when work has been approved.
+</p>
+
+</div>
+
+<div class="hero-card">
+
+<h3>
+6. Complete Your Project
+</h3>
+
+<p>
+Close out the project and provide ratings to help maintain transparency and accountability.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Benefits For Homeowners
+</h2>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
-<h3>1. Submit Project Details</h3>
+
+<i class="fa-solid fa-building-shield"></i>
+
+<h3>
+Reduced Risk
+</h3>
+
 <p>
-Upload plans, photos, budgets and project requirements.
+Escrow protection and milestone approvals help reduce financial risk during construction projects.
 </p>
+
 </div>
 
 <div class="card">
-<h3>2. Review Quotations</h3>
+
+<i class="fa-solid fa-file-contract"></i>
+
+<h3>
+Digital Documentation
+</h3>
+
 <p>
-Receive contractor and merchant pricing for your project.
+Keep quotations, approvals and project information organised in one place.
 </p>
+
 </div>
 
 <div class="card">
-<h3>3. Secure Escrow</h3>
-<p>
-Protect project funds before work begins.
-</p>
-</div>
 
-<div class="card">
-<h3>4. Track Progress</h3>
-<p>
-Monitor milestones and approve completed work.
-</p>
-</div>
+<i class="fa-solid fa-comments"></i>
 
-<div class="card">
-<h3>5. Complete Project</h3>
+<h3>
+Better Communication
+</h3>
+
 <p>
-Release payments and rate project participants.
+Stay connected with contractors and project participants throughout every phase.
 </p>
+
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<div class="container">
+
+<h2 style="margin-bottom:20px;">
+Ready To Start Building?
+</h2>
+
+<p style="max-width:800px;margin:auto;margin-bottom:35px;">
+Join VeriBuild and experience a safer and more transparent approach to residential construction.
+</p>
+
+<button
+class="btn"
+onclick="postProject()">
+Post Your Project
+</button>
 
 </div>
 
@@ -373,7 +557,9 @@ Release payments and rate project participants.
 
 <div class="container">
 
-<h2>VeriBuild</h2>
+<h2>
+VeriBuild
+</h2>
 
 <p style="margin:20px 0;">
 Verified Contractors. Protected Payments. Transparent Projects.
@@ -392,17 +578,27 @@ Verified Contractors. Protected Payments. Transparent Projects.
 window.onload = function(){
 
 const user =
-JSON.parse(localStorage.getItem("veribuildUser"));
+JSON.parse(
+localStorage.getItem(
+"veribuildUser"
+)
+);
 
 if(user){
 
-document.getElementById("loginBtn").style.display =
+document.getElementById(
+"loginBtn"
+).style.display =
 "none";
 
-document.getElementById("signupBtn").style.display =
+document.getElementById(
+"signupBtn"
+).style.display =
 "none";
 
-document.getElementById("userPanel").style.display =
+document.getElementById(
+"userPanel"
+).style.display =
 "flex";
 
 const userName =
@@ -411,21 +607,31 @@ user.fullName ||
 user.username ||
 "User";
 
-document.getElementById("navUsername").innerText =
+document.getElementById(
+"navUsername"
+).innerText =
 userName;
 
-document.getElementById("welcomeBack").style.display =
+document.getElementById(
+"welcomeBack"
+).style.display =
 "block";
 
-document.getElementById("welcomeBack").innerText =
+document.getElementById(
+"welcomeBack"
+).innerText =
 `Welcome back, ${userName}`;
 
 const profilePicture =
-localStorage.getItem("profilePicture");
+localStorage.getItem(
+"profilePicture"
+);
 
 if(profilePicture){
 
-document.getElementById("navProfilePic").src =
+document.getElementById(
+"navProfilePic"
+).src =
 profilePicture;
 
 }
@@ -437,7 +643,9 @@ profilePicture;
 function postProject(){
 
 const user =
-localStorage.getItem("veribuildUser");
+localStorage.getItem(
+"veribuildUser"
+);
 
 if(!user){
 
@@ -457,6 +665,7 @@ window.location.href =
 "post-project.html";
 
 }
+
 else{
 
 alert(
@@ -469,7 +678,9 @@ alert(
 
 function logoutUser(){
 
-localStorage.removeItem("veribuildUser");
+localStorage.removeItem(
+"veribuildUser"
+);
 
 window.location.reload();
 
