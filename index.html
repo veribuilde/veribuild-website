@@ -18,8 +18,8 @@
 :root{
 --navy:#102A43;
 --mustard:#E8B231;
---white:#ffffff;
 --light:#F5F7FA;
+--white:#FFFFFF;
 }
 
 *{
@@ -30,9 +30,9 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-background:#fff;
+background:white;
 color:#222;
-line-height:1.6;
+line-height:1.7;
 }
 
 .container{
@@ -59,24 +59,29 @@ padding:20px 0;
 .logo{
 font-size:2rem;
 font-weight:800;
-color:#102A43;
+color:var(--navy);
 }
 
 .logo span{
-color:#E8B231;
+color:var(--mustard);
 }
 
 .nav-links{
 display:flex;
-gap:25px;
 align-items:center;
+gap:25px;
 flex-wrap:wrap;
 }
 
 .nav-links a{
 text-decoration:none;
 font-weight:600;
-color:#102A43;
+color:var(--navy);
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:var(--mustard);
 }
 
 .user-panel{
@@ -90,49 +95,49 @@ width:50px;
 height:50px;
 border-radius:50%;
 object-fit:cover;
-border:3px solid #E8B231;
+border:3px solid var(--mustard);
 }
 
 .username{
 font-weight:700;
-color:#102A43;
+color:var(--navy);
 }
 
 .btn{
-padding:12px 24px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:600;
-text-decoration:none;
 display:inline-block;
+padding:14px 28px;
+border:none;
+border-radius:12px;
+font-weight:700;
+cursor:pointer;
+text-decoration:none;
 transition:.3s;
-}
-
-.btn-primary{
-background:#E8B231;
-color:black;
-}
-
-.btn-secondary{
-background:#102A43;
-color:white;
 }
 
 .btn:hover{
 transform:translateY(-3px);
 }
 
+.btn-primary{
+background:var(--mustard);
+color:black;
+}
+
+.btn-secondary{
+background:var(--navy);
+color:white;
+}
+
 .hero{
 background:linear-gradient(135deg,#102A43,#1c476f);
-padding:120px 0;
 color:white;
+padding:120px 0;
 }
 
 .hero-content{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:50px;
+gap:60px;
 align-items:center;
 }
 
@@ -145,6 +150,7 @@ margin-bottom:20px;
 .hero p{
 font-size:1.1rem;
 margin-bottom:30px;
+max-width:700px;
 }
 
 .hero-buttons{
@@ -155,22 +161,22 @@ flex-wrap:wrap;
 
 .welcome-back{
 display:none;
-margin-top:20px;
+margin-top:25px;
 font-size:1.1rem;
 font-weight:600;
 }
 
 .hero-card{
 background:white;
+color:#222;
 padding:35px;
-border-radius:20px;
-color:black;
+border-radius:22px;
 box-shadow:0 15px 35px rgba(0,0,0,.15);
 }
 
 .hero-card h3{
-color:#102A43;
-margin-bottom:15px;
+color:var(--navy);
+margin-bottom:20px;
 }
 
 .hero-card ul{
@@ -178,27 +184,86 @@ list-style:none;
 }
 
 .hero-card li{
-padding:10px 0;
+padding:12px 0;
+font-weight:500;
 }
 
 .hero-card i{
-color:#E8B231;
-margin-right:10px;
+color:var(--mustard);
+margin-right:12px;
+}
+
+section{
+padding:90px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+color:var(--navy);
+font-size:2.5rem;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card i{
+font-size:2rem;
+color:var(--mustard);
+margin-bottom:15px;
+}
+
+.card h3{
+color:var(--navy);
+margin-bottom:15px;
+}
+
+.highlight{
+background:var(--light);
+}
+
+.footer{
+background:#0b1f33;
+color:white;
+text-align:center;
+padding:60px 0;
 }
 
 @media(max-width:768px){
+
+.nav-content{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+justify-content:center;
+}
 
 .hero-content{
 grid-template-columns:1fr;
 }
 
 .hero h1{
-font-size:2.8rem;
-}
-
-.nav-content{
-flex-direction:column;
-gap:15px;
+font-size:2.7rem;
 }
 
 }
@@ -262,7 +327,9 @@ Logout
 
 <div>
 
-<h1>South Africa's Construction Trust Network</h1>
+<h1>
+South Africa's Construction Trust Network
+</h1>
 
 <p>
 VeriBuild protects homeowners, empowers contractors, and drives secure material sales through contractor verification, escrow protection, milestone governance, merchant integration, and digital trust building.
@@ -270,15 +337,21 @@ VeriBuild protects homeowners, empowers contractors, and drives secure material 
 
 <div class="hero-buttons">
 
-<a href="signup.html?role=homeowner" class="btn btn-primary">
-Start A Project
-</a>
+<button
+onclick="startProject()"
+class="btn btn-primary">
+Post A Project
+</button>
 
-<a href="signup.html?role=contractor" class="btn btn-primary">
+<button
+onclick="getVerified()"
+class="btn btn-primary">
 Get Verified
-</a>
+</button>
 
-<button onclick="goToDashboard()" class="btn btn-secondary">
+<button
+onclick="goToDashboard()"
+class="btn btn-secondary">
 Go To Dashboard
 </button>
 
@@ -294,7 +367,9 @@ Welcome Back
 
 <div class="hero-card">
 
-<h3>The VeriBuild Trust Framework</h3>
+<h3>
+The VeriBuild Trust Framework
+</h3>
 
 <ul>
 
@@ -335,18 +410,18 @@ Merchant & Material Integration
 <div class="container">
 
 <div class="section-title">
-<h2 style="color:#102A43;font-size:2.5rem;text-align:center;margin-bottom:50px;">
+<h2>
 Built For South Africa's Construction Ecosystem
 </h2>
 </div>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;">
+<div class="cards">
 
-<div style="background:white;padding:30px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);">
+<div class="card">
 
-<i class="fa-solid fa-house" style="font-size:2rem;color:#E8B231;"></i>
+<i class="fa-solid fa-house"></i>
 
-<h3 style="margin:15px 0;">Homeowners</h3>
+<h3>Homeowners</h3>
 
 <p>
 Protect deposits, compare trusted professionals, approve milestones and keep projects transparent from quotation to completion.
@@ -360,11 +435,11 @@ Learn More
 
 </div>
 
-<div style="background:white;padding:30px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);">
+<div class="card">
 
-<i class="fa-solid fa-helmet-safety" style="font-size:2rem;color:#E8B231;"></i>
+<i class="fa-solid fa-helmet-safety"></i>
 
-<h3 style="margin:15px 0;">Contractors & Taskers</h3>
+<h3>Contractors & Taskers</h3>
 
 <p>
 Build trust, receive secure payments, grow your reputation and progress through VeriBuild's digital trust ladder.
@@ -378,11 +453,11 @@ Learn More
 
 </div>
 
-<div style="background:white;padding:30px;border-radius:18px;box-shadow:0 10px 25px rgba(0,0,0,.08);">
+<div class="card">
 
-<i class="fa-solid fa-truck-ramp-box" style="font-size:2rem;color:#E8B231;"></i>
+<i class="fa-solid fa-truck-ramp-box"></i>
 
-<h3 style="margin:15px 0;">Merchants</h3>
+<h3>Merchants</h3>
 
 <p>
 Drive material sales through verified projects while benefiting from secure settlement and greater supply chain visibility.
@@ -390,7 +465,7 @@ Drive material sales through verified projects while benefiting from secure sett
 
 <br>
 
-<a href="signup.html?role=merchant" class="btn btn-primary">
+<a href="merchant-signup.html" class="btn btn-primary">
 Join VeriBuild
 </a>
 
@@ -402,45 +477,47 @@ Join VeriBuild
 
 </section>
 
-<section style="background:#F5F7FA;padding:90px 0;">
+<section class="highlight">
 
 <div class="container">
 
-<h2 style="color:#102A43;text-align:center;font-size:2.5rem;margin-bottom:50px;">
+<div class="section-title">
+<h2>
 How VeriBuild Works
 </h2>
+</div>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;">
+<div class="cards">
 
-<div class="hero-card">
+<div class="card">
 <h3>1. Verification</h3>
 <p>
-Contractors and taskers are vetted before joining the network.
+Contractors and service providers are verified before participating on the platform.
 </p>
 </div>
 
-<div class="hero-card">
+<div class="card">
 <h3>2. Project Matching</h3>
 <p>
-Homeowners connect with trusted professionals suited to their needs.
+Homeowners connect with qualified contractors suited to their project needs.
 </p>
 </div>
 
-<div class="hero-card">
+<div class="card">
 <h3>3. Escrow Protection</h3>
 <p>
-Project funds are secured before work begins.
+Funds are secured before work begins, protecting all parties.
 </p>
 </div>
 
-<div class="hero-card">
+<div class="card">
 <h3>4. Milestone Governance</h3>
 <p>
-Progress is monitored and approved throughout the build.
+Project progress is monitored and approved throughout construction.
 </p>
 </div>
 
-<div class="hero-card">
+<div class="card">
 <h3>5. Secure Completion</h3>
 <p>
 Payments are released and reputations grow through successful delivery.
@@ -463,34 +540,66 @@ View Full Process
 
 </section>
 
-<section style="background:#102A43;color:white;padding:90px 0;">
+<section style="background:var(--navy);color:white;">
 
 <div class="container">
 
-<h2 style="text-align:center;margin-bottom:50px;">
+<div class="section-title">
+
+<h2 style="color:white;">
 Building Trust Across The Industry
 </h2>
 
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:25px;text-align:center;">
-
-<div>
-<h3 style="color:#E8B231;font-size:2.5rem;">Tier 1</h3>
-<p>Verified Taskers</p>
 </div>
 
-<div>
-<h3 style="color:#E8B231;font-size:2.5rem;">Tier 2</h3>
-<p>Master Contractors</p>
+<div class="cards">
+
+<div class="card">
+
+<h3 style="color:var(--mustard);">
+Tier 1
+</h3>
+
+<p>
+Verified Taskers
+</p>
+
 </div>
 
-<div>
-<h3 style="color:#E8B231;font-size:2.5rem;">Escrow</h3>
-<p>Protected Payments</p>
+<div class="card">
+
+<h3 style="color:var(--mustard);">
+Tier 2
+</h3>
+
+<p>
+Master Contractors
+</p>
+
 </div>
 
-<div>
-<h3 style="color:#E8B231;font-size:2.5rem;">Trust</h3>
-<p>Built Through Reputation</p>
+<div class="card">
+
+<h3 style="color:var(--mustard);">
+Escrow
+</h3>
+
+<p>
+Protected Payments
+</p>
+
+</div>
+
+<div class="card">
+
+<h3 style="color:var(--mustard);">
+Trust
+</h3>
+
+<p>
+Built Through Reputation
+</p>
+
 </div>
 
 </div>
@@ -499,7 +608,7 @@ Building Trust Across The Industry
 
 </section>
 
-<section style="padding:90px 0;">
+<section>
 
 <div class="container" style="text-align:center;">
 
@@ -537,11 +646,13 @@ Go To My Dashboard
 
 </section>
 
-<footer style="background:#0b1f33;color:white;padding:60px 0;text-align:center;">
+<footer class="footer">
 
 <div class="container">
 
-<h2>VeriBuild</h2>
+<h2>
+VeriBuild
+</h2>
 
 <p style="margin:20px 0;">
 Verified Contractors. Protected Payments. Trusted Projects.
@@ -631,6 +742,71 @@ profilePicture;
 
 }
 
+function startProject(){
+
+const userData =
+localStorage.getItem("veribuildUser");
+
+if(!userData){
+
+window.location.href =
+"signup.html?role=homeowner";
+
+return;
+
+}
+
+const user =
+JSON.parse(userData);
+
+if(user.role === "homeowner"){
+
+window.location.href =
+"post-project.html";
+
+}
+else{
+
+alert(
+"Only Homeowner accounts can post projects."
+);
+
+}
+
+}
+
+function getVerified(){
+
+const userData =
+localStorage.getItem("veribuildUser");
+
+if(!userData){
+
+window.location.href =
+"contractor-signup.html";
+
+return;
+
+}
+
+const user =
+JSON.parse(userData);
+
+if(user.role === "contractor"){
+
+window.location.href =
+"contractor-dashboard.html";
+
+}
+else{
+
+window.location.href =
+"contractor-signup.html";
+
+}
+
+}
+
 function goToDashboard(){
 
 const userData =
@@ -669,7 +845,10 @@ window.location.href =
 
 }
 
-else if(user.role === "admin"){
+else if(
+user.role === "admin" ||
+user.email === "amsdarl0w@gmail.com"
+){
 
 window.location.href =
 "admin-dashboard.html";
@@ -689,7 +868,7 @@ function logoutUser(){
 
 localStorage.removeItem("veribuildUser");
 
-checkLoginState();
+window.location.reload();
 
 }
 
