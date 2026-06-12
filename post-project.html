@@ -11,7 +11,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -116,15 +117,30 @@ margin-bottom:35px;
 border-radius:10px;
 }
 
+.alert{
+display:none;
+padding:18px;
+background:#e8f5e9;
+color:#2e7d32;
+border-radius:10px;
+margin-bottom:30px;
+}
+
 .section-title{
 color:var(--navy);
-margin-bottom:25px;
-margin-top:40px;
 font-size:1.8rem;
+margin-top:40px;
+margin-bottom:25px;
 }
 
 .form-group{
 margin-bottom:20px;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
 }
 
 label{
@@ -140,7 +156,7 @@ textarea{
 width:100%;
 padding:14px;
 border:2px solid #ddd;
-border-radius:10px;
+border-radius:12px;
 font-size:1rem;
 }
 
@@ -156,17 +172,11 @@ min-height:180px;
 resize:vertical;
 }
 
-.row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
 .submit-btn{
 background:var(--mustard);
 border:none;
 padding:16px 30px;
-border-radius:10px;
+border-radius:12px;
 font-size:1rem;
 font-weight:700;
 cursor:pointer;
@@ -175,15 +185,6 @@ transition:.3s;
 
 .submit-btn:hover{
 transform:translateY(-2px);
-}
-
-.alert{
-display:none;
-padding:15px;
-border-radius:10px;
-background:#e8f5e9;
-color:#2e7d32;
-margin-bottom:25px;
 }
 
 .footer{
@@ -237,6 +238,7 @@ Veri<span>Build</span>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="how-it-works.html">How It Works</a>
+<a href="homeowners.html">Homeowners</a>
 <a href="contractors.html">Contractors</a>
 <a href="contact.html">Contact</a>
 
@@ -253,7 +255,7 @@ Veri<span>Build</span>
 <h1>Post Your Project</h1>
 
 <p>
-Submit your residential construction project and allow VeriBuild to help connect you with verified contractors while protecting your information and project requirements.
+Submit your residential construction project and allow VeriBuild to connect you with verified contractors while protecting your information and project requirements.
 </p>
 
 </div>
@@ -274,7 +276,9 @@ Your exact address, phone number and email address are protected and are not pub
 
 </div>
 
-<div id="successMessage" class="alert">
+<div
+id="successMessage"
+class="alert">
 
 Project submitted successfully.
 
@@ -360,47 +364,23 @@ required>
 
 <label>Project Type</label>
 
-<select id="projectType" required>
+<select
+id="projectType"
+required>
 
 <option value="">
 Select Project Type
 </option>
 
-<option>
-New Build
-</option>
-
-<option>
-Extension
-</option>
-
-<option>
-Renovation
-</option>
-
-<option>
-Garage
-</option>
-
-<option>
-Kitchen Remodel
-</option>
-
-<option>
-Bathroom Remodel
-</option>
-
-<option>
-Roofing
-</option>
-
-<option>
-Painting
-</option>
-
-<option>
-General Maintenance
-</option>
+<option>New Build</option>
+<option>Extension</option>
+<option>Renovation</option>
+<option>Garage</option>
+<option>Kitchen Remodel</option>
+<option>Bathroom Remodel</option>
+<option>Roofing</option>
+<option>Painting</option>
+<option>General Maintenance</option>
 
 </select>
 
@@ -410,47 +390,23 @@ General Maintenance
 
 <label>Province</label>
 
-<select id="province" required>
+<select
+id="province"
+required>
 
 <option value="">
 Select Province
 </option>
 
-<option>
-Gauteng
-</option>
-
-<option>
-Western Cape
-</option>
-
-<option>
-KwaZulu-Natal
-</option>
-
-<option>
-Eastern Cape
-</option>
-
-<option>
-Free State
-</option>
-
-<option>
-Limpopo
-</option>
-
-<option>
-Mpumalanga
-</option>
-
-<option>
-North West
-</option>
-
-<option>
-Northern Cape
-</option>
+<option>Gauteng</option>
+<option>Western Cape</option>
+<option>KwaZulu-Natal</option>
+<option>Eastern Cape</option>
+<option>Free State</option>
+<option>Limpopo</option>
+<option>Mpumalanga</option>
+<option>North West</option>
+<option>Northern Cape</option>
 
 </select>
 
@@ -531,74 +487,81 @@ Project Files
 <input type="file" multiple>
 
 </div>
-<h2 class="section-title">
-Consent
-</h2>
+                <div class="form-group">
 
-<div class="form-group">
+                    <label>Upload Inspiration Images</label>
 
-<label style="display:flex;align-items:flex-start;gap:12px;font-weight:500;color:#222;">
+                    <input type="file" multiple>
 
-<input
-type="checkbox"
-id="consent"
-required
-style="
-width:auto;
-margin-top:4px;
-">
+                </div>
 
-<span>
+                <h2 class="section-title">
+                    Consent
+                </h2>
 
-I consent to VeriBuild collecting and processing my personal information for project matching, contractor communication and project administration in accordance with South Africa's POPIA requirements.
+                <div class="form-group">
 
-</span>
+                    <label class="checkbox-label">
 
-</label>
+                        <input
+                            type="checkbox"
+                            id="consent"
+                            required>
 
-</div>
+                        <span>
+                            I consent to VeriBuild collecting and processing my personal information for project matching, contractor communication and project administration in accordance with South Africa's POPIA requirements.
+                        </span>
 
-<button
-type="submit"
-class="submit-btn">
+                    </label>
 
-Submit Project
+                </div>
 
-</button>
+                <button
+                    type="submit"
+                    class="submit-btn">
 
-</form>
+                    Submit Project
 
-</div>
+                </button>
 
-</div>
+            </form>
+
+        </div>
+
+    </div>
 
 </section>
 
 <footer class="footer">
 
-<div class="container">
+    <div class="container">
 
-<h2>
-VeriBuild
-</h2>
+        <h2>
+            VeriBuild
+        </h2>
 
-<p style="margin:20px 0;">
+        <p>
+            Verified Contractors. Protected Payments. Transparent Projects.
+        </p>
 
-Verified Contractors. Protected Payments. Transparent Projects.
+        <p>
+            © 2026 VeriBuild. All Rights Reserved.
+        </p>
 
-</p>
-
-<p>
-
-© 2026 VeriBuild. All Rights Reserved.
-
-</p>
-
-</div>
+    </div>
 
 </footer>
 
 <script>
+
+const user =
+JSON.parse(localStorage.getItem("veribuildUser"));
+
+if(!user || user.role !== "homeowner"){
+
+    window.location.href = "login.html";
+
+}
 
 document
 .getElementById("projectForm")
@@ -606,79 +569,82 @@ document
 "submit",
 function(e){
 
-e.preventDefault();
+    e.preventDefault();
 
-const project = {
+    const project = {
 
-firstName:
-document.getElementById("firstName").value,
+        firstName:
+        document.getElementById("firstName").value,
 
-lastName:
-document.getElementById("lastName").value,
+        lastName:
+        document.getElementById("lastName").value,
 
-email:
-document.getElementById("email").value,
+        email:
+        document.getElementById("email").value,
 
-phone:
-document.getElementById("phone").value,
+        phone:
+        document.getElementById("phone").value,
 
-projectTitle:
-document.getElementById("projectTitle").value,
+        projectTitle:
+        document.getElementById("projectTitle").value,
 
-projectType:
-document.getElementById("projectType").value,
+        projectType:
+        document.getElementById("projectType").value,
 
-province:
-document.getElementById("province").value,
+        province:
+        document.getElementById("province").value,
 
-area:
-document.getElementById("area").value,
+        area:
+        document.getElementById("area").value,
 
-budget:
-document.getElementById("budget").value,
+        budget:
+        document.getElementById("budget").value,
 
-startDate:
-document.getElementById("startDate").value,
+        startDate:
+        document.getElementById("startDate").value,
 
-description:
-document.getElementById("description").value,
+        description:
+        document.getElementById("description").value,
 
-status:
-"Pending",
+        homeowner:
+        user.name ||
+        user.fullName ||
+        user.username,
 
-dateSubmitted:
-new Date().toLocaleString()
+        status:
+        "Pending",
 
-};
+        dateSubmitted:
+        new Date().toLocaleString()
 
-let projects =
-JSON.parse(
-localStorage.getItem("veribuildProjects")
-) || [];
+    };
 
-projects.push(project);
+    let projects =
+    JSON.parse(
+        localStorage.getItem("veribuildProjects")
+    ) || [];
 
-localStorage.setItem(
-"veribuildProjects",
-JSON.stringify(projects)
-);
+    projects.push(project);
 
-document.getElementById(
-"successMessage"
-).style.display =
-"block";
+    localStorage.setItem(
+        "veribuildProjects",
+        JSON.stringify(projects)
+    );
 
-document.getElementById(
-"projectForm"
-).reset();
+    document.getElementById(
+        "successMessage"
+    ).style.display = "block";
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
+    document.getElementById(
+        "projectForm"
+    ).reset();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
 });
-
-}
-);
 
 </script>
 
