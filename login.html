@@ -76,7 +76,8 @@ font-weight:600;
 color:var(--navy);
 }
 
-input, select{
+input,
+select{
 width:100%;
 padding:14px;
 border:2px solid #ddd;
@@ -146,15 +147,15 @@ Veri<span>Build</span>
 </div>
 
 <p class="subtitle">
-Secure Project Access Portal
+Access South Africa's Construction Trust Network
 </p>
 
 <div id="successMessage" class="alert success">
-Login successful. Redirecting...
+Login successful. Redirecting to your dashboard...
 </div>
 
 <div id="errorMessage" class="alert error">
-Please complete all fields.
+Please complete all required fields.
 </div>
 
 <form id="loginForm">
@@ -172,10 +173,23 @@ Please complete all fields.
 <div class="input-group">
 <label>Account Type</label>
 <select id="role" required>
-<option value="">Select Role</option>
-<option value="homeowner">Homeowner</option>
-<option value="contractor">Contractor</option>
-<option value="merchant">Merchant</option>
+
+<option value="">
+Select Role
+</option>
+
+<option value="homeowner">
+Homeowner
+</option>
+
+<option value="contractor">
+Contractor / Tasker
+</option>
+
+<option value="merchant">
+Merchant
+</option>
+
 </select>
 </div>
 
@@ -206,74 +220,196 @@ Back To Home
 
 document
 .getElementById("loginForm")
-.addEventListener("submit", function(e){
+.addEventListener(
+"submit",
+function(e){
 
 e.preventDefault();
 
 const email =
-document.getElementById("email").value.trim();
+document
+.getElementById("email")
+.value
+.trim();
 
 const password =
-document.getElementById("password").value.trim();
+document
+.getElementById("password")
+.value
+.trim();
 
 let role =
-document.getElementById("role").value;
+document
+.getElementById("role")
+.value;
 
 const success =
-document.getElementById("successMessage");
+document
+.getElementById("successMessage");
 
 const error =
-document.getElementById("errorMessage");
+document
+.getElementById("errorMessage");
 
-if(!email || !password || !role){
+if(
+!email ||
+!password ||
+!role
+){
 
-error.style.display = "block";
-success.style.display = "none";
+error.style.display =
+"block";
+
+success.style.display =
+"none";
 
 return;
+
 }
 
-error.style.display = "none";
+error.style.display =
+"none";
 
 /* ADMIN OVERRIDE */
 
-if(email.toLowerCase() === "amsdarl0w@gmail.com"){
+if(
+email.toLowerCase() ===
+"amsdarl0w@gmail.com"
+){
+
 role = "admin";
+
 }
 
-const user = {
-email: email,
-role: role,
-loggedIn: true
+/* USER NAME */
+
+const userName =
+email.split("@")[0];
+
+/* DEFAULT USER OBJECT */
+
+let user = {
+
+name:
+userName,
+
+email:
+email,
+
+role:
+role,
+
+loggedIn:
+true,
+
+verificationStatus:
+"Pending",
+
+trustLevel:
+1,
+
+accountStatus:
+"Active"
+
 };
+
+/* HOMEOWNER */
+
+if(role === "homeowner"){
+
+user.accountType =
+"Homeowner";
+
+}
+
+/* CONTRACTOR / TASKER */
+
+else if(role === "contractor"){
+
+user.accountType =
+"Contractor";
+
+user.contractorTier =
+"Tier 1";
+
+user.trustLevel =
+1;
+
+user.projectCap =
+5000;
+
+user.verificationStatus =
+"Pending";
+
+}
+
+/* MERCHANT */
+
+else if(role === "merchant"){
+
+user.accountType =
+"Merchant";
+
+user.verificationStatus =
+"Verified";
+
+}
+
+/* ADMIN */
+
+else if(role === "admin"){
+
+user.accountType =
+"Administrator";
+
+user.verificationStatus =
+"Verified";
+
+user.trustLevel =
+999;
+
+}
+
+/* SAVE USER */
 
 localStorage.setItem(
 "veribuildUser",
 JSON.stringify(user)
 );
 
-success.style.display = "block";
+success.style.display =
+"block";
+
+/* REDIRECT */
 
 setTimeout(() => {
 
 if(role === "homeowner"){
+
 window.location.href =
 "homeowner-dashboard.html";
+
 }
 
 else if(role === "contractor"){
+
 window.location.href =
 "contractor-dashboard.html";
+
 }
 
 else if(role === "merchant"){
+
 window.location.href =
 "merchant-dashboard.html";
+
 }
 
 else if(role === "admin"){
+
 window.location.href =
 "admin-dashboard.html";
+
 }
 
 },1500);
