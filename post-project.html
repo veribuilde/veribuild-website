@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Post A Project | VeriBuild</title>
+<title>Post A Project | VeriBuild International</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,6 +65,10 @@ color:var(--navy);
 
 .logo span{
 color:var(--mustard);
+}
+
+.international{
+color:black !important;
 }
 
 .nav-links{
@@ -231,6 +235,7 @@ padding:30px;
 
 <div class="logo">
 Veri<span>Build</span>
+<span class="international">International</span>
 </div>
 
 <div class="nav-links">
@@ -252,10 +257,12 @@ Veri<span>Build</span>
 
 <div class="container">
 
-<h1>Post Your Project</h1>
+<h1>
+Post Your Project
+</h1>
 
 <p>
-Submit your residential construction project and allow VeriBuild to connect you with verified contractors while protecting your information and project requirements.
+Submit your residential construction project and allow VeriBuild International to connect you with verified contractors while protecting your information and project requirements.
 </p>
 
 </div>
@@ -272,7 +279,7 @@ Submit your residential construction project and allow VeriBuild to connect you 
 
 <strong>Privacy Notice:</strong>
 
-Your exact address, phone number and email address are protected and are not publicly shared with contractors. VeriBuild processes information in accordance with South Africa's POPIA requirements.
+Your exact address, phone number and email address are protected and are not publicly shared with contractors. VeriBuild International processes information in accordance with applicable privacy regulations.
 
 </div>
 
@@ -388,14 +395,14 @@ Select Project Type
 
 <div class="form-group">
 
-<label>Province</label>
+<label>Province / State</label>
 
 <select
 id="province"
 required>
 
 <option value="">
-Select Province
+Select Province / State
 </option>
 
 <option>Gauteng</option>
@@ -429,7 +436,7 @@ required>
 
 <div class="form-group">
 
-<label>Estimated Budget (R)</label>
+<label>Estimated Budget</label>
 
 <input
 type="number"
@@ -487,14 +494,6 @@ Project Files
 <input type="file" multiple>
 
 </div>
-                <div class="form-group">
-
-                    <label>Upload Inspiration Images</label>
-
-                    <input type="file" multiple>
-
-                </div>
-
                 <h2 class="section-title">
                     Consent
                 </h2>
@@ -509,7 +508,7 @@ Project Files
                             required>
 
                         <span>
-                            I consent to VeriBuild collecting and processing my personal information for project matching, contractor communication and project administration in accordance with South Africa's POPIA requirements.
+                            I consent to VeriBuild International collecting and processing my personal information for project matching, contractor communication and project administration in accordance with applicable privacy and data protection regulations.
                         </span>
 
                     </label>
@@ -537,7 +536,7 @@ Project Files
     <div class="container">
 
         <h2>
-            VeriBuild
+            VeriBuild International
         </h2>
 
         <p>
@@ -545,7 +544,7 @@ Project Files
         </p>
 
         <p>
-            © 2026 VeriBuild. All Rights Reserved.
+            © 2026 VeriBuild International. All Rights Reserved.
         </p>
 
     </div>
@@ -559,7 +558,8 @@ JSON.parse(localStorage.getItem("veribuildUser"));
 
 if(!user || user.role !== "homeowner"){
 
-    window.location.href = "login.html";
+    window.location.href =
+    "login.html";
 
 }
 
@@ -614,6 +614,9 @@ function(e){
         status:
         "Pending",
 
+        platform:
+        "VeriBuild International",
+
         dateSubmitted:
         new Date().toLocaleString()
 
@@ -621,7 +624,9 @@ function(e){
 
     let projects =
     JSON.parse(
-        localStorage.getItem("veribuildProjects")
+        localStorage.getItem(
+            "veribuildProjects"
+        )
     ) || [];
 
     projects.push(project);
@@ -633,7 +638,8 @@ function(e){
 
     document.getElementById(
         "successMessage"
-    ).style.display = "block";
+    ).style.display =
+    "block";
 
     document.getElementById(
         "projectForm"
@@ -650,3 +656,4 @@ function(e){
 
 </body>
 </html>
+  
