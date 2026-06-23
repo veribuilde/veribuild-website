@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VeriBuild | South Africa's Construction Trust Network</title>
+<title>VeriBuild International | South Africa's Construction Trust Network</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,10 +56,18 @@ align-items:center;
 padding:20px 0;
 }
 
+/* LOGO */
 .logo{
 font-size:2rem;
 font-weight:800;
 color:var(--navy);
+}
+
+/* “International” always black */
+.logo .international{
+color:#000;
+font-weight:700;
+margin-left:6px;
 }
 
 .logo span{
@@ -274,11 +282,11 @@ font-size:2.7rem;
 <body>
 
 <nav class="navbar">
-
 <div class="container nav-content">
 
 <div class="logo">
 Veri<span>Build</span>
+<span class="international">International</span>
 </div>
 
 <div class="nav-links">
@@ -291,34 +299,21 @@ Veri<span>Build</span>
 <a href="contact.html">Contact</a>
 
 <a href="login.html" id="loginBtn">Login</a>
-
 <a href="signup.html" id="signupBtn">Sign Up</a>
 
 <div id="userPanel" class="user-panel">
 
-<img
-id="navProfilePic"
-class="profile-pic"
-src="https://via.placeholder.com/50">
+<img id="navProfilePic" class="profile-pic" src="https://via.placeholder.com/50">
 
-<span
-id="navUsername"
-class="username">
-User
-</span>
+<span id="navUsername" class="username">User</span>
 
-<button
-onclick="logoutUser()"
-class="btn btn-primary">
-Logout
-</button>
+<button onclick="logoutUser()" class="btn btn-primary">Logout</button>
 
 </div>
 
 </div>
 
 </div>
-
 </nav>
 
 <section class="hero">
@@ -327,39 +322,29 @@ Logout
 
 <div>
 
-<h1>
-South Africa's Construction Trust Network
-</h1>
+<h1>South Africa's Construction Trust Network</h1>
 
 <p>
-VeriBuild protects homeowners, empowers contractors, and drives secure material sales through contractor verification, escrow protection, milestone governance, merchant integration, and digital trust building.
+VeriBuild International protects homeowners, empowers contractors, and drives secure material sales through verification, escrow protection, milestone governance, and trust systems.
 </p>
 
 <div class="hero-buttons">
 
-<button
-onclick="startProject()"
-class="btn btn-primary">
+<button onclick="startProject()" class="btn btn-primary">
 Post A Project
 </button>
 
-<button
-onclick="getVerified()"
-class="btn btn-primary">
+<button onclick="getVerified()" class="btn btn-primary">
 Get Verified
 </button>
 
-<button
-onclick="goToDashboard()"
-class="btn btn-secondary">
+<button onclick="goToDashboard()" class="btn btn-secondary">
 Go To Dashboard
 </button>
 
 </div>
 
-<div
-id="welcomeBack"
-class="welcome-back">
+<div id="welcomeBack" class="welcome-back">
 Welcome Back
 </div>
 
@@ -367,37 +352,14 @@ Welcome Back
 
 <div class="hero-card">
 
-<h3>
-The VeriBuild Trust Framework
-</h3>
+<h3>The VeriBuild Trust Framework</h3>
 
 <ul>
-
-<li>
-<i class="fa-solid fa-user-check"></i>
-Verified Contractors & Taskers
-</li>
-
-<li>
-<i class="fa-solid fa-shield-halved"></i>
-Escrow Protected Payments
-</li>
-
-<li>
-<i class="fa-solid fa-list-check"></i>
-Milestone Governance
-</li>
-
-<li>
-<i class="fa-solid fa-ranking-star"></i>
-Trust Ladder Reputation System
-</li>
-
-<li>
-<i class="fa-solid fa-store"></i>
-Merchant & Material Integration
-</li>
-
+<li><i class="fa-solid fa-user-check"></i> Verified Contractors & Taskers</li>
+<li><i class="fa-solid fa-shield-halved"></i> Escrow Protected Payments</li>
+<li><i class="fa-solid fa-list-check"></i> Milestone Governance</li>
+<li><i class="fa-solid fa-ranking-star"></i> Trust Ladder Reputation System</li>
+<li><i class="fa-solid fa-store"></i> Merchant & Material Integration</li>
 </ul>
 
 </div>
@@ -406,261 +368,68 @@ Merchant & Material Integration
 
 </section>
 <section>
-
 <div class="container">
 
 <div class="section-title">
-<h2>
-Built For South Africa's Construction Ecosystem
-</h2>
+<h2>Built For South Africa's Construction Ecosystem</h2>
 </div>
 
 <div class="cards">
 
 <div class="card">
-
 <i class="fa-solid fa-house"></i>
-
 <h3>Homeowners</h3>
-
-<p>
-Protect deposits, compare trusted professionals, approve milestones and keep projects transparent from quotation to completion.
-</p>
-
-<br>
-
-<a href="homeowners.html" class="btn btn-primary">
-Learn More
-</a>
-
+<p>Manage secure projects with verified contractors and milestone protection.</p>
 </div>
 
 <div class="card">
-
 <i class="fa-solid fa-helmet-safety"></i>
-
-<h3>Contractors & Taskers</h3>
-
-<p>
-Build trust, receive secure payments, grow your reputation and progress through VeriBuild's digital trust ladder.
-</p>
-
-<br>
-
-<a href="contractors.html" class="btn btn-primary">
-Learn More
-</a>
-
+<h3>Contractors</h3>
+<p>Build reputation, earn secure payments, and grow through verified work.</p>
 </div>
 
 <div class="card">
-
 <i class="fa-solid fa-truck-ramp-box"></i>
-
 <h3>Merchants</h3>
-
-<p>
-Drive material sales through verified projects while benefiting from secure settlement and greater supply chain visibility.
-</p>
-
-<br>
-
-<a href="merchant-signup.html" class="btn btn-primary">
-Join VeriBuild
-</a>
-
+<p>Supply materials through verified construction demand pipelines.</p>
 </div>
 
 </div>
 
 </div>
-
 </section>
 
 <section class="highlight">
-
 <div class="container">
 
 <div class="section-title">
-<h2>
-How VeriBuild Works
-</h2>
+<h2>How VeriBuild International Works</h2>
 </div>
 
 <div class="cards">
 
-<div class="card">
-<h3>1. Verification</h3>
-<p>
-Contractors and service providers are verified before participating on the platform.
-</p>
-</div>
-
-<div class="card">
-<h3>2. Project Matching</h3>
-<p>
-Homeowners connect with qualified contractors suited to their project needs.
-</p>
-</div>
-
-<div class="card">
-<h3>3. Escrow Protection</h3>
-<p>
-Funds are secured before work begins, protecting all parties.
-</p>
-</div>
-
-<div class="card">
-<h3>4. Milestone Governance</h3>
-<p>
-Project progress is monitored and approved throughout construction.
-</p>
-</div>
-
-<div class="card">
-<h3>5. Secure Completion</h3>
-<p>
-Payments are released and reputations grow through successful delivery.
-</p>
-</div>
-
-</div>
-
-<br><br>
-
-<div style="text-align:center;">
-
-<a href="how-it-works.html" class="btn btn-primary">
-View Full Process
-</a>
+<div class="card"><h3>1. Verification</h3><p>All professionals are verified before participation.</p></div>
+<div class="card"><h3>2. Matching</h3><p>Projects connect with suitable contractors.</p></div>
+<div class="card"><h3>3. Escrow</h3><p>Funds are secured before work begins.</p></div>
+<div class="card"><h3>4. Milestones</h3><p>Progress is tracked and approved.</p></div>
+<div class="card"><h3>5. Completion</h3><p>Payments released and reputation built.</p></div>
 
 </div>
 
 </div>
-
-</section>
-
-<section style="background:var(--navy);color:white;">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2 style="color:white;">
-Building Trust Across The Industry
-</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<h3 style="color:var(--mustard);">
-Tier 1
-</h3>
-
-<p>
-Verified Taskers
-</p>
-
-</div>
-
-<div class="card">
-
-<h3 style="color:var(--mustard);">
-Tier 2
-</h3>
-
-<p>
-Master Contractors
-</p>
-
-</div>
-
-<div class="card">
-
-<h3 style="color:var(--mustard);">
-Escrow
-</h3>
-
-<p>
-Protected Payments
-</p>
-
-</div>
-
-<div class="card">
-
-<h3 style="color:var(--mustard);">
-Trust
-</h3>
-
-<p>
-Built Through Reputation
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container" style="text-align:center;">
-
-<h2 style="margin-bottom:20px;">
-Build With Confidence
-</h2>
-
-<p style="margin-bottom:30px;">
-Join South Africa's construction trust network and bring transparency, security and accountability to every project.
-</p>
-
-<div id="guestButtons">
-
-<a href="signup.html" class="btn btn-primary">
-Create Account
-</a>
-
-<a href="login.html" class="btn btn-secondary">
-Login
-</a>
-
-</div>
-
-<div id="memberButtons" style="display:none;">
-
-<button
-onclick="goToDashboard()"
-class="btn btn-primary">
-Go To My Dashboard
-</button>
-
-</div>
-
-</div>
-
 </section>
 
 <footer class="footer">
 
 <div class="container">
 
-<h2>
-VeriBuild
-</h2>
+<h2>VeriBuild <span style="color:#000">International</span></h2>
 
 <p style="margin:20px 0;">
 Verified Contractors. Protected Payments. Trusted Projects.
 </p>
 
-<p>
-© 2026 VeriBuild. All Rights Reserved.
-</p>
+<p>© 2026 VeriBuild International. All Rights Reserved.</p>
 
 </div>
 
@@ -668,214 +437,22 @@ Verified Contractors. Protected Payments. Trusted Projects.
 
 <script>
 
-function checkLoginState(){
-
-const userData =
-localStorage.getItem("veribuildUser");
-
-if(!userData){
-
-document.getElementById("loginBtn").style.display =
-"inline-block";
-
-document.getElementById("signupBtn").style.display =
-"inline-block";
-
-document.getElementById("userPanel").style.display =
-"none";
-
-document.getElementById("guestButtons").style.display =
-"block";
-
-document.getElementById("memberButtons").style.display =
-"none";
-
-document.getElementById("welcomeBack").style.display =
-"none";
-
-return;
-
-}
-
-const user =
-JSON.parse(userData);
-
-const userName =
-user.name ||
-user.fullName ||
-user.username ||
-"User";
-
-document.getElementById("loginBtn").style.display =
-"none";
-
-document.getElementById("signupBtn").style.display =
-"none";
-
-document.getElementById("userPanel").style.display =
-"flex";
-
-document.getElementById("guestButtons").style.display =
-"none";
-
-document.getElementById("memberButtons").style.display =
-"block";
-
-document.getElementById("welcomeBack").style.display =
-"block";
-
-document.getElementById("welcomeBack").innerText =
-`Welcome Back, ${userName}`;
-
-document.getElementById("navUsername").innerText =
-userName;
-
-const profilePicture =
-localStorage.getItem("profilePicture");
-
-if(profilePicture){
-
-document.getElementById("navProfilePic").src =
-profilePicture;
-
-}
-
-}
-
 function startProject(){
-
-const userData =
-localStorage.getItem("veribuildUser");
-
-if(!userData){
-
-window.location.href =
-"signup.html?role=homeowner";
-
-return;
-
-}
-
-const user =
-JSON.parse(userData);
-
-if(user.role === "homeowner"){
-
-window.location.href =
-"post-project.html";
-
-}
-else{
-
-alert(
-"Only Homeowner accounts can post projects."
-);
-
-}
-
+window.location.href = "post-project.html";
 }
 
 function getVerified(){
-
-const userData =
-localStorage.getItem("veribuildUser");
-
-if(!userData){
-
-window.location.href =
-"contractor-signup.html";
-
-return;
-
-}
-
-const user =
-JSON.parse(userData);
-
-if(user.role === "contractor"){
-
-window.location.href =
-"contractor-dashboard.html";
-
-}
-else{
-
-window.location.href =
-"contractor-signup.html";
-
-}
-
+window.location.href = "contractor-signup.html";
 }
 
 function goToDashboard(){
-
-const userData =
-localStorage.getItem("veribuildUser");
-
-if(!userData){
-
-window.location.href =
-"login.html";
-
-return;
-
-}
-
-const user =
-JSON.parse(userData);
-
-if(user.role === "homeowner"){
-
-window.location.href =
-"homeowner-dashboard.html";
-
-}
-
-else if(user.role === "contractor"){
-
-window.location.href =
-"contractor-dashboard.html";
-
-}
-
-else if(user.role === "merchant"){
-
-window.location.href =
-"merchant-dashboard.html";
-
-}
-
-else if(
-user.role === "admin" ||
-user.email === "amsdarl0w@gmail.com"
-){
-
-window.location.href =
-"admin-dashboard.html";
-
-}
-
-else{
-
-window.location.href =
-"login.html";
-
-}
-
+window.location.href = "login.html";
 }
 
 function logoutUser(){
-
 localStorage.removeItem("veribuildUser");
-
 window.location.reload();
-
 }
-
-window.addEventListener(
-"DOMContentLoaded",
-checkLoginState
-);
 
 </script>
 
