@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sign Up | VeriBuild</title>
+<title>Sign Up | VeriBuild International</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,8 +54,13 @@ color:var(--navy);
 margin-bottom:10px;
 }
 
-.logo span{
+.logo .build{
 color:var(--mustard);
+}
+
+.logo .international{
+color:#000;
+margin-left:8px;
 }
 
 .subtitle{
@@ -156,7 +161,8 @@ grid-template-columns:1fr;
 <div class="signup-card">
 
 <div class="logo">
-Veri<span>Build</span>
+Veri<span class="build">Build</span>
+<span class="international">International</span>
 </div>
 
 <p class="subtitle">
@@ -255,6 +261,7 @@ Back To Home
 </div>
 
 </div>
+
 <script>
 
 /* AUTO-SELECT ROLE FROM URL */
@@ -440,7 +447,6 @@ joinedDate:
 new Date().toLocaleDateString()
 
 };
-
 /* HOMEOWNER */
 
 if(
@@ -516,14 +522,14 @@ account.verificationStatus =
 /* SAVE */
 
 localStorage.setItem(
-"veribuildAccount",
+"veribuildInternationalAccount",
 JSON.stringify(account)
 );
 
 /* AUTO LOGIN OBJECT */
 
 localStorage.setItem(
-"veribuildUser",
+"veribuildInternationalUser",
 JSON.stringify({
 
 name:
