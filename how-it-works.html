@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>How VeriBuild Works</title>
+<title>Privacy Policy & Terms | VeriBuild International</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -30,8 +31,9 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-line-height:1.7;
+background:#f8fafc;
 color:#222;
+line-height:1.8;
 }
 
 .container{
@@ -39,6 +41,8 @@ width:90%;
 max-width:1200px;
 margin:auto;
 }
+
+/* NAVBAR */
 
 .navbar{
 position:sticky;
@@ -56,19 +60,30 @@ padding:20px 0;
 }
 
 .logo{
+display:flex;
+align-items:center;
+gap:12px;
 font-size:2rem;
 font-weight:800;
+}
+
+.logo-main{
 color:var(--navy);
 }
 
-.logo span{
+.logo-main span{
 color:var(--mustard);
+}
+
+.logo-international{
+color:black;
 }
 
 .nav-links{
 display:flex;
 gap:25px;
 align-items:center;
+flex-wrap:wrap;
 }
 
 .nav-links a{
@@ -105,6 +120,8 @@ cursor:pointer;
 font-weight:700;
 }
 
+/* HERO */
+
 .hero{
 background:linear-gradient(135deg,#102A43,#1c476f);
 color:white;
@@ -118,53 +135,83 @@ margin-bottom:20px;
 }
 
 .hero p{
-max-width:900px;
+max-width:850px;
 margin:auto;
 font-size:1.1rem;
 }
 
 .welcome-back{
+display:none;
 margin-top:20px;
 font-size:1.1rem;
 font-weight:600;
-display:none;
 }
 
-section{
+/* CONTENT */
+
+.content-section{
 padding:80px 0;
 }
 
-.section-title{
-text-align:center;
-margin-bottom:50px;
-}
-
-.section-title h2{
-font-size:2.5rem;
-color:var(--navy);
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.card{
+.content-card{
 background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+padding:50px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-.card i{
-font-size:2rem;
-color:var(--mustard);
+.content-card h2{
+color:var(--navy);
+margin-top:40px;
 margin-bottom:15px;
+font-size:2rem;
+}
+
+.content-card h2:first-child{
+margin-top:0;
+}
+
+.content-card h3{
+color:var(--navy);
+margin-top:25px;
+margin-bottom:10px;
+}
+
+.content-card p{
+margin-bottom:15px;
+}
+
+.content-card ul{
+margin-left:25px;
+margin-bottom:20px;
+}
+
+.content-card li{
+margin-bottom:8px;
 }
 
 .highlight{
 background:var(--light);
+padding:18px;
+border-left:5px solid var(--mustard);
+border-radius:10px;
+margin:20px 0;
+}
+
+.back-btn{
+display:inline-block;
+background:var(--mustard);
+color:black;
+padding:12px 24px;
+text-decoration:none;
+font-weight:700;
+border-radius:10px;
+margin-top:25px;
+transition:.3s;
+}
+
+.back-btn:hover{
+transform:translateY(-2px);
 }
 
 .footer{
@@ -172,6 +219,7 @@ background:#0b1f33;
 color:white;
 text-align:center;
 padding:60px 0;
+margin-top:40px;
 }
 
 @media(max-width:768px){
@@ -182,12 +230,15 @@ gap:15px;
 }
 
 .nav-links{
-flex-wrap:wrap;
 justify-content:center;
 }
 
 .hero h1{
 font-size:2.5rem;
+}
+
+.content-card{
+padding:30px;
 }
 
 }
@@ -202,7 +253,15 @@ font-size:2.5rem;
 <div class="container nav-content">
 
 <div class="logo">
+
+<div class="logo-main">
 Veri<span>Build</span>
+</div>
+
+<div class="logo-international">
+International
+</div>
+
 </div>
 
 <div class="nav-links">
@@ -249,294 +308,158 @@ Logout
 
 <div class="container">
 
-<h1>How VeriBuild Works</h1>
+<h1>Privacy Policy & Terms</h1>
 
 <p>
-VeriBuild combines contractor verification, project governance, merchant participation and protected payments to create a trusted construction ecosystem for South Africa.
+VeriBuild International Legal Information, User Rights, Platform Responsibilities and Conditions of Use.
 </p>
 
 <div
 id="welcomeBack"
 class="welcome-back">
-Welcome back
+Welcome back, User
 </div>
 
 </div>
 
 </section>
 
-<section>
+<section class="content-section">
 
 <div class="container">
 
-<div class="section-title">
+<div class="content-card">
 
-<h2>
-1. Create A Project
-</h2>
+<h2>Privacy Policy (POPIA Compliance)</h2>
 
+<div class="highlight">
+VeriBuild International is committed to protecting personal information in accordance with South Africa's Protection of Personal Information Act (POPIA).
 </div>
-
-<div class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-file-circle-plus"></i>
-
-<h3>Project Submission</h3>
 
 <p>
-Homeowners submit project requirements, plans, photographs and supporting information to begin the process.
+This Privacy Policy explains how VeriBuild International collects, stores, protects and processes information supplied through the platform.
 </p>
 
-</div>
+<h3>Information We Collect</h3>
 
-<div class="card">
+<ul>
+<li>Name and contact information</li>
+<li>Email addresses and phone numbers</li>
+<li>Business registration information</li>
+<li>Contractor verification documentation</li>
+<li>Project-related information and uploaded files</li>
+<li>Merchant quotations and procurement information</li>
+<li>Project communications and platform activity records</li>
+<li>Account profile information</li>
+</ul>
 
-<i class="fa-solid fa-helmet-safety"></i>
+<h3>Why We Collect Information</h3>
 
-<h3>Contractor Matching</h3>
+<ul>
+<li>To verify users and service providers</li>
+<li>To manage projects and communications</li>
+<li>To facilitate escrow and payment processes</li>
+<li>To maintain platform security</li>
+<li>To prevent fraud and misuse</li>
+<li>To comply with legal obligations</li>
+<li>To improve platform performance and functionality</li>
+</ul>
+
+<h3>Protection Of Information</h3>
 
 <p>
-Verified Taskers and Master Contractors review opportunities and prepare quotations based on project scope.
+VeriBuild International implements reasonable technical, organisational and administrative safeguards designed to protect personal information from unauthorised access, disclosure, misuse, loss or alteration.
 </p>
 
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-truck-ramp-box"></i>
-
-<h3>Merchant Participation</h3>
+<h3>Your Rights</h3>
 
 <p>
-Merchants provide quotations for materials and deliveries required for the project.
+Users may request access to information held about them, request corrections, update records and request deletion of information where permitted by applicable laws and regulations.
 </p>
 
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="highlight">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-2. Verify & Approve
-</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-scale-balanced"></i>
-
-<h3>Professional Verification</h3>
+<h3>Information Sharing</h3>
 
 <p>
-Contractors join through structured vetting processes designed to improve accountability and trust.
+VeriBuild International does not sell personal information. Information may be shared only where required for platform operations, payment processing, project administration, fraud prevention or compliance with legal obligations.
 </p>
 
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-list-check"></i>
-
-<h3>Quotation Review</h3>
+<h2>Terms & Conditions</h2>
 
 <p>
-Homeowners compare contractor and merchant quotations before selecting the combination that best fits their project.
+By accessing, registering for or using VeriBuild International, you agree to comply with these Terms and Conditions.
 </p>
+<h3>User Responsibilities</h3>
 
-</div>
+<ul>
+<li>Provide accurate and truthful information.</li>
+<li>Maintain the confidentiality of login credentials.</li>
+<li>Use the platform lawfully and responsibly.</li>
+<li>Respect all project participants and platform policies.</li>
+<li>Avoid submitting misleading or fraudulent information.</li>
+</ul>
 
-<div class="card">
+<h3>Contractor Responsibilities</h3>
 
-<i class="fa-solid fa-circle-check"></i>
+<ul>
+<li>Provide accurate qualifications and documentation.</li>
+<li>Maintain applicable licences, certifications and compliance records.</li>
+<li>Complete work according to agreed project requirements.</li>
+<li>Comply with all applicable laws and industry standards.</li>
+<li>Act professionally when interacting with homeowners and merchants.</li>
+</ul>
 
-<h3>Project Approval</h3>
+<h3>Homeowner Responsibilities</h3>
+
+<ul>
+<li>Provide accurate project information.</li>
+<li>Review quotations and documentation carefully.</li>
+<li>Approve milestone completion honestly and fairly.</li>
+<li>Comply with agreed payment obligations.</li>
+<li>Maintain respectful communication with project participants.</li>
+</ul>
+
+<h3>Merchant Responsibilities</h3>
+
+<ul>
+<li>Provide accurate pricing and quotation information.</li>
+<li>Supply materials as agreed.</li>
+<li>Maintain lawful business operations.</li>
+<li>Fulfil delivery commitments and documentation requirements.</li>
+</ul>
+
+<h3>Escrow Services</h3>
 
 <p>
-Once everyone agrees on pricing and milestones, the project moves forward.
+Escrow mechanisms are intended to promote trust between parties. VeriBuild International may impose conditions relating to milestone approvals, verification procedures and platform policies before releasing funds.
 </p>
 
-</div>
-
-</div>
-
-</div>
-
-</section>
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-3. Protect The Project
-</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-shield-halved"></i>
-
-<h3>Secure Funding</h3>
+<h3>Limitation Of Liability</h3>
 
 <p>
-Project funds are protected through milestone-based payment systems, reducing the risks associated with large deposits and unfinished work.
+VeriBuild International provides a digital platform for project management, verification and transaction facilitation. VeriBuild International does not guarantee project outcomes, contractor performance, merchant performance or construction quality.
 </p>
 
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-boxes-stacked"></i>
-
-<h3>Material Procurement</h3>
+<h3>Account Suspension</h3>
 
 <p>
-Approved merchants provide materials according to project requirements, helping ensure transparency throughout the supply chain.
+VeriBuild International reserves the right to suspend, restrict or terminate accounts that violate platform policies, submit fraudulent information or engage in unlawful activity.
 </p>
 
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-chart-line"></i>
-
-<h3>Progress Tracking</h3>
+<h3>Changes To Policies</h3>
 
 <p>
-Milestones, documentation and approvals create visibility for everyone involved in the project.
+These policies may be updated periodically. Continued use of the platform constitutes acceptance of revised terms and conditions.
 </p>
 
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="highlight">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-4. Complete & Build Trust
-</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-money-bill-wave"></i>
-
-<h3>Payment Release</h3>
+<h3>Contact Information</h3>
 
 <p>
-Payments are released after milestones are approved, helping protect homeowners while ensuring professionals are paid fairly.
+For questions regarding privacy, legal matters or platform policies, users may contact VeriBuild International through the official contact channels provided on the platform.
 </p>
 
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-star"></i>
-
-<h3>The Trust Ladder</h3>
-
-<p>
-Successful projects and positive ratings help contractors build stronger reputations and unlock larger opportunities.
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-people-group"></i>
-
-<h3>A Stronger Industry</h3>
-
-<p>
-VeriBuild brings homeowners, contractors, taskers and merchants together within one trusted ecosystem.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>
-The Two-Tier Model
-</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<i class="fa-solid fa-screwdriver-wrench"></i>
-
-<h3>Tier 1 Verified Taskers</h3>
-
-<p>
-Independent painters, tilers, pavers and handymen start with smaller projects and gradually build their digital reputation.
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-building"></i>
-
-<h3>Tier 2 Master Contractors</h3>
-
-<p>
-Established businesses and registered professionals handle larger and more complex residential projects.
-</p>
-
-</div>
-
-<div class="card">
-
-<i class="fa-solid fa-arrow-trend-up"></i>
-
-<h3>Growth Through Trust</h3>
-
-<p>
-As professionals complete projects successfully, they strengthen their standing and increase their opportunities.
-</p>
-
-</div>
+<a href="index.html" class="back-btn">
+Return To Homepage
+</a>
 
 </div>
 
@@ -548,16 +471,30 @@ As professionals complete projects successfully, they strengthen their standing 
 
 <div class="container">
 
-<h2>
-VeriBuild
-</h2>
+<div class="logo"
+style="
+justify-content:center;
+margin-bottom:20px;
+">
+
+<div class="logo-main">
+Veri<span>Build</span>
+</div>
+
+<div
+class="logo-international"
+style="color:white;">
+International
+</div>
+
+</div>
 
 <p style="margin:20px 0;">
-Verified People. Protected Payments. Transparent Projects.
+Verified Contractors. Protected Payments. Transparent Projects.
 </p>
 
 <p>
-© 2026 VeriBuild. All Rights Reserved.
+© 2026 VeriBuild International. All Rights Reserved.
 </p>
 
 </div>
@@ -566,49 +503,16 @@ Verified People. Protected Payments. Transparent Projects.
 
 <script>
 
-function checkLoginState(){
-
-const userData =
-localStorage.getItem(
-"veribuildUser"
-);
-
-if(!userData){
-
-document.getElementById(
-"loginBtn"
-).style.display =
-"inline-block";
-
-document.getElementById(
-"signupBtn"
-).style.display =
-"inline-block";
-
-document.getElementById(
-"userPanel"
-).style.display =
-"none";
-
-document.getElementById(
-"welcomeBack"
-).style.display =
-"none";
-
-return;
-
-}
+window.onload = function(){
 
 const user =
 JSON.parse(
-userData
+localStorage.getItem(
+"veribuildUser"
+)
 );
 
-const userName =
-user.name ||
-user.fullName ||
-user.username ||
-"User";
+if(user){
 
 document.getElementById(
 "loginBtn"
@@ -624,6 +528,12 @@ document.getElementById(
 "userPanel"
 ).style.display =
 "flex";
+
+const userName =
+user.name ||
+user.fullName ||
+user.username ||
+"User";
 
 document.getElementById(
 "navUsername"
@@ -656,6 +566,8 @@ profilePicture;
 
 }
 
+};
+
 function logoutUser(){
 
 localStorage.removeItem(
@@ -665,217 +577,6 @@ localStorage.removeItem(
 window.location.reload();
 
 }
-
-window.addEventListener(
-"DOMContentLoaded",
-checkLoginState
-);
-
-</script>
-
-</body>
-</html>
-<section class="highlight">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>2. Verify & Approve</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<i class="fa-solid fa-scale-balanced"></i>
-<h3>Professional Verification</h3>
-<p>Contractors join through structured vetting processes designed to improve accountability and trust.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-list-check"></i>
-<h3>Quotation Review</h3>
-<p>Homeowners compare contractor quotations before selecting the best option.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-circle-check"></i>
-<h3>Project Approval</h3>
-<p>Once pricing and milestones are agreed, the project moves forward.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>3. Protect The Project</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<i class="fa-solid fa-shield-halved"></i>
-<h3>Secure Funding</h3>
-<p>Project funds are protected through milestone-based payment systems.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-boxes-stacked"></i>
-<h3>Material Procurement</h3>
-<p>Approved merchants supply materials according to project requirements.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-chart-line"></i>
-<h3>Progress Tracking</h3>
-<p>Milestones and approvals create visibility for everyone involved.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="highlight">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>4. Complete & Build Trust</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<i class="fa-solid fa-money-bill-wave"></i>
-<h3>Payment Release</h3>
-<p>Payments are released after milestones are approved.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-star"></i>
-<h3>The Trust Ladder</h3>
-<p>Successful projects build contractor reputation and unlock opportunities.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-people-group"></i>
-<h3>A Stronger Industry</h3>
-<p>VeriBuild International connects all stakeholders in one ecosystem.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>The Two-Tier Model</h2>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-<i class="fa-solid fa-screwdriver-wrench"></i>
-<h3>Tier 1 Verified Taskers</h3>
-<p>Independent workers start small and build reputation over time.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-building"></i>
-<h3>Tier 2 Master Contractors</h3>
-<p>Established professionals handle larger projects.</p>
-</div>
-
-<div class="card">
-<i class="fa-solid fa-arrow-trend-up"></i>
-<h3>Growth Through Trust</h3>
-<p>Completed projects increase credibility and opportunity.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<footer class="footer">
-
-<div class="container">
-
-<h2>VeriBuild <span style="color:#000">International</span></h2>
-
-<p style="margin:20px 0;">
-Verified People. Protected Payments. Transparent Projects.
-</p>
-
-<p>© 2026 VeriBuild International. All Rights Reserved.</p>
-
-</div>
-
-</footer>
-
-<script>
-
-function checkLoginState(){
-
-const userData = localStorage.getItem("veribuildUser");
-
-if(!userData){
-
-document.getElementById("loginBtn").style.display="inline-block";
-document.getElementById("signupBtn").style.display="inline-block";
-document.getElementById("userPanel").style.display="none";
-document.getElementById("welcomeBack").style.display="none";
-return;
-}
-
-const user = JSON.parse(userData);
-
-const userName = user.name || user.fullName || user.username || "User";
-
-document.getElementById("loginBtn").style.display="none";
-document.getElementById("signupBtn").style.display="none";
-document.getElementById("userPanel").style.display="flex";
-document.getElementById("navUsername").innerText=userName;
-
-document.getElementById("welcomeBack").style.display="block";
-document.getElementById("welcomeBack").innerText=`Welcome back, ${userName}`;
-
-const profilePicture = localStorage.getItem("profilePicture");
-
-if(profilePicture){
-document.getElementById("navProfilePic").src=profilePicture;
-}
-
-}
-
-function logoutUser(){
-localStorage.removeItem("veribuildUser");
-window.location.reload();
-}
-
-window.addEventListener("DOMContentLoaded", checkLoginState);
 
 </script>
 
