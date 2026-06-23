@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contractor Registration | VeriBuild</title>
+<title>Contractor Registration | VeriBuild International</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,21 +65,12 @@ font-weight:800;
 color:var(--navy);
 }
 
-.logo span{
+.logo .build{
 color:var(--mustard);
 }
 
-.nav-links{
-display:flex;
-gap:25px;
-align-items:center;
-flex-wrap:wrap;
-}
-
-.nav-links a{
-text-decoration:none;
-font-weight:600;
-color:var(--navy);
+.logo .international{
+color:black;
 }
 
 /* HERO */
@@ -213,6 +204,8 @@ border-radius:10px;
 margin-bottom:25px;
 }
 
+/* FOOTER */
+
 .footer{
 background:#0b1f33;
 color:white;
@@ -226,10 +219,6 @@ margin-top:40px;
 .nav-content{
 flex-direction:column;
 gap:15px;
-}
-
-.nav-links{
-justify-content:center;
 }
 
 .hero h1{
@@ -256,7 +245,8 @@ padding:30px;
 <div class="container nav-content">
 
 <div class="logo">
-Veri<span>Build</span>
+Veri<span class="build">Build</span>
+<span class="international">International</span>
 </div>
 
 <div class="nav-links">
@@ -280,7 +270,7 @@ Veri<span>Build</span>
 <h1>Contractor Registration</h1>
 
 <p>
-Apply to join VeriBuild's network of verified contractors and gain access to secure projects, milestone-based payments and trusted homeowners.
+Apply to join VeriBuild International’s network of verified contractors and gain access to secure projects, milestone-based payments and trusted homeowners.
 </p>
 
 </div>
@@ -296,7 +286,6 @@ Apply to join VeriBuild's network of verified contractors and gain access to sec
 <div class="notice">
 
 <strong>Verification Notice:</strong>
-
 All contractors are subject to review and verification. Submission does not guarantee approval.
 
 </div>
@@ -313,18 +302,12 @@ Application submitted successfully.
 
 <div class="input-group">
 <label>First Name</label>
-<input
-type="text"
-id="firstName"
-required>
+<input type="text" id="firstName" required>
 </div>
 
 <div class="input-group">
 <label>Last Name</label>
-<input
-type="text"
-id="lastName"
-required>
+<input type="text" id="lastName" required>
 </div>
 
 </div>
@@ -333,18 +316,12 @@ required>
 
 <div class="input-group">
 <label>Email Address</label>
-<input
-type="email"
-id="email"
-required>
+<input type="email" id="email" required>
 </div>
 
 <div class="input-group">
 <label>Phone Number</label>
-<input
-type="tel"
-id="phone"
-required>
+<input type="tel" id="phone" required>
 </div>
 
 </div>
@@ -353,10 +330,7 @@ required>
 
 <div class="input-group">
 <label>Company Name</label>
-<input
-type="text"
-id="companyName"
-required>
+<input type="text" id="companyName" required>
 </div>
 
 <div class="row">
@@ -365,11 +339,7 @@ required>
 <label>Trade Category</label>
 
 <select id="trade" required>
-
-<option value="">
-Select Trade
-</option>
-
+<option value="">Select Trade</option>
 <option>General Builder</option>
 <option>Electrician</option>
 <option>Plumber</option>
@@ -378,79 +348,45 @@ Select Trade
 <option>Carpenter</option>
 <option>Tiler</option>
 <option>Landscaper</option>
-
 </select>
 
 </div>
 
 <div class="input-group">
 <label>Years Of Experience</label>
-
-<input
-type="number"
-id="experience"
-required>
-
+<input type="number" id="experience" required>
 </div>
 
 </div>
-
 <h2>Professional Information</h2>
 
 <div class="input-group">
 <label>Business Description</label>
-
-<textarea
-id="description"
-placeholder="Tell homeowners about your experience and services."
-required></textarea>
-
+<textarea id="description" required></textarea>
 </div>
 
 <div class="input-group">
 <label>Upload Supporting Documents</label>
-
-<input
-type="file"
-multiple>
-
+<input type="file" multiple>
 </div>
 
 <div class="input-group">
-
-<input
-type="checkbox"
-id="consent"
-required>
-
-I agree to VeriBuild's Privacy Policy and Terms & Conditions.
-
+<input type="checkbox" id="consent" required>
+I agree to VeriBuild International’s Privacy Policy and Terms & Conditions.
 </div>
 
 <div class="buttons">
 
-<button
-type="submit"
-class="btn btn-primary">
-
+<button type="submit" class="btn btn-primary">
 Submit Application
-
 </button>
 
-<a
-href="privacy-terms.html"
-class="btn btn-secondary">
-
+<a href="privacy-terms.html" class="btn btn-secondary">
 Privacy Policy
-
 </a>
 
-<a
-href="index.html"
-class="btn btn-secondary">
-
+<a href="index.html" class="btn btn-secondary">
 Back To Home
-
 </a>
 
 </div>
@@ -467,14 +403,17 @@ Back To Home
 
 <div class="container">
 
-<h2>VeriBuild</h2>
+<h2>
+Veri<span style="color:#E8B231;">Build</span>
+<span style="color:black;">International</span>
+</h2>
 
 <p style="margin:20px 0;">
 Verified Contractors. Protected Payments. Transparent Projects.
 </p>
 
 <p>
-© 2026 VeriBuild. All Rights Reserved.
+© 2026 VeriBuild International. All Rights Reserved.
 </p>
 
 </div>
@@ -483,50 +422,26 @@ Verified Contractors. Protected Payments. Transparent Projects.
 
 <script>
 
-document
-.getElementById("contractorForm")
+document.getElementById("contractorForm")
 .addEventListener("submit", function(e){
 
 e.preventDefault();
 
 const application = {
-
-firstName:
-document.getElementById("firstName").value,
-
-lastName:
-document.getElementById("lastName").value,
-
-email:
-document.getElementById("email").value,
-
-phone:
-document.getElementById("phone").value,
-
-companyName:
-document.getElementById("companyName").value,
-
-trade:
-document.getElementById("trade").value,
-
-experience:
-document.getElementById("experience").value,
-
-description:
-document.getElementById("description").value,
-
-status:
-"Pending Verification",
-
-submittedAt:
-new Date().toLocaleString()
-
+firstName: document.getElementById("firstName").value,
+lastName: document.getElementById("lastName").value,
+email: document.getElementById("email").value,
+phone: document.getElementById("phone").value,
+companyName: document.getElementById("companyName").value,
+trade: document.getElementById("trade").value,
+experience: document.getElementById("experience").value,
+description: document.getElementById("description").value,
+status: "Pending Verification",
+submittedAt: new Date().toLocaleString()
 };
 
 let applications =
-JSON.parse(
-localStorage.getItem("verificationRequests")
-) || [];
+JSON.parse(localStorage.getItem("verificationRequests")) || [];
 
 applications.push(application);
 
@@ -535,18 +450,11 @@ localStorage.setItem(
 JSON.stringify(applications)
 );
 
-document
-.getElementById("successMessage")
-.style.display = "block";
+document.getElementById("successMessage").style.display = "block";
 
-document
-.getElementById("contractorForm")
-.reset();
+document.getElementById("contractorForm").reset();
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
+window.scrollTo({ top:0, behavior:"smooth" });
 
 });
 
