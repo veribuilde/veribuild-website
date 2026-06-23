@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Merchant Dashboard | VeriBuild</title>
+<title>Merchant Dashboard | VeriBuild International</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +44,7 @@ justify-content:space-between;
 align-items:center;
 }
 
+/* LOGO */
 .logo{
 font-size:2rem;
 font-weight:800;
@@ -52,6 +53,11 @@ color:var(--navy);
 
 .logo span{
 color:var(--mustard);
+}
+
+/* FORCE "International" BLACK */
+.logo .international{
+color:#000;
 }
 
 .profile-area{
@@ -190,11 +196,10 @@ padding:20px;
 </style>
 </head>
 <body>
-
 <div class="header">
 
 <div class="logo">
-Veri<span>Build</span>
+Veri<span>Build</span> <span class="international">International</span>
 </div>
 
 <div class="profile-area">
@@ -237,130 +242,71 @@ Back To Homepage
 <div class="dashboard-grid">
 
 <div class="card" onclick="showSection('pending')">
-
 <i class="fa-solid fa-clock"></i>
-
 <h3>Pending Orders</h3>
-
-<p>
-0 Pending Orders
-</p>
-
+<p>0 Pending Orders</p>
 </div>
 
 <div class="card" onclick="showSection('complete')">
-
 <i class="fa-solid fa-circle-check"></i>
-
 <h3>Completed Orders</h3>
-
-<p>
-0 Completed Orders
-</p>
-
+<p>0 Completed Orders</p>
 </div>
 
 <div class="card" onclick="showSection('quote')">
-
 <i class="fa-solid fa-file-signature"></i>
-
 <h3>Create Quote</h3>
-
-<p>
-Create Material Quotes
-</p>
-
+<p>Create Material Quotes</p>
 </div>
 
 <div class="card" onclick="showSection('inventory')">
-
 <i class="fa-solid fa-boxes-stacked"></i>
-
 <h3>Inventory</h3>
-
-<p>
-Manage Products
-</p>
-
+<p>Manage Products</p>
 </div>
 
 <div class="card" onclick="showSection('analytics')">
-
 <i class="fa-solid fa-chart-line"></i>
-
 <h3>Analytics</h3>
-
-<p>
-Business Performance
-</p>
-
+<p>Business Performance</p>
 </div>
 
 <div class="card" onclick="showSection('messages')">
-
 <i class="fa-solid fa-envelope"></i>
-
 <h3>Messages</h3>
-
-<p>
-0 Messages
-</p>
-
+<p>0 Messages</p>
 </div>
 
 <div class="card" onclick="showSection('settings')">
-
 <i class="fa-solid fa-gear"></i>
-
 <h3>Profile Settings</h3>
-
-<p>
-Manage Account
-</p>
-
+<p>Manage Account</p>
 </div>
 
 <div class="card" onclick="logoutUser()">
-
 <i class="fa-solid fa-right-from-bracket"></i>
-
 <h3>Logout</h3>
-
-<p>
-Sign Out
-</p>
-
+<p>Sign Out</p>
 </div>
 
 </div>
 
-<div
-id="contentPanel"
-class="content-panel">
+<div id="contentPanel" class="content-panel">
 
 <div class="empty-state">
-
-<h2>
-Select an option above
-</h2>
-
-<p>
-Your merchant tools will appear here.
-</p>
-
+<h2>Select an option above</h2>
+<p>Your merchant tools will appear here.</p>
 </div>
 
 </div>
+
 <script>
 
 const user =
 JSON.parse(localStorage.getItem("veribuildUser"));
 
 if(!user){
-
-window.location.href =
-"login.html";
-
+window.location.href = "login.html";
 }
 
 const userName =
@@ -379,10 +325,8 @@ const savedPicture =
 localStorage.getItem("profilePicture");
 
 if(savedPicture){
-
 document.getElementById("profilePicture").src =
 savedPicture;
-
 }
 
 function showSection(section){
@@ -393,231 +337,99 @@ document.getElementById("contentPanel");
 if(section === "pending"){
 
 panel.innerHTML = `
-
 <div class="empty-state">
-
-<h2>
-Pending Orders
-</h2>
-
-<p>
-You currently have 0 pending orders.
-</p>
-
-</div>
-
-`;
-
+<h2>Pending Orders</h2>
+<p>You currently have 0 pending orders.</p>
+</div>`;
 }
 
 else if(section === "complete"){
 
 panel.innerHTML = `
-
 <div class="empty-state">
-
-<h2>
-Completed Orders
-</h2>
-
-<p>
-You have completed 0 orders.
-</p>
-
-</div>
-
-`;
-
+<h2>Completed Orders</h2>
+<p>You have completed 0 orders.</p>
+</div>`;
 }
 
 else if(section === "quote"){
 
 panel.innerHTML = `
+<h2 style="margin-bottom:20px;">Create Material Quote</h2>
 
-<h2 style="margin-bottom:20px;">
-Create Material Quote
-</h2>
+<input type="text" placeholder="Project Reference">
+<input type="number" placeholder="Quote Amount (R)">
+<textarea placeholder="Additional Notes"></textarea>
 
-<input
-type="text"
-placeholder="Project Reference">
-
-<input
-type="number"
-placeholder="Quote Amount (R)">
-
-<textarea
-placeholder="Additional Notes"></textarea>
-
-<button
-class="btn"
-onclick="alert('Quote system not connected yet.')">
-
+<button class="btn" onclick="alert('Quote system not connected yet.')">
 Submit Quote
-
-</button>
-
-`;
-
+</button>`;
 }
 
 else if(section === "inventory"){
 
 panel.innerHTML = `
-
-<h2 style="margin-bottom:20px;">
-Inventory Management
-</h2>
+<h2 style="margin-bottom:20px;">Inventory Management</h2>
 
 <div class="empty-state">
-
-<p>
-No products have been added yet.
-</p>
-
+<p>No products have been added yet.</p>
 </div>
 
-<input
-type="text"
-placeholder="Product Name">
+<input type="text" placeholder="Product Name">
+<input type="number" placeholder="Product Price">
+<textarea placeholder="Product Description"></textarea>
 
-<input
-type="number"
-placeholder="Product Price">
-
-<textarea
-placeholder="Product Description"></textarea>
-
-<button
-class="btn"
-onclick="alert('Inventory system not connected yet.')">
-
+<button class="btn" onclick="alert('Inventory system not connected yet.')">
 Add Product
-
-</button>
-
-`;
-
+</button>`;
 }
 
 else if(section === "analytics"){
 
 panel.innerHTML = `
-
 <div class="empty-state">
-
-<h2>
-Analytics
-</h2>
-
+<h2>Analytics</h2>
 <p>Total Quotes: 0</p>
-
 <p>Total Orders: 0</p>
-
 <p>Total Revenue: R0</p>
-
-</div>
-
-`;
-
+</div>`;
 }
 
 else if(section === "messages"){
 
 panel.innerHTML = `
-
 <div class="empty-state">
-
-<h2>
-Messages
-</h2>
-
-<p>
-You currently have 0 messages.
-</p>
-
-</div>
-
-`;
-
+<h2>Messages</h2>
+<p>You currently have 0 messages.</p>
+</div>`;
 }
 
 else if(section === "settings"){
 
 panel.innerHTML = `
+<h2 style="margin-bottom:20px;">Profile Settings</h2>
 
-<h2 style="margin-bottom:20px;">
-Profile Settings
-</h2>
-
-<label>
-Change Name
-</label>
-
-<input
-type="text"
-id="newName"
-placeholder="Enter new name">
-
-<button
-class="btn"
-onclick="saveName()">
-
-Save Name
-
-</button>
+<label>Change Name</label>
+<input type="text" id="newName">
+<button class="btn" onclick="saveName()">Save Name</button>
 
 <br><br>
 
-<label>
-Change Email
-</label>
-
-<input
-type="email"
-id="newEmail"
-placeholder="Enter new email">
-
-<button
-class="btn"
-onclick="saveEmail()">
-
-Save Email
-
-</button>
+<label>Change Email</label>
+<input type="email" id="newEmail">
+<button class="btn" onclick="saveEmail()">Save Email</button>
 
 <br><br>
 
-<label>
-Change Password
-</label>
-
-<input
-type="password"
-id="newPassword"
-placeholder="Enter new password">
-
-<button
-class="btn"
-onclick="savePassword()">
-
-Save Password
-
-</button>
+<label>Change Password</label>
+<input type="password" id="newPassword">
+<button class="btn" onclick="savePassword()">Save Password</button>
 
 <br><br>
 
-<label>
-Upload Profile Picture
-</label>
-
-<input
-type="file"
-accept="image/*"
-onchange="uploadProfilePicture(event)">
-
+<label>Upload Profile Picture</label>
+<input type="file" accept="image/*" onchange="uploadProfilePicture(event)">
 `;
-
 }
 
 }
@@ -631,19 +443,12 @@ if(!name) return;
 
 user.name = name;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
-document.getElementById("welcomeUser").innerText =
-name;
-
-document.getElementById("welcomeMessage").innerText =
-`Welcome, ${name}`;
+document.getElementById("welcomeUser").innerText = name;
+document.getElementById("welcomeMessage").innerText = `Welcome, ${name}`;
 
 alert("Name updated successfully.");
-
 }
 
 function saveEmail(){
@@ -655,13 +460,9 @@ if(!email) return;
 
 user.email = email;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
 alert("Email updated successfully.");
-
 }
 
 function savePassword(){
@@ -673,49 +474,33 @@ if(!password) return;
 
 user.password = password;
 
-localStorage.setItem(
-"veribuildUser",
-JSON.stringify(user)
-);
+localStorage.setItem("veribuildUser", JSON.stringify(user));
 
 alert("Password updated successfully.");
-
 }
 
 function uploadProfilePicture(event){
 
-const file =
-event.target.files[0];
-
+const file = event.target.files[0];
 if(!file) return;
 
-const reader =
-new FileReader();
+const reader = new FileReader();
 
 reader.onload = function(e){
 
-localStorage.setItem(
-"profilePicture",
-e.target.result
-);
-
-document.getElementById("profilePicture").src =
-e.target.result;
+localStorage.setItem("profilePicture", e.target.result);
+document.getElementById("profilePicture").src = e.target.result;
 
 alert("Profile picture updated.");
-
 };
 
 reader.readAsDataURL(file);
-
 }
 
 function logoutUser(){
 
 localStorage.removeItem("veribuildUser");
-
-window.location.href =
-"index.html";
+window.location.href = "index.html";
 
 }
 
