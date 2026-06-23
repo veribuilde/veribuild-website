@@ -57,21 +57,21 @@ padding:20px 0;
 }
 
 /* LOGO */
+
 .logo{
+display:flex;
+align-items:center;
+gap:8px;
 font-size:2rem;
 font-weight:800;
-color:var(--navy);
 }
 
-/* “International” always black */
+.logo .veribuild{
+color:var(--mustard);
+}
+
 .logo .international{
 color:#000;
-font-weight:700;
-margin-left:6px;
-}
-
-.logo span{
-color:var(--mustard);
 }
 
 .nav-links{
@@ -255,6 +255,24 @@ text-align:center;
 padding:60px 0;
 }
 
+.footer-logo{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:8px;
+font-size:2rem;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.footer-logo .veribuild{
+color:var(--mustard);
+}
+
+.footer-logo .international{
+color:white;
+}
+
 @media(max-width:768px){
 
 .nav-content{
@@ -285,7 +303,7 @@ font-size:2.7rem;
 <div class="container nav-content">
 
 <div class="logo">
-Veri<span>Build</span>
+<span class="veribuild">VeriBuild</span>
 <span class="international">International</span>
 </div>
 
@@ -303,11 +321,20 @@ Veri<span>Build</span>
 
 <div id="userPanel" class="user-panel">
 
-<img id="navProfilePic" class="profile-pic" src="https://via.placeholder.com/50">
+<img
+id="navProfilePic"
+class="profile-pic"
+src="https://via.placeholder.com/50">
 
-<span id="navUsername" class="username">User</span>
+<span
+id="navUsername"
+class="username">
+User
+</span>
 
-<button onclick="logoutUser()" class="btn btn-primary">Logout</button>
+<button onclick="logoutUser()" class="btn btn-primary">
+Logout
+</button>
 
 </div>
 
@@ -352,14 +379,30 @@ Welcome Back
 
 <div class="hero-card">
 
-<h3>The VeriBuild Trust Framework</h3>
+<h3>The VeriBuild International Trust Framework</h3>
 
 <ul>
-<li><i class="fa-solid fa-user-check"></i> Verified Contractors & Taskers</li>
-<li><i class="fa-solid fa-shield-halved"></i> Escrow Protected Payments</li>
-<li><i class="fa-solid fa-list-check"></i> Milestone Governance</li>
-<li><i class="fa-solid fa-ranking-star"></i> Trust Ladder Reputation System</li>
-<li><i class="fa-solid fa-store"></i> Merchant & Material Integration</li>
+
+<li><i class="fa-solid fa-user-check"></i>
+Verified Contractors & Taskers
+</li>
+
+<li><i class="fa-solid fa-shield-halved"></i>
+Escrow Protected Payments
+</li>
+
+<li><i class="fa-solid fa-list-check"></i>
+Milestone Governance
+</li>
+
+<li><i class="fa-solid fa-ranking-star"></i>
+Trust Ladder Reputation System
+</li>
+
+<li><i class="fa-solid fa-store"></i>
+Merchant & Material Integration
+</li>
+
 </ul>
 
 </div>
@@ -367,7 +410,9 @@ Welcome Back
 </div>
 
 </section>
+
 <section>
+
 <div class="container">
 
 <div class="section-title">
@@ -379,27 +424,35 @@ Welcome Back
 <div class="card">
 <i class="fa-solid fa-house"></i>
 <h3>Homeowners</h3>
-<p>Manage secure projects with verified contractors and milestone protection.</p>
+<p>
+Manage secure projects with verified contractors and milestone protection.
+</p>
 </div>
 
 <div class="card">
 <i class="fa-solid fa-helmet-safety"></i>
 <h3>Contractors</h3>
-<p>Build reputation, earn secure payments, and grow through verified work.</p>
+<p>
+Build reputation, earn secure payments, and grow through verified work.
+</p>
 </div>
 
 <div class="card">
 <i class="fa-solid fa-truck-ramp-box"></i>
 <h3>Merchants</h3>
-<p>Supply materials through verified construction demand pipelines.</p>
+<p>
+Supply materials through verified construction demand pipelines.
+</p>
 </div>
 
 </div>
 
 </div>
+
 </section>
 
 <section class="highlight">
+
 <div class="container">
 
 <div class="section-title">
@@ -407,29 +460,70 @@ Welcome Back
 </div>
 
 <div class="cards">
+<div class="card">
+<h3>1. Verification</h3>
+<p>
+All professionals are verified before participation.
+</p>
+</div>
 
-<div class="card"><h3>1. Verification</h3><p>All professionals are verified before participation.</p></div>
-<div class="card"><h3>2. Matching</h3><p>Projects connect with suitable contractors.</p></div>
-<div class="card"><h3>3. Escrow</h3><p>Funds are secured before work begins.</p></div>
-<div class="card"><h3>4. Milestones</h3><p>Progress is tracked and approved.</p></div>
-<div class="card"><h3>5. Completion</h3><p>Payments released and reputation built.</p></div>
+<div class="card">
+<h3>2. Matching</h3>
+<p>
+Projects connect with suitable contractors.
+</p>
+</div>
 
+<div class="card">
+<h3>3. Escrow</h3>
+<p>
+Funds are secured before work begins.
+</p>
+</div>
+
+<div class="card">
+<h3>4. Milestones</h3>
+<p>
+Progress is tracked and approved.
+</p>
+</div>
+
+<div class="card">
+<h3>5. Completion</h3>
+<p>
+Payments are released and reputation is built.
+</p>
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 <footer class="footer">
 
 <div class="container">
 
-<h2>VeriBuild <span style="color:#000">International</span></h2>
+<div class="footer-logo">
+
+<span class="veribuild">
+VeriBuild
+</span>
+
+<span class="international">
+International
+</span>
+
+</div>
 
 <p style="margin:20px 0;">
 Verified Contractors. Protected Payments. Trusted Projects.
 </p>
 
-<p>© 2026 VeriBuild International. All Rights Reserved.</p>
+<p>
+© 2026 VeriBuild International. All Rights Reserved.
+</p>
 
 </div>
 
@@ -438,20 +532,28 @@ Verified Contractors. Protected Payments. Trusted Projects.
 <script>
 
 function startProject(){
-window.location.href = "post-project.html";
+window.location.href =
+"post-project.html";
 }
 
 function getVerified(){
-window.location.href = "contractor-signup.html";
+window.location.href =
+"contractor-signup.html";
 }
 
 function goToDashboard(){
-window.location.href = "login.html";
+window.location.href =
+"login.html";
 }
 
 function logoutUser(){
-localStorage.removeItem("veribuildUser");
+
+localStorage.removeItem(
+"veribuildUser"
+);
+
 window.location.reload();
+
 }
 
 </script>
