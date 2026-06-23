@@ -675,3 +675,209 @@ checkLoginState
 
 </body>
 </html>
+<section class="highlight">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>2. Verify & Approve</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-scale-balanced"></i>
+<h3>Professional Verification</h3>
+<p>Contractors join through structured vetting processes designed to improve accountability and trust.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-list-check"></i>
+<h3>Quotation Review</h3>
+<p>Homeowners compare contractor quotations before selecting the best option.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-circle-check"></i>
+<h3>Project Approval</h3>
+<p>Once pricing and milestones are agreed, the project moves forward.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>3. Protect The Project</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Secure Funding</h3>
+<p>Project funds are protected through milestone-based payment systems.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-boxes-stacked"></i>
+<h3>Material Procurement</h3>
+<p>Approved merchants supply materials according to project requirements.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-chart-line"></i>
+<h3>Progress Tracking</h3>
+<p>Milestones and approvals create visibility for everyone involved.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="highlight">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>4. Complete & Build Trust</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-money-bill-wave"></i>
+<h3>Payment Release</h3>
+<p>Payments are released after milestones are approved.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-star"></i>
+<h3>The Trust Ladder</h3>
+<p>Successful projects build contractor reputation and unlock opportunities.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-people-group"></i>
+<h3>A Stronger Industry</h3>
+<p>VeriBuild International connects all stakeholders in one ecosystem.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>The Two-Tier Model</h2>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-screwdriver-wrench"></i>
+<h3>Tier 1 Verified Taskers</h3>
+<p>Independent workers start small and build reputation over time.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-building"></i>
+<h3>Tier 2 Master Contractors</h3>
+<p>Established professionals handle larger projects.</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-arrow-trend-up"></i>
+<h3>Growth Through Trust</h3>
+<p>Completed projects increase credibility and opportunity.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer class="footer">
+
+<div class="container">
+
+<h2>VeriBuild <span style="color:#000">International</span></h2>
+
+<p style="margin:20px 0;">
+Verified People. Protected Payments. Transparent Projects.
+</p>
+
+<p>© 2026 VeriBuild International. All Rights Reserved.</p>
+
+</div>
+
+</footer>
+
+<script>
+
+function checkLoginState(){
+
+const userData = localStorage.getItem("veribuildUser");
+
+if(!userData){
+
+document.getElementById("loginBtn").style.display="inline-block";
+document.getElementById("signupBtn").style.display="inline-block";
+document.getElementById("userPanel").style.display="none";
+document.getElementById("welcomeBack").style.display="none";
+return;
+}
+
+const user = JSON.parse(userData);
+
+const userName = user.name || user.fullName || user.username || "User";
+
+document.getElementById("loginBtn").style.display="none";
+document.getElementById("signupBtn").style.display="none";
+document.getElementById("userPanel").style.display="flex";
+document.getElementById("navUsername").innerText=userName;
+
+document.getElementById("welcomeBack").style.display="block";
+document.getElementById("welcomeBack").innerText=`Welcome back, ${userName}`;
+
+const profilePicture = localStorage.getItem("profilePicture");
+
+if(profilePicture){
+document.getElementById("navProfilePic").src=profilePicture;
+}
+
+}
+
+function logoutUser(){
+localStorage.removeItem("veribuildUser");
+window.location.reload();
+}
+
+window.addEventListener("DOMContentLoaded", checkLoginState);
+
+</script>
+
+</body>
+</html>
