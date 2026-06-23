@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard | VeriBuild</title>
+<title>Admin Dashboard | VeriBuild International</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,8 +48,12 @@ font-weight:800;
 color:var(--navy);
 }
 
-.logo span{
+.logo span:first-child{
 color:var(--mustard);
+}
+
+.logo .international{
+color:black;
 }
 
 .profile-area{
@@ -189,6 +193,7 @@ padding:25px;
 
 <div class="logo">
 Veri<span>Build</span>
+<span class="international">International</span>
 </div>
 
 <div class="profile-area">
@@ -219,7 +224,7 @@ Welcome, Admin
 </h1>
 
 <p>
-Manage users, projects, quotations, verification requests and platform activity from one central control panel.
+Manage users, projects, quotations, verification requests and platform activity from one central control panel for VeriBuild International.
 </p>
 
 <a href="index.html" class="back-btn">
@@ -231,123 +236,63 @@ Back To Homepage
 <div class="dashboard-grid">
 
 <div class="card" onclick="showSection('homeowners')">
-
 <i class="fa-solid fa-house"></i>
-
 <h3>Homeowners</h3>
-
-<p>
-Manage homeowner accounts
-</p>
-
+<p>Manage homeowner accounts</p>
 </div>
 
 <div class="card" onclick="showSection('contractors')">
-
 <i class="fa-solid fa-hammer"></i>
-
 <h3>Contractors</h3>
-
-<p>
-Manage contractor accounts
-</p>
-
+<p>Manage contractor accounts</p>
 </div>
 
 <div class="card" onclick="showSection('merchants')">
-
 <i class="fa-solid fa-store"></i>
-
 <h3>Merchants</h3>
-
-<p>
-Manage merchant accounts
-</p>
-
+<p>Manage merchant accounts</p>
 </div>
 
 <div class="card" onclick="showSection('projects')">
-
 <i class="fa-solid fa-diagram-project"></i>
-
 <h3>Projects</h3>
-
-<p>
-View all platform projects
-</p>
-
+<p>View all platform projects</p>
 </div>
 
 <div class="card" onclick="showSection('quotes')">
-
 <i class="fa-solid fa-file-signature"></i>
-
 <h3>Quotes</h3>
-
-<p>
-Review submitted quotations
-</p>
-
+<p>Review submitted quotations</p>
 </div>
 
 <div class="card" onclick="showSection('messages')">
-
 <i class="fa-solid fa-envelope"></i>
-
 <h3>Messages</h3>
-
-<p>
-Platform communications
-</p>
-
+<p>Platform communications</p>
 </div>
 
 <div class="card" onclick="showSection('verification')">
-
 <i class="fa-solid fa-user-check"></i>
-
 <h3>Verification Requests</h3>
-
-<p>
-Approve contractor verification
-</p>
-
+<p>Approve contractor verification</p>
 </div>
 
 <div class="card" onclick="showSection('stats')">
-
 <i class="fa-solid fa-chart-line"></i>
-
 <h3>Statistics</h3>
-
-<p>
-Platform analytics
-</p>
-
+<p>Platform analytics</p>
 </div>
 
 <div class="card" onclick="showSection('settings')">
-
 <i class="fa-solid fa-gear"></i>
-
 <h3>Profile Settings</h3>
-
-<p>
-Manage admin account
-</p>
-
+<p>Manage admin account</p>
 </div>
 
 <div class="card" onclick="logoutUser()">
-
 <i class="fa-solid fa-right-from-bracket"></i>
-
 <h3>Logout</h3>
-
-<p>
-Sign out
-</p>
-
+<p>Sign out</p>
 </div>
 
 </div>
@@ -367,7 +312,6 @@ Admin tools will appear here.
 </div>
 
 </div>
-
 <script>
 
 const user =
@@ -409,6 +353,7 @@ function showSection(section){
 
 const panel =
 document.getElementById("contentPanel");
+
 if(section === "homeowners"){
 
 panel.innerHTML = `
@@ -418,7 +363,7 @@ panel.innerHTML = `
 <h2>Homeowners</h2>
 
 <p>
-Manage all registered homeowner accounts.
+Manage all registered homeowner accounts for VeriBuild International.
 </p>
 
 </div>
@@ -436,7 +381,7 @@ panel.innerHTML = `
 <h2>Contractors</h2>
 
 <p>
-Manage all registered contractor accounts.
+Manage all registered contractor accounts for VeriBuild International.
 </p>
 
 </div>
@@ -454,7 +399,7 @@ panel.innerHTML = `
 <h2>Merchants</h2>
 
 <p>
-Manage all registered merchant accounts.
+Manage all registered merchant accounts for VeriBuild International.
 </p>
 
 </div>
@@ -472,7 +417,7 @@ panel.innerHTML = `
 <h2>Projects</h2>
 
 <p>
-View and manage all projects on the platform.
+View and manage all projects across VeriBuild International.
 </p>
 
 </div>
@@ -541,7 +486,7 @@ panel.innerHTML = `
 
 <div class="empty-state">
 
-<h2>Platform Statistics</h2>
+<h2>VeriBuild International Statistics</h2>
 
 <p>Total Users: 0</p>
 
